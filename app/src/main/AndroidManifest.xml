@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProjectiRentoutusApp">
         <activity
+            android:name=".Relaxing"
+            android:exported="false" />
+        <activity
             android:name=".ChooseUser"
             android:exported="false" />
         <activity
