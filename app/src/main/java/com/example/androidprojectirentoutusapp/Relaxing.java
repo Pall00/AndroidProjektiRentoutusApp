@@ -11,6 +11,4 @@ public class Relaxing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
     }
-    int x = 5;
-    //tämä on vain paskaa testiä
 }
