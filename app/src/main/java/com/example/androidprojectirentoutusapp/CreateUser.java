@@ -22,7 +22,14 @@ public class CreateUser extends AppCompatActivity {
 
     public User user;
 
-    private int uservalue;
+    private int userValue;
+
+    private SharedPreferences user1;
+    private SharedPreferences user2;
+    private SharedPreferences user3;
+    private SharedPreferences.Editor user1edit;
+    private SharedPreferences.Editor user2edit;
+    private SharedPreferences.Editor user3edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +38,22 @@ public class CreateUser extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        uservalue = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        userValue = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
-        Log.i("MY_APP", Integer.toString(uservalue));
+        Log.i("MY_APP", Integer.toString(userValue));
 
     }
 
     public void Register(View v){
 
-        SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        SharedPreferences.Editor user1edit = user1.edit();
+        user1 = getSharedPreferences("User1", MODE_PRIVATE);
+        user1edit = user1.edit();
 
-        SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        SharedPreferences.Editor user2edit = user2.edit();
+        user2 = getSharedPreferences("User2", MODE_PRIVATE);
+        user2edit = user2.edit();
 
-        SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        SharedPreferences.Editor user3edit = user3.edit();
+        user3 = getSharedPreferences("User3", MODE_PRIVATE);
+        user3edit = user3.edit();
 
         eName = findViewById(R.id.etName);
         eAge = findViewById(R.id.etAge);
@@ -58,21 +65,21 @@ public class CreateUser extends AppCompatActivity {
         height = Integer.parseInt(eHeight.getText().toString());
         weight = Integer.parseInt(eWeight.getText().toString());
 
-        if(uservalue == 1){
+        if(userValue == 1){
             user1edit.putString("Username", username);
             user1edit.putInt("Age", age);
             user1edit.putInt("Weight", weight);
             user1edit.putInt("Height", height);
             user1edit.commit();
         }
-        if(uservalue == 2){
+        if(userValue == 2){
             user2edit.putString("Username", username);
             user2edit.putInt("Age", age);
             user2edit.putInt("Weight", weight);
             user2edit.putInt("Height", height);
             user2edit.commit();
         }
-        if(uservalue == 3){
+        if(userValue == 3){
             user3edit.putString("Username", username);
             user3edit.putInt("Age", age);
             user3edit.putInt("Weight", weight);

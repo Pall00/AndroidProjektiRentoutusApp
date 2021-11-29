@@ -11,6 +11,11 @@ import android.widget.TextView;
 
 public class SetupMenu extends AppCompatActivity {
 
+    private SharedPreferences user1;
+    private SharedPreferences user2;
+    private SharedPreferences user3;
+    private int user;
+
     private static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
     @Override
@@ -22,11 +27,11 @@ public class SetupMenu extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        int user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
-        SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
+        user1 = getSharedPreferences("User1", MODE_PRIVATE);
+        user2 = getSharedPreferences("User2", MODE_PRIVATE);
+        user3 = getSharedPreferences("User3", MODE_PRIVATE);
 
         Log.i("MY_APP", String.valueOf(user));
 
@@ -41,7 +46,7 @@ public class SetupMenu extends AppCompatActivity {
     public void menuButton(View v){
         Intent intent = getIntent();
 
-        int user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
         if(v==findViewById(R.id.relaxButton)){
             Intent relaxIntent = new Intent(SetupMenu.this, Relaxing.class);
