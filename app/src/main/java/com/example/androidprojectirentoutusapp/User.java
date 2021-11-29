@@ -8,15 +8,16 @@ public class User {
     private int level;
     private int meditationTime;
 
-    public User(int age, int weight, int height, String name) {
+    public User(int age, int weight, int height, String name, int level) {
         this.age = age;
         this.weight = weight;
         this.height = height;
         this.name = name;
         this.level = level;
     }
-    public User(){
 
+    public int getBmi(){
+        return (this.weight/(this.height*this.height));
     }
 
     public int getAge() {

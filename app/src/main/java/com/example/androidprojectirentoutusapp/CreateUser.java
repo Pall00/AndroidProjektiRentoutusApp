@@ -17,9 +17,6 @@ public class CreateUser extends AppCompatActivity {
 
     public User user;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

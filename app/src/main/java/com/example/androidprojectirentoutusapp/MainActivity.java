@@ -2,23 +2,18 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private Button eNewUser;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor sharedPreferencesEditor;
-    private Button user_button1;
-    private Button user_button2;
-    private Button user_button3;
-    private Button user1remove;
-    private Button user2remove;
-    private Button user3remove;
+
+    public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
         SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
         SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        user_button1 = findViewById(R.id.user1_button);
-        user_button2 = findViewById(R.id.user2_button);
-        user_button3 = findViewById(R.id.user3_button);
+        Button user_button1 = findViewById(R.id.user1_button);
+        Button user_button2 = findViewById(R.id.user2_button);
+        Button user_button3 = findViewById(R.id.user3_button);
 
         SharedPreferences.Editor user1edit = user1.edit();
         user1edit.putString("Username","Matti");
@@ -81,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
         return 0;
     }
     public void removeButton(View v){
-        user1remove = findViewById(R.id.user1remove_button);
-        user2remove = findViewById(R.id.user2remove_button);
-        user3remove = findViewById(R.id.user3remove_button);
+
         SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
         SharedPreferences.Editor user1edit = user1.edit();
+
         SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
         SharedPreferences.Editor user2edit = user2.edit();
+
         SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
         SharedPreferences.Editor user3edit = user3.edit();
 
@@ -109,9 +104,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void createUser(View v){
-        Intent intent = new Intent(MainActivity.this, CreateUser.class);
+        Intent userCreateIntent = new Intent(MainActivity.this, CreateUser.class);
 
-        startActivity(intent);
+        startActivity(userCreateIntent);
+    }
+
+    public void loginButton(View v){
+
+        SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
+        SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
+        SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
+
+        Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
+
+        if(v == findViewById(R.id.user1_button) && !(user1.getString("Username", "0").equals("0"))){
+            loginIntent.putExtra(EXTRA_USER, 1);
+            startActivity(loginIntent);
+        }
+        else if(v== findViewById(R.id.user2_button) && !(user2.getString("Username", "0").equals("0"))){
+            loginIntent.putExtra(EXTRA_USER, 2);
+            startActivity(loginIntent);
+        }
+        else if(v== findViewById(R.id.user3_button) &&!(user3.getString("Username", "0").equals("0"))){
+            loginIntent.putExtra(EXTRA_USER, 3);
+            startActivity(loginIntent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }
