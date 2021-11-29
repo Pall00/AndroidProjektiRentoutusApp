@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
+    private int check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
         Button user_button2 = findViewById(R.id.user2_button);
         Button user_button3 = findViewById(R.id.user3_button);
 
-        SharedPreferences.Editor user1edit = user1.edit();
+        /*SharedPreferences.Editor user1edit = user1.edit();
         user1edit.putString("Username","Matti");
         user1edit.commit();
         SharedPreferences.Editor user2edit = user2.edit();
         user2edit.putString("Username","Nelli");
-        user2edit.commit();
+        user2edit.commit();*/
 
 
-        int check = checkData();
+        check = checkData();
 
         Log.i("MY_APP", Integer.toString(check));
 
@@ -44,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 user_button1.setText(user1.getString("Username", "0"));
                 user_button2.setText(user2.getString("Username", "0"));
                 user_button3.setText(user3.getString("Username", "0"));
-
                 break;
             case 1:
                 break;
@@ -101,10 +102,13 @@ public class MainActivity extends AppCompatActivity {
             user3edit.clear();
             user3edit.commit();
         }
+        updateUI();
 
     }
     public void createUser(View v){
         Intent userCreateIntent = new Intent(MainActivity.this, CreateUser.class);
+
+        userCreateIntent.putExtra(EXTRA_USER, checkData());
 
         startActivity(userCreateIntent);
     }
@@ -133,6 +137,24 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
         }
 
+    }
+    public void updateUI(){
+        Button user_button1 = findViewById(R.id.user1_button);
+        Button user_button2 = findViewById(R.id.user2_button);
+        Button user_button3 = findViewById(R.id.user3_button);
+
+        SharedPreferences user1 = getSharedPreferences("User1", MODE_PRIVATE);
+        SharedPreferences user2 = getSharedPreferences("User2", MODE_PRIVATE);
+        SharedPreferences user3 = getSharedPreferences("User3", MODE_PRIVATE);
+
+        user_button1.setText(user1.getString("Username", "Empty user"));
+        user_button2.setText(user2.getString("Username", "Empty user"));
+        user_button3.setText(user3.getString("Username", "Empty user"));
+    }
+
+    protected void onResume(){
+        super.onResume();
+        updateUI();
     }
 
 }

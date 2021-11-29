@@ -12,8 +12,6 @@ import android.widget.TextView;
 public class SetupMenu extends AppCompatActivity {
 
     private static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
-    //private Intent intent = getIntent();
-    //private int user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
