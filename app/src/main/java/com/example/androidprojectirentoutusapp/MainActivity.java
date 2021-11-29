@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         check = checkData();
 
-        Log.i("MY_APP", Integer.toString(check));
-
         switch(check){
             case 0:
                 user_button1.setText(user1.getString("Username", "0"));

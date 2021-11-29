@@ -17,7 +17,7 @@ public class SetupMenu extends AppCompatActivity {
     private SharedPreferences user3;
     private int user;
 
-    private static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
+    public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class SetupMenu extends AppCompatActivity {
     public void menuButton(View v){
         Intent intent = getIntent();
 
-        user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        //user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
         if(v==findViewById(R.id.relaxButton)){
             Intent relaxIntent = new Intent(SetupMenu.this, Relaxing.class);

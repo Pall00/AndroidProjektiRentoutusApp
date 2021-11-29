@@ -74,6 +74,8 @@ public class CreateUser extends AppCompatActivity {
                 user1edit.putInt("Age", age);
                 user1edit.putInt("Weight", weight);
                 user1edit.putInt("Height", height);
+                user1edit.putInt("Level", 0);
+                user1edit.putInt("Meditation_time", 0);
                 user1edit.commit();
             }
             if (userValue == 2) {
@@ -81,6 +83,8 @@ public class CreateUser extends AppCompatActivity {
                 user2edit.putInt("Age", age);
                 user2edit.putInt("Weight", weight);
                 user2edit.putInt("Height", height);
+                user2edit.putInt("Level", 0);
+                user2edit.putInt("Meditation_time", 0);
                 user2edit.commit();
             }
             if (userValue == 3) {
@@ -88,6 +92,8 @@ public class CreateUser extends AppCompatActivity {
                 user3edit.putInt("Age", age);
                 user3edit.putInt("Weight", weight);
                 user3edit.putInt("Height", height);
+                user3edit.putInt("Level", 0);
+                user3edit.putInt("Meditation_time", 0);
                 user3edit.commit();
             }
             finish();
