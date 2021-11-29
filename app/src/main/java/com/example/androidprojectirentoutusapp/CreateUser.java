@@ -25,26 +25,6 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
-        eName = findViewById(R.id.etName);
-        eAge = findViewById(R.id.etAge);
-        eHeight = findViewById(R.id.etHeight);
-        eWeight = findViewById(R.id.etWeight);
-
-
-
-        username = eName.getText().toString();
-        age = Integer.parseInt(eAge.getText().toString());
-        weight = Integer.parseInt(eWeight.getText().toString());
-        height = Integer.parseInt(eHeight.getText().toString());
-
-
-
-
-
-
-
-
-
 
     }
 }
