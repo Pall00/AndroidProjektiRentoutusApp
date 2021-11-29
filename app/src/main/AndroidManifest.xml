@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProjectiRentoutusApp">
         <activity
-            android:name=".Relaxing"
+            android:name=".CreateUser"
             android:exported="false" />
         <activity
-            android:name=".ChooseUser"
+            android:name=".SetupMenu"
+            android:exported="false" />
+        <activity
+            android:name=".Relaxing"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

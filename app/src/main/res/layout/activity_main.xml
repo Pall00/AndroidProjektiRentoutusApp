@@ -6,13 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/buttonCreateUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="92dp"
+        android:onClick="createUser"
+        android:text="Create new user!"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user3_button"
+        app:layout_constraintVertical_bias="0.544" />
 
+    <Button
+        android:id="@+id/user1_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="@string/user1_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/user3_button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/user3_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user2_button" />
+
+    <Button
+        android:id="@+id/user2_button"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/user2_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user1_button" />
+
+    <Button
+        android:id="@+id/user1remove_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="removeButton"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user1_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user1_button" />
+
+    <Button
+        android:id="@+id/user2remove_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="removeButton"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user2_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user2_button" />
+
+    <Button
+        android:id="@+id/user3remove_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="removeButton"
+        android:text="Button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user3_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user3_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
