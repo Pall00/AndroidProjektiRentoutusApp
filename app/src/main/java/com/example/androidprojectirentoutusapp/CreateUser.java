@@ -10,6 +10,14 @@ public class CreateUser extends AppCompatActivity {
     private EditText eAge;
     private EditText eWeight;
     private EditText eHeight;
+    private String username;
+    private int age;
+    private int height;
+    private  int weight;
+
+    public User user;
+
+
 
 
     @Override
@@ -21,6 +29,17 @@ public class CreateUser extends AppCompatActivity {
         eAge = findViewById(R.id.etAge);
         eHeight = findViewById(R.id.etHeight);
         eWeight = findViewById(R.id.etWeight);
+
+
+
+        username = eName.getText().toString();
+        age = Integer.parseInt(eAge.getText().toString());
+        weight = Integer.parseInt(eWeight.getText().toString());
+        height = Integer.parseInt(eHeight.getText().toString());
+
+
+
+
 
 
 

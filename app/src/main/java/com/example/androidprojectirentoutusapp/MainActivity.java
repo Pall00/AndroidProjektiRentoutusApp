@@ -21,10 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         eNewUser = findViewById(R.id.btnCreateNewUser);
 
-        if(sharedPreferences != null){
-
-        }
-
     }
     public void createUser(View v){
         Log.i("MY_APP", "createUser()");

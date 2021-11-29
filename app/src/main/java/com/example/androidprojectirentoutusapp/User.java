@@ -15,6 +15,9 @@ public class User {
         this.name = name;
         this.level = level;
     }
+    public User(){
+
+    }
 
     public int getAge() {
         return age;
