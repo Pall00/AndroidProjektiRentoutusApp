@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewDebug;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateUser extends AppCompatActivity {
     private EditText eName;
@@ -60,33 +61,54 @@ public class CreateUser extends AppCompatActivity {
         eWeight = findViewById(R.id.etWeight);
         eHeight = findViewById(R.id.etHeight);
 
-        username = eName.getText().toString();
-        age = Integer.parseInt(eAge.getText().toString());
-        height = Integer.parseInt(eHeight.getText().toString());
-        weight = Integer.parseInt(eWeight.getText().toString());
+        if(valid()) {
 
-        if(userValue == 1){
-            user1edit.putString("Username", username);
-            user1edit.putInt("Age", age);
-            user1edit.putInt("Weight", weight);
-            user1edit.putInt("Height", height);
-            user1edit.commit();
-        }
-        if(userValue == 2){
-            user2edit.putString("Username", username);
-            user2edit.putInt("Age", age);
-            user2edit.putInt("Weight", weight);
-            user2edit.putInt("Height", height);
-            user2edit.commit();
-        }
-        if(userValue == 3){
-            user3edit.putString("Username", username);
-            user3edit.putInt("Age", age);
-            user3edit.putInt("Weight", weight);
-            user3edit.putInt("Height", height);
-            user3edit.commit();
-        }
-        finish();
+            Log.i("MY_APP", username);
+            Log.i("MY_APP", Integer.toString(age));
+            Log.i("MY_APP", Integer.toString(height));
+            Log.i("MY_APP", Integer.toString(weight));
 
+
+            if (userValue == 1) {
+                user1edit.putString("Username", username);
+                user1edit.putInt("Age", age);
+                user1edit.putInt("Weight", weight);
+                user1edit.putInt("Height", height);
+                user1edit.commit();
+            }
+            if (userValue == 2) {
+                user2edit.putString("Username", username);
+                user2edit.putInt("Age", age);
+                user2edit.putInt("Weight", weight);
+                user2edit.putInt("Height", height);
+                user2edit.commit();
+            }
+            if (userValue == 3) {
+                user3edit.putString("Username", username);
+                user3edit.putInt("Age", age);
+                user3edit.putInt("Weight", weight);
+                user3edit.putInt("Height", height);
+                user3edit.commit();
+            }
+            finish();
+        }
+
+    }
+    public boolean valid(){
+        try{
+            username = eName.getText().toString();
+            age = Integer.parseInt(eAge.getText().toString());
+            height = Integer.parseInt(eHeight.getText().toString());
+            weight = Integer.parseInt(eWeight.getText().toString());
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(height<=100 || weight <= 0 || age < 16){
+            Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }

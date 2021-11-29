@@ -108,11 +108,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void createUser(View v){
-        Intent userCreateIntent = new Intent(MainActivity.this, CreateUser.class);
 
-        userCreateIntent.putExtra(EXTRA_USER, checkData());
+        if(checkData()!=0){
+            Intent userCreateIntent = new Intent(MainActivity.this, CreateUser.class);
 
-        startActivity(userCreateIntent);
+            userCreateIntent.putExtra(EXTRA_USER, checkData());
+
+            startActivity(userCreateIntent);
+        } else{
+            Toast.makeText(getApplicationContext(), "No empty users left", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void loginButton(View v){
