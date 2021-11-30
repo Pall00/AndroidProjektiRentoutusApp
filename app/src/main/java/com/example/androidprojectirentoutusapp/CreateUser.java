@@ -68,7 +68,6 @@ public class CreateUser extends AppCompatActivity {
             Log.i("MY_APP", Integer.toString(height));
             Log.i("MY_APP", Integer.toString(weight));
 
-
             if (userValue == 1) {
                 user1edit.putString("Username", username);
                 user1edit.putInt("Age", age);

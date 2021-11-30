@@ -127,15 +127,15 @@ public class MainActivity extends AppCompatActivity {
         Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
 
         if(v == findViewById(R.id.user1_button) && !(user1.getString("Username", "0").equals("0"))){
-            loginIntent.putExtra(EXTRA_USER, 1);
+            User.getInstance().setValues(user1.getInt("Age", 0),user1.getInt("Weight", 0), user1.getInt("Height", 0), user1.getString("Username", "0"), user1.getInt("Level", 0), user1.getInt("Meditation_time", 0));
             startActivity(loginIntent);
         }
         else if(v== findViewById(R.id.user2_button) && !(user2.getString("Username", "0").equals("0"))){
-            loginIntent.putExtra(EXTRA_USER, 2);
+            User.getInstance().setValues(user2.getInt("Age", 0),user2.getInt("Weight", 0), user2.getInt("Height", 0), user2.getString("Username", "0"), user2.getInt("Level", 0), user2.getInt("Meditation_time", 0));
             startActivity(loginIntent);
         }
         else if(v== findViewById(R.id.user3_button) &&!(user3.getString("Username", "0").equals("0"))){
-            loginIntent.putExtra(EXTRA_USER, 3);
+            User.getInstance().setValues(user3.getInt("Age", 0),user3.getInt("Weight", 0), user3.getInt("Height", 0), user3.getString("Username", "0"), user3.getInt("Level", 0), user3.getInt("Meditation_time", 0));
             startActivity(loginIntent);
         }
         else{

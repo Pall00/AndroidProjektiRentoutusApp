@@ -12,11 +12,6 @@ import android.widget.TextView;
 
 public class SetupMenu extends AppCompatActivity {
 
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private int user;
-
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
     @Override
@@ -26,36 +21,17 @@ public class SetupMenu extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.textViewUsername);
 
-        Intent intent = getIntent();
 
-        user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        tv.setText((User.getInstance().getName()));
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-
-        Log.i("MY_APP", String.valueOf(user));
-
-        if(user == 1){
-            tv.setText((user1.getString("Username", "0")));
-        } else if(user == 2){
-            tv.setText((user2.getString("Username", "0")));
-        } else if(user ==3){
-            tv.setText((user3.getString("Username", "0")));
-        }
     }
     public void menuButton(View v){
-        Intent intent = getIntent();
-
-        //user = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
         if(v==findViewById(R.id.relaxButton)){
             Intent relaxIntent = new Intent(SetupMenu.this, Relaxing.class);
-            relaxIntent.putExtra(EXTRA_USER, user);
             startActivity(relaxIntent);
         } else if(v==findViewById(R.id.triviaButton)){
             Intent triviaIntent = new Intent(SetupMenu.this, activity_trivia.class);
-            triviaIntent.putExtra(EXTRA_USER, user);
             startActivity(triviaIntent);
         } else if(v==findViewById(R.id.settingsButton)){
             //tähän voisi implementoida popup setting menun, pitää selvittää miten

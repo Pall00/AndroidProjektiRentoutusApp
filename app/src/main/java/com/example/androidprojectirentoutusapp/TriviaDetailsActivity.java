@@ -8,8 +8,6 @@ import android.util.Log;
 
 public class TriviaDetailsActivity extends AppCompatActivity {
 
-    private int user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
