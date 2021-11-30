@@ -24,10 +24,10 @@
         android:id="@+id/user1_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="124dp"
         android:text="@string/user1_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -36,10 +36,10 @@
         android:id="@+id/user3_button"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="20dp"
         android:text="@string/user3_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user2_button" />
 
@@ -47,10 +47,10 @@
         android:id="@+id/user2_button"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="24dp"
         android:text="@string/user2_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.294"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user1_button" />
 
@@ -59,7 +59,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="removeButton"
-        android:text="Button"
+        android:text="@string/remove_user"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/user1_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user1_button" />
@@ -69,7 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="removeButton"
-        android:text="Button"
+        android:text="@string/remove_user"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/user2_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user2_button" />
@@ -79,7 +81,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="removeButton"
-        android:text="Button"
+        android:text="@string/remove_user"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/user3_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user3_button" />
