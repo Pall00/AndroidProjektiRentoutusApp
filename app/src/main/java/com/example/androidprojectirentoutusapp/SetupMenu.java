@@ -12,11 +12,6 @@ import android.widget.TextView;
 
 public class SetupMenu extends AppCompatActivity {
 
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private int user;
-
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
     @Override

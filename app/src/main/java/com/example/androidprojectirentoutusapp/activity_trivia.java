@@ -9,19 +9,6 @@ import android.util.Log;
 
 public class activity_trivia extends AppCompatActivity {
 
-    private int user;
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private SharedPreferences.Editor user1edit;
-    private SharedPreferences.Editor user2edit;
-    private SharedPreferences.Editor user3edit;
-    private int age;
-    private int weight;
-    private int height;
-    private String username;
-    private int level;
-    private int meditation_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
