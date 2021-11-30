@@ -7,8 +7,16 @@ public class User {
     private String name;
     private int level;
     private int meditationTime;
+    private static final User ourInstance = new User();
 
-    public User(int age, int weight, int height, String name, int level, int meditationTime) {
+    private User(){
+    }
+
+    public static User getInstance(){
+        return ourInstance;
+    }
+
+    public void setValues(int age, int weight, int height, String name, int level, int meditationTime) {
         this.age = age;
         this.weight = weight;
         this.height = height;
@@ -16,6 +24,7 @@ public class User {
         this.level = 0;
         this.meditationTime = 0;
     }
+
     public int getBmi(){
         return (this.weight/(this.height*this.height));
     }
