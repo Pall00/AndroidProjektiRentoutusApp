@@ -21,7 +21,7 @@ public class CreateUser extends AppCompatActivity {
     private int height;
     private  int weight;
 
-    public User user;
+
 
     private int userValue;
 
