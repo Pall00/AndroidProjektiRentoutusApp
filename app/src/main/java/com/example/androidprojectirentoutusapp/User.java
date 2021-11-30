@@ -8,6 +8,7 @@ public class User {
     private int level;
     private int meditationTime;
     private static final User ourInstance = new User();
+    private int id;
 
     private User(){
     }
@@ -16,13 +17,14 @@ public class User {
         return ourInstance;
     }
 
-    public void setValues(int age, int weight, int height, String name, int level, int meditationTime) {
+    public void setValues(int age, int weight, int height, String name, int level, int meditationTime, int id) {
         this.age = age;
         this.weight = weight;
         this.height = height;
         this.name = name;
         this.level = 0;
         this.meditationTime = 0;
+        this.id = id;
     }
 
     public int getBmi(){
@@ -31,6 +33,10 @@ public class User {
 
     public int getAge() {
         return age;
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public void levelUp(){
