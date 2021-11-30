@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         check = checkData();
 
+        Log.i("MY_APP", Integer.toString(check));
+
         switch(check){
             case 0:
                 user_button1.setText(user1.getString("Username", "0"));
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int checkData(){
+
         user1 = getSharedPreferences("User1", MODE_PRIVATE);
 
         if(user1.getString("Username", "0").equals("0")){
@@ -92,15 +95,18 @@ public class MainActivity extends AppCompatActivity {
             user1edit.clear();
             user1edit.commit();
         }
-        if(v == findViewById(R.id.user2remove_button)){
+        else if (v == findViewById(R.id.user2remove_button)){
             Log.i("MY_APP", "TOKA USER REMOVE");
             user2edit.clear();
             user2edit.commit();
         }
-        if(v == findViewById(R.id.user3remove_button)){
+        else if(v == findViewById(R.id.user3remove_button)){
             Log.i("MY_APP", "KOLMAS USER REMOVE");
             user3edit.clear();
             user3edit.commit();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Nothing to remove", Toast.LENGTH_SHORT).show();
         }
         updateUI();
 
