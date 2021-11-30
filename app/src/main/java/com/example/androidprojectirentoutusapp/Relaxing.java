@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class Relaxing extends AppCompatActivity {
 
     //private ImageButton imageButton;
@@ -24,6 +26,8 @@ public class Relaxing extends AppCompatActivity {
     private SharedPreferences.Editor user1edit;
     private SharedPreferences.Editor user2edit;
     private SharedPreferences.Editor user3edit;
+    private SharedPreferences userdata;
+    private SharedPreferences.Editor userdataedit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +55,7 @@ public class Relaxing extends AppCompatActivity {
                     User.getInstance().levelUp();
                     updateUI();
                     updatePlayer();
+                    userdataedit.commit();
                 }
             }.start();
         }
@@ -89,28 +94,23 @@ public class Relaxing extends AppCompatActivity {
     }
     public void updatePlayer(){
 
-        //tämä ei toimi, ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
+        //ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
 
         int id = User.getInstance().getId();
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user1edit = user1.edit();
 
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user2edit = user2.edit();
-
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        user3edit = user3.edit();
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userdataedit = userdata.edit();
 
         switch(id){
             case 1:
-                user1edit.putInt("Level", User.getInstance().getLevel());
-                user1edit.commit();
+                userdataedit.putInt("Level1", User.getInstance().getLevel());
+                break;
             case 2:
-                user2edit.putInt("Level", User.getInstance().getLevel());
-                user2edit.commit();
+                userdataedit.putInt("Level2", User.getInstance().getLevel());
+                break;
             case 3:
-                user3edit.putInt("Level", User.getInstance().getLevel());
-                user3edit.commit();
+                userdataedit.putInt("Level3", User.getInstance().getLevel());
+                break;
         }
     }
 }

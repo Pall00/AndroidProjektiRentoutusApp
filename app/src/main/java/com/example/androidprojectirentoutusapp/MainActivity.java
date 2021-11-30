@@ -1,8 +1,7 @@
 package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
+import com.google.gson.Gson;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -19,21 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private Button user_button1;
     private Button user_button2;
     private Button user_button3;
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private SharedPreferences.Editor user1edit;
-    private SharedPreferences.Editor user2edit;
-    private SharedPreferences.Editor user3edit;
+    private SharedPreferences userdata;
+    private SharedPreferences.Editor userdataedit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         user_button1 = findViewById(R.id.user1_button);
         user_button2 = findViewById(R.id.user2_button);
         user_button3 = findViewById(R.id.user3_button);
@@ -45,18 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
         switch(check){
             case 0:
-                user_button1.setText(user1.getString("Username", "0"));
-                user_button2.setText(user2.getString("Username", "0"));
-                user_button3.setText(user3.getString("Username", "0"));
+                user_button1.setText(userdata.getString("Username1", "0"));
+                user_button2.setText(userdata.getString("Username2", "0"));
+                user_button3.setText(userdata.getString("Username3", "0"));
                 break;
             case 1:
                 break;
             case 2:
-                user_button1.setText(user1.getString("Username", "0"));
+                user_button1.setText(userdata.getString("Username1", "0"));
                 break;
             case 3:
-                user_button1.setText(user1.getString("Username", "0"));
-                user_button2.setText(user2.getString("Username", "0"));
+                user_button1.setText(userdata.getString("Username1", "0"));
+                user_button2.setText(userdata.getString("Username2", "0"));
                 break;
         }
 
@@ -64,50 +57,43 @@ public class MainActivity extends AppCompatActivity {
 
     public int checkData(){
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
 
-        if(user1.getString("Username", "0").equals("0")){
+        if(userdata.getString("Username1", "0").equals("0")){
             return 1;
         }
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        if(user2.getString("Username", "0").equals("0")){
+        if(userdata.getString("Username2", "0").equals("0")){
             return 2;
         }
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        if(user3.getString("Username", "0").equals("0")){
+        if(userdata.getString("Username3", "0").equals("0")){
             return 3;
         }
         return 0;
     }
+
     public void removeButton(View v){
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user1edit = user1.edit();
-
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user2edit = user2.edit();
-
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        user3edit = user3.edit();
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userdataedit = userdata.edit();
 
         if(v == findViewById(R.id.user1remove_button)){
             Log.i("MY_APP", "EKA USER REMOVE");
-            user1edit.clear();
-            user1edit.commit();
+            userdataedit.remove("Username1");
         }
         else if (v == findViewById(R.id.user2remove_button)){
             Log.i("MY_APP", "TOKA USER REMOVE");
-            user2edit.clear();
-            user2edit.commit();
+            userdataedit.remove("Username2");
         }
         else if(v == findViewById(R.id.user3remove_button)){
             Log.i("MY_APP", "KOLMAS USER REMOVE");
-            user3edit.clear();
-            user3edit.commit();
+            userdataedit.remove("Username3");
         }
         else{
             Toast.makeText(getApplicationContext(), "Nothing to remove", Toast.LENGTH_SHORT).show();
         }
+
+        userdataedit.commit();
+
         updateUI();
 
     }
@@ -126,22 +112,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginButton(View v){
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
 
         Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
 
-        if(v == findViewById(R.id.user1_button) && !(user1.getString("Username", "0").equals("0"))){
-            User.getInstance().setValues(user1.getInt("Age", 0),user1.getInt("Weight", 0), user1.getInt("Height", 0), user1.getString("Username", "0"), user1.getInt("Level", 0), user1.getInt("Meditation_time", 0), 1);
+        if(v == findViewById(R.id.user1_button) && !(userdata.getString("Username1", "0").equals("0"))){
+            User.getInstance().setValues(userdata.getInt("Age1", 0),userdata.getInt("Weight1", 0), userdata.getInt("Height1", 0), userdata.getString("Username1", "0"), userdata.getInt("Level1", 0), userdata.getInt("Meditation_time1", 0), 1);
             startActivity(loginIntent);
         }
-        else if(v== findViewById(R.id.user2_button) && !(user2.getString("Username", "0").equals("0"))){
-            User.getInstance().setValues(user2.getInt("Age", 0),user2.getInt("Weight", 0), user2.getInt("Height", 0), user2.getString("Username", "0"), user2.getInt("Level", 0), user2.getInt("Meditation_time", 0), 2);
+        else if(v== findViewById(R.id.user2_button) && !(userdata.getString("Username2", "0").equals("0"))){
+            User.getInstance().setValues(userdata.getInt("Age2", 0),userdata.getInt("Weight2", 0), userdata.getInt("Height2", 0), userdata.getString("Username2", "0"), userdata.getInt("Level2", 0), userdata.getInt("Meditation_time2", 0), 2);
             startActivity(loginIntent);
         }
-        else if(v== findViewById(R.id.user3_button) &&!(user3.getString("Username", "0").equals("0"))){
-            User.getInstance().setValues(user3.getInt("Age", 0),user3.getInt("Weight", 0), user3.getInt("Height", 0), user3.getString("Username", "0"), user3.getInt("Level", 0), user3.getInt("Meditation_time", 0), 3);
+        else if(v== findViewById(R.id.user3_button) && !(userdata.getString("Username3", "0").equals("0"))){
+            User.getInstance().setValues(userdata.getInt("Age3", 0),userdata.getInt("Weight3", 0), userdata.getInt("Height3", 0), userdata.getString("Username3", "0"), userdata.getInt("Level3", 0), userdata.getInt("Meditation_tim3", 0), 3);
             startActivity(loginIntent);
         }
         else{
@@ -154,13 +138,10 @@ public class MainActivity extends AppCompatActivity {
         user_button2 = findViewById(R.id.user2_button);
         user_button3 = findViewById(R.id.user3_button);
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-
-        user_button1.setText(user1.getString("Username", "Empty user"));
-        user_button2.setText(user2.getString("Username", "Empty user"));
-        user_button3.setText(user3.getString("Username", "Empty user"));
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        user_button1.setText(userdata.getString("Username1", "Empty user"));
+        user_button2.setText(userdata.getString("Username2", "Empty user"));
+        user_button3.setText(userdata.getString("Username3", "Empty user"));
     }
 
     protected void onResume(){

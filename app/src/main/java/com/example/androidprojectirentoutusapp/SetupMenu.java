@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 public class SetupMenu extends AppCompatActivity {
 
-    public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +19,7 @@ public class SetupMenu extends AppCompatActivity {
 
         TextView tv = findViewById(R.id.textViewUsername);
 
+        Log.i("User", User.getInstance().toString());
 
         tv.setText((User.getInstance().getName()));
 
