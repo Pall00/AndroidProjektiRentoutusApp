@@ -3,5 +3,10 @@
     <string name="user1_button">Empty user</string>
     <string name="user2_button">Empty user</string>
     <string name="user3_button">Empty user</string>
-    <string name="remove_user">Remove user</string>
+    <string name="exitButton">Exit</string>
+    <string name="relaxButton">Relax</string>
+    <string name="settingsButton">Settings</string>
+    <string name="triviaButton">Trivia</string>
+    <string name="textViewUsername">Username</string>
+    <string name="registerButton">Register</string>
 </resources>
