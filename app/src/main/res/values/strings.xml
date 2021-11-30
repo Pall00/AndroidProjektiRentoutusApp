@@ -10,4 +10,7 @@
     <string name="textViewUsername">Username</string>
     <string name="registerButton">Register</string>
     <string name="remove_user">Remove user</string>
+    <string name="exitappButton">Exit App</string>
+    <string name="exittologin">Exit to Login</string>
+    <string name="closebutton">X</string>
 </resources>

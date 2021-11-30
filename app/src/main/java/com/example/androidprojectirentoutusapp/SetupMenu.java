@@ -2,15 +2,17 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.style.LineHeightSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SetupMenu extends AppCompatActivity {
+
+    Dialog myexitDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +39,43 @@ public class SetupMenu extends AppCompatActivity {
         } else if(v==findViewById(R.id.exitButton)){
             //tähän voisi laittaa popupin jossa kysytään haluaako poistua appista vaiko takaisin kirjautumisvalikkoon
         }
+    }
+    public void exitButton(View v){
+        Button exitApp;
+        Button exittoLogin;
+        Button closeButton;
+        TextView txtclose;
+
+        myexitDialog = new Dialog(this);
+
+        myexitDialog.setContentView(R.layout.exitpopup);
+        exitApp = (Button) myexitDialog.findViewById(R.id.exitapp);
+        exittoLogin = (Button) myexitDialog.findViewById(R.id.exitlogin);
+        closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+        exitApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myexitDialog.dismiss();
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+        exittoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myexitDialog.dismiss();
+                finish();
+            }
+        });
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myexitDialog.dismiss();
+            }
+        });
+
+        myexitDialog.show();
     }
 }
