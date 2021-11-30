@@ -33,6 +33,12 @@ public class User {
         return age;
     }
 
+    public void levelUp(){
+        if(this.getLevel()<7) {
+            this.level += 1;
+        }
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
