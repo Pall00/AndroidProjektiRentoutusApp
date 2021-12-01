@@ -35,8 +35,6 @@ public class CreateUser extends AppCompatActivity {
 
         userValue = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
-        Log.i("MY_APP", Integer.toString(userValue));
-
     }
 
     public void Register(View v){
@@ -51,10 +49,6 @@ public class CreateUser extends AppCompatActivity {
 
         if(valid()) {
 
-            Log.i("MY_APP", username);
-            Log.i("MY_APP", Integer.toString(age));
-            Log.i("MY_APP", Integer.toString(height));
-            Log.i("MY_APP", Integer.toString(weight));
             Gson gson = new Gson();
 
             if (userValue == 1) {

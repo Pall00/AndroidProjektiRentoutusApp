@@ -31,43 +31,12 @@ public class SetupMenu extends AppCompatActivity {
     private  int weight;
     private String username;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup_menu);
 
         updateUI();
-
-        /*Gson gson = new Gson();
-
-        String json = gson.toJson(User.getInstance());
-
-        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
-
-        Log.i("JSON", json);
-
-        User user = gson.fromJson(json, User.class);
-
-        String json2 = gson.toJson(user);
-
-        Log.i("JSONFINAL", json2);
-
-        user.setName("Maikkuli");
-
-        String json3 = gson.toJson(user);
-
-        Log.i("JSONFINAL2", json3);
-
-        User us = gson.fromJson(json3, User.class);
-
-        String name = us.getName();
-
-        Log.i("JSONNAME", name);*/
-
-
-
 
     }
     public void menuButton(View v){
@@ -78,10 +47,6 @@ public class SetupMenu extends AppCompatActivity {
         } else if(v==findViewById(R.id.triviaButton)){
             Intent triviaIntent = new Intent(SetupMenu.this, activity_trivia.class);
             startActivity(triviaIntent);
-        } else if(v==findViewById(R.id.settingsButton)){
-            //tähän voisi implementoida popup setting menun, pitää selvittää miten
-        } else if(v==findViewById(R.id.exitButton)){
-            //tähän voisi laittaa popupin jossa kysytään haluaako poistua appista vaiko takaisin kirjautumisvalikkoon
         }
     }
     public void exitButton(View v){

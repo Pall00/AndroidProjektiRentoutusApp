@@ -54,15 +54,12 @@ public class MainActivity extends AppCompatActivity {
         userdataedit = userdata.edit();
 
         if(v == findViewById(R.id.user1remove_button)&& !(userdata.getString("User1", "0").equals("0"))){
-            Log.i("MY_APP", "EKA USER REMOVE");
             userdataedit.remove("User1");
         }
         else if (v == findViewById(R.id.user2remove_button) && !(userdata.getString("User2", "0").equals("0"))){
-            Log.i("MY_APP", "TOKA USER REMOVE");
             userdataedit.remove("User2");
         }
         else if(v == findViewById(R.id.user3remove_button) && !(userdata.getString("User3", "0").equals("0"))){
-            Log.i("MY_APP", "KOLMAS USER REMOVE");
             userdataedit.remove("User3");
         }
         else{
@@ -124,8 +121,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void updateUI(){
         check = checkData();
-
-        Log.i("MY_APP", Integer.toString(check));
 
         if(check!=1) {
             userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
