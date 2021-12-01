@@ -47,6 +47,11 @@ public class User {
         }
     }
 
+    public void resetData(){
+        this.level = 0;
+        this.meditationTime = 0;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }

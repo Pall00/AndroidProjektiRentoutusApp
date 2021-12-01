@@ -7,11 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewDebug;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
 
 public class CreateUser extends AppCompatActivity {
     private EditText eName;
@@ -45,10 +42,10 @@ public class CreateUser extends AppCompatActivity {
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
-        eName = findViewById(R.id.etName);
-        eAge = findViewById(R.id.etAge);
-        eWeight = findViewById(R.id.etWeight);
-        eHeight = findViewById(R.id.etHeight);
+        eName = findViewById(R.id.textViewName);
+        eAge = findViewById(R.id.textViewAge);
+        eWeight = findViewById(R.id.textViewWeight);
+        eHeight = findViewById(R.id.textViewHeight);
 
         if(valid()) {
 
@@ -78,7 +75,6 @@ public class CreateUser extends AppCompatActivity {
                 userdataedit.putInt("Meditation_time2", 0);
             }
             if (userValue == 3) {
-
 
                 userdataedit.putString("Username3", username);
                 userdataedit.putInt("Age3", age);
