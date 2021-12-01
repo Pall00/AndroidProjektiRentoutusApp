@@ -9,4 +9,5 @@
     <string name="triviaButton">Trivia</string>
     <string name="textViewUsername">Username</string>
     <string name="registerButton">Register</string>
+    <string name="remove_user">Remove</string>
 </resources>

@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.health.TimerStat;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Timer;
 
 public class Relaxing extends AppCompatActivity {
 
@@ -17,8 +20,8 @@ public class Relaxing extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_relaxing);
+                super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_relaxing);
     }
 
     public void imageButton(View v){
@@ -26,7 +29,7 @@ public class Relaxing extends AppCompatActivity {
         textView = findViewById(R.id.tvTimer);
 
         Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
-        CountDownTimer timer = new CountDownTimer(600000,1000) {
+        CountDownTimer timer = new CountDownTimer(60000,1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
