@@ -31,51 +31,10 @@ public class MainActivity extends AppCompatActivity {
         user_button2 = findViewById(R.id.user2_button);
         user_button3 = findViewById(R.id.user3_button);
 
-
-        check = checkData();
-
-        Log.i("MY_APP", Integer.toString(check));
-
-
-        /*if(check!=1) {
-            userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-
-            Gson gson = new Gson();
-
-            if(check==2){
-                String json1 = userdata.getString("User1", "0");
-                User user1 = gson.fromJson(json1, User.class);
-                user_button1.setText(user1.getName());
-            }
-            if(check==3){
-                String json1 = userdata.getString("User1", "0");
-                User user1 = gson.fromJson(json1, User.class);
-
-                String json2 = userdata.getString("User2", "0");
-                User user2 = gson.fromJson(json2, User.class);
-
-                user_button1.setText(user1.getName());
-                user_button2.setText(user2.getName());
-            }
-            if(check==0){
-                String json1 = userdata.getString("User1", "0");
-                User user1 = gson.fromJson(json1, User.class);
-
-                String json2 = userdata.getString("User2", "0");
-                User user2 = gson.fromJson(json2, User.class);
-
-                String json3 = userdata.getString("User3", "0");
-                User user3 = gson.fromJson(json3, User.class);
-                user_button1.setText(user1.getName());
-                user_button2.setText(user2.getName());
-                user_button3.setText(user3.getName());
-            }
-        }*/
-
+        updateUI();
     }
 
     public int checkData(){
-
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
 
         if(userdata.getString("User1", "0").equals("0")){
@@ -91,19 +50,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeButton(View v){
-
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
-        if(v == findViewById(R.id.user1remove_button)){
+        if(v == findViewById(R.id.user1remove_button)&& !(userdata.getString("User1", "0").equals("0"))){
             Log.i("MY_APP", "EKA USER REMOVE");
             userdataedit.remove("User1");
         }
-        else if (v == findViewById(R.id.user2remove_button)){
+        else if (v == findViewById(R.id.user2remove_button) && !(userdata.getString("User2", "0").equals("0"))){
             Log.i("MY_APP", "TOKA USER REMOVE");
             userdataedit.remove("User2");
         }
-        else if(v == findViewById(R.id.user3remove_button)){
+        else if(v == findViewById(R.id.user3remove_button) && !(userdata.getString("User3", "0").equals("0"))){
             Log.i("MY_APP", "KOLMAS USER REMOVE");
             userdataedit.remove("User3");
         }
@@ -114,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
     public void createUser(View v){
-
         if(checkData()!=0){
             Intent userCreateIntent = new Intent(MainActivity.this, CreateUser.class);
 
@@ -127,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginButton(View v){
-
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
 
         Gson gson = new Gson();
@@ -137,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
         if(v == findViewById(R.id.user1_button) && !(userdata.getString("User1", "0").equals("0"))){
 
             String json = userdata.getString("User1", "0");
-
             User user = gson.fromJson(json, User.class);
 
             User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
@@ -147,19 +102,19 @@ public class MainActivity extends AppCompatActivity {
         else if(v== findViewById(R.id.user2_button) && !(userdata.getString("User2", "0").equals("0"))){
 
             String json = userdata.getString("User2", "0");
-
             User user = gson.fromJson(json, User.class);
 
             User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
+
             startActivity(loginIntent);
         }
         else if(v== findViewById(R.id.user3_button) && !(userdata.getString("User3", "0").equals("0"))){
 
             String json = userdata.getString("User3", "0");
-
             User user = gson.fromJson(json, User.class);
 
             User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
+
             startActivity(loginIntent);
         }
         else{
@@ -167,12 +122,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     public void updateUI(){
         check = checkData();
 
         Log.i("MY_APP", Integer.toString(check));
-
 
         if(check!=1) {
             userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
@@ -217,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
             user_button1.setText("Empty user");
         }
     }
-
     protected void onResume(){
         super.onResume();
         updateUI();
