@@ -103,5 +103,4 @@ public class User {
     public void setMeditationTime(int meditationTime) {
         this.meditationTime = meditationTime;
     }
-
 }

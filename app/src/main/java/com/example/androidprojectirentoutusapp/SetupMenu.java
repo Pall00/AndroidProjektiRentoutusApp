@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class SetupMenu extends AppCompatActivity {
 
     private Dialog myexitDialog;
@@ -36,6 +38,36 @@ public class SetupMenu extends AppCompatActivity {
         setContentView(R.layout.activity_setup_menu);
 
         updateUI();
+
+        /*Gson gson = new Gson();
+
+        String json = gson.toJson(User.getInstance());
+
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userdataedit = userdata.edit();
+
+        Log.i("JSON", json);
+
+        User user = gson.fromJson(json, User.class);
+
+        String json2 = gson.toJson(user);
+
+        Log.i("JSONFINAL", json2);
+
+        user.setName("Maikkuli");
+
+        String json3 = gson.toJson(user);
+
+        Log.i("JSONFINAL2", json3);
+
+        User us = gson.fromJson(json3, User.class);
+
+        String name = us.getName();
+
+        Log.i("JSONNAME", name);*/
+
+
+
 
     }
     public void menuButton(View v){
@@ -208,39 +240,26 @@ public class SetupMenu extends AppCompatActivity {
     }
     public void updatePlayer(){
 
-        //ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
-
         int id = User.getInstance().getId();
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(User.getInstance());
+
         switch(id){
             case 1:
-                userdataedit.putString("Username1", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime1", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight1", User.getInstance().getWeight());
-                userdataedit.putInt("Height1", User.getInstance().getHeight());
-                userdataedit.putInt("Level1", User.getInstance().getLevel());
-                userdataedit.putInt("Age1", User.getInstance().getAge());
+                userdataedit.putString("User1", json);
                 userdataedit.commit();
                 break;
             case 2:
-                userdataedit.putString("Username2", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime2", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight2", User.getInstance().getWeight());
-                userdataedit.putInt("Height2", User.getInstance().getHeight());
-                userdataedit.putInt("Level2", User.getInstance().getLevel());
-                userdataedit.putInt("Age2", User.getInstance().getAge());
+                userdataedit.putString("User2", json);
                 userdataedit.commit();
                 break;
             case 3:
-                userdataedit.putString("Username3", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime3", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight3", User.getInstance().getWeight());
-                userdataedit.putInt("Height3", User.getInstance().getHeight());
-                userdataedit.putInt("Level3", User.getInstance().getLevel());
-                userdataedit.putInt("Age3", User.getInstance().getAge());
+                userdataedit.putString("User3", json);
                 userdataedit.commit();
                 break;
         }

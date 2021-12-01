@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class Relaxing extends AppCompatActivity {
 
     //private ImageButton imageButton;
@@ -18,12 +20,6 @@ public class Relaxing extends AppCompatActivity {
     private TextView textView;
     private boolean on;
 
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private SharedPreferences.Editor user1edit;
-    private SharedPreferences.Editor user2edit;
-    private SharedPreferences.Editor user3edit;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
@@ -93,22 +89,24 @@ public class Relaxing extends AppCompatActivity {
     }
     public void updatePlayer(){
 
-        //ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
-
         int id = User.getInstance().getId();
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(User.getInstance());
+
         switch(id){
             case 1:
-                userdataedit.putInt("Level1", User.getInstance().getLevel());
+                userdataedit.putString("User1", json);
                 break;
             case 2:
-                userdataedit.putInt("Level2", User.getInstance().getLevel());
+                userdataedit.putString("User2", json);
                 break;
             case 3:
-                userdataedit.putInt("Level3", User.getInstance().getLevel());
+                userdataedit.putString("User3", json);
                 break;
         }
     }

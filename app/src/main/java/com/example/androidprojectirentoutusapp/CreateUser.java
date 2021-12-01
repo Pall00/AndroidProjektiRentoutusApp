@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class CreateUser extends AppCompatActivity {
     private EditText eName;
     private EditText eAge;
@@ -53,36 +55,25 @@ public class CreateUser extends AppCompatActivity {
             Log.i("MY_APP", Integer.toString(age));
             Log.i("MY_APP", Integer.toString(height));
             Log.i("MY_APP", Integer.toString(weight));
-
+            Gson gson = new Gson();
 
             if (userValue == 1) {
 
-                userdataedit.putString("Username1", username);
-                userdataedit.putInt("Age1", age);
-                userdataedit.putInt("Weight1", weight);
-                userdataedit.putInt("Height1", height);
-                userdataedit.putInt("Level1", 0);
-                userdataedit.putInt("Meditation_time1", 0);
+                User.getInstance().setValues(age, weight, height, username, 0, 0,1);
+                String user = gson.toJson(User.getInstance());
+                userdataedit.putString("User1", user);
             }
             if (userValue == 2) {
 
-
-                userdataedit.putString("Username2", username);
-                userdataedit.putInt("Age2", age);
-                userdataedit.putInt("Weight2", weight);
-                userdataedit.putInt("Height2", height);
-                userdataedit.putInt("Level2", 0);
-                userdataedit.putInt("Meditation_time2", 0);
+                User.getInstance().setValues(age, weight, height, username, 0, 0,2);
+                String user = gson.toJson(User.getInstance());
+                userdataedit.putString("User2", user);
             }
             if (userValue == 3) {
 
-                userdataedit.putString("Username3", username);
-                userdataedit.putInt("Age3", age);
-                userdataedit.putInt("Weight3", weight);
-                userdataedit.putInt("Height3", height);
-                userdataedit.putInt("Level3", 0);
-                userdataedit.putInt("Meditation_time3", 0);
-
+                User.getInstance().setValues(age, weight, height, username, 0, 0,3);
+                String user = gson.toJson(User.getInstance());
+                userdataedit.putString("User3", user);
             }
             userdataedit.commit();
             finish();
@@ -103,7 +94,6 @@ public class CreateUser extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
             return false;
         }
-
         return true;
     }
 }
