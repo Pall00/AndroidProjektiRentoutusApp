@@ -141,10 +141,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     age = Integer.parseInt(eAge.getText().toString());
-                    User.getInstance().setAge(age);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(age < 16) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setAge(age);
+                    updatePlayer();
                 }
             }
         });
@@ -153,10 +158,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     weight = Integer.parseInt(eWeight.getText().toString());
-                    User.getInstance().setHeight(weight);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(weight <= 0) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setWeight(weight);
+                    updatePlayer();
                 }
             }
         });
@@ -165,10 +175,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     height = Integer.parseInt(eHeight.getText().toString());
-                    User.getInstance().setHeight(height);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(height<=100) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setHeight(height);
+                    updatePlayer();
                 }
 
             }
@@ -183,7 +198,6 @@ public class SetupMenu extends AppCompatActivity {
         resetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 User.getInstance().resetData();
                 updatePlayer();
             }
@@ -233,8 +247,6 @@ public class SetupMenu extends AppCompatActivity {
     }
     public void updateUI(){
         TextView tv = findViewById(R.id.textViewUsername);
-
-        Log.i("User", User.getInstance().toString());
 
         tv.setText((User.getInstance().getName()));
     }

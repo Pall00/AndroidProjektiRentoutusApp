@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
 
 public class Relaxing extends AppCompatActivity {
 
@@ -33,7 +31,8 @@ public class Relaxing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
-        updateUI();
+        updateBackground();
+        updateRabbit();
     }
 
     public void imageButton(View v) {
@@ -53,7 +52,7 @@ public class Relaxing extends AppCompatActivity {
                     textView.setText("Valmis");
                     on = false;
                     User.getInstance().levelUp();
-                    updateUI();
+                    updateBackground();
                     updatePlayer();
                     userdataedit.commit();
                 }
@@ -62,7 +61,7 @@ public class Relaxing extends AppCompatActivity {
         on = true;
     }
 
-    public void updateUI(){
+    public void updateBackground(){
         int level = User.getInstance().getLevel();
         ImageView  img = (ImageView) findViewById(R.id.imageView);
         switch(level){
@@ -112,5 +111,34 @@ public class Relaxing extends AppCompatActivity {
                 userdataedit.putInt("Level3", User.getInstance().getLevel());
                 break;
         }
+    }
+    public void updateRabbit(){
+
+        double bmi = User.getInstance().getBmi();
+
+        Log.i("PAINO", Integer.toString(User.getInstance().getWeight()));
+
+        Log.i("PITUUS", Integer.toString(User.getInstance().getHeight()));
+
+        Log.i("BMI", Double.toString(bmi));
+
+        ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
+
+        if(bmi<15){
+            imgRabbit.setImageResource(R.drawable.himoalipaino);
+        }
+        else if(bmi<19){
+            imgRabbit.setImageResource(R.drawable.alipaino);
+        }
+        else if(bmi<25){
+            imgRabbit.setImageResource(R.drawable.normaali);
+        }
+        else if(bmi<35){
+            imgRabbit.setImageResource(R.drawable.laski);
+        }
+        else{
+            imgRabbit.setImageResource(R.drawable.himolaski);
+        }
+
     }
 }

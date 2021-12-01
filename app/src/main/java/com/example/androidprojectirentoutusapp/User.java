@@ -29,8 +29,16 @@ public class User {
         this.id = id;
     }
 
-    public int getBmi(){
-        return (this.weight/(this.height*this.height));
+    public double getBmi(){
+
+        double weight = this.weight;
+
+        double height = (double) this.height/100;
+
+        double bmi = (weight/height/height);
+
+        return bmi;
+
     }
 
     public int getAge() {
