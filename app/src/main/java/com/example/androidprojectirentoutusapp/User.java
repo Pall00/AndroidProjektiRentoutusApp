@@ -1,5 +1,7 @@
 package com.example.androidprojectirentoutusapp;
 
+import com.google.gson.JsonElement;
+
 public class User {
     private int age;
     private int weight;
@@ -8,6 +10,7 @@ public class User {
     private int level;
     private int meditationTime;
     private static final User ourInstance = new User();
+    private int id;
 
     private User(){
     }
@@ -16,13 +19,14 @@ public class User {
         return ourInstance;
     }
 
-    public void setValues(int age, int weight, int height, String name, int level, int meditationTime) {
+    public void setValues(int age, int weight, int height, String name, int level, int meditationTime, int id) {
         this.age = age;
         this.weight = weight;
         this.height = height;
         this.name = name;
-        this.level = 0;
-        this.meditationTime = 0;
+        this.level = level;
+        this.meditationTime = meditationTime;
+        this.id = id;
     }
 
     public int getBmi(){
@@ -31,6 +35,21 @@ public class User {
 
     public int getAge() {
         return age;
+    }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public void levelUp(){
+        if(this.getLevel()<7) {
+            this.level += 1;
+        }
+    }
+
+    public void resetData(){
+        this.level = 0;
+        this.meditationTime = 0;
     }
 
     public void setAge(int age) {
@@ -76,4 +95,5 @@ public class User {
     public void setMeditationTime(int meditationTime) {
         this.meditationTime = meditationTime;
     }
+
 }

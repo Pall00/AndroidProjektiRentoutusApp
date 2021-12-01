@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewDebug;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,17 +19,10 @@ public class CreateUser extends AppCompatActivity {
     private int age;
     private int height;
     private  int weight;
-
-
+    private SharedPreferences userdata;
+    private SharedPreferences.Editor userdataedit;
 
     private int userValue;
-
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private SharedPreferences.Editor user1edit;
-    private SharedPreferences.Editor user2edit;
-    private SharedPreferences.Editor user3edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +39,13 @@ public class CreateUser extends AppCompatActivity {
 
     public void Register(View v){
 
-        user1 = getSharedPreferences("User1", MODE_PRIVATE);
-        user1edit = user1.edit();
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userdataedit = userdata.edit();
 
-        user2 = getSharedPreferences("User2", MODE_PRIVATE);
-        user2edit = user2.edit();
-
-        user3 = getSharedPreferences("User3", MODE_PRIVATE);
-        user3edit = user3.edit();
-
-        eName = findViewById(R.id.etName);
-        eAge = findViewById(R.id.etAge);
-        eWeight = findViewById(R.id.etWeight);
-        eHeight = findViewById(R.id.etHeight);
+        eName = findViewById(R.id.textViewName);
+        eAge = findViewById(R.id.textViewAge);
+        eWeight = findViewById(R.id.textViewWeight);
+        eHeight = findViewById(R.id.textViewHeight);
 
         if(valid()) {
 
@@ -68,33 +54,37 @@ public class CreateUser extends AppCompatActivity {
             Log.i("MY_APP", Integer.toString(height));
             Log.i("MY_APP", Integer.toString(weight));
 
+
             if (userValue == 1) {
-                user1edit.putString("Username", username);
-                user1edit.putInt("Age", age);
-                user1edit.putInt("Weight", weight);
-                user1edit.putInt("Height", height);
-                user1edit.putInt("Level", 0);
-                user1edit.putInt("Meditation_time", 0);
-                user1edit.commit();
+
+                userdataedit.putString("Username1", username);
+                userdataedit.putInt("Age1", age);
+                userdataedit.putInt("Weight1", weight);
+                userdataedit.putInt("Height1", height);
+                userdataedit.putInt("Level1", 0);
+                userdataedit.putInt("Meditation_time1", 0);
             }
             if (userValue == 2) {
-                user2edit.putString("Username", username);
-                user2edit.putInt("Age", age);
-                user2edit.putInt("Weight", weight);
-                user2edit.putInt("Height", height);
-                user2edit.putInt("Level", 0);
-                user2edit.putInt("Meditation_time", 0);
-                user2edit.commit();
+
+
+                userdataedit.putString("Username2", username);
+                userdataedit.putInt("Age2", age);
+                userdataedit.putInt("Weight2", weight);
+                userdataedit.putInt("Height2", height);
+                userdataedit.putInt("Level2", 0);
+                userdataedit.putInt("Meditation_time2", 0);
             }
             if (userValue == 3) {
-                user3edit.putString("Username", username);
-                user3edit.putInt("Age", age);
-                user3edit.putInt("Weight", weight);
-                user3edit.putInt("Height", height);
-                user3edit.putInt("Level", 0);
-                user3edit.putInt("Meditation_time", 0);
-                user3edit.commit();
+
+                userdataedit.putString("Username3", username);
+                userdataedit.putInt("Age3", age);
+                userdataedit.putInt("Weight3", weight);
+                userdataedit.putInt("Height3", height);
+                userdataedit.putInt("Level3", 0);
+                userdataedit.putInt("Meditation_time3", 0);
+
             }
+            userdataedit.commit();
             finish();
         }
 
