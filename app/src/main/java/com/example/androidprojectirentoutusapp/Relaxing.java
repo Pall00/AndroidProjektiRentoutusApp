@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,12 +20,6 @@ public class Relaxing extends AppCompatActivity {
     private TextView textView;
     private boolean on;
 
-    private SharedPreferences user1;
-    private SharedPreferences user2;
-    private SharedPreferences user3;
-    private SharedPreferences.Editor user1edit;
-    private SharedPreferences.Editor user2edit;
-    private SharedPreferences.Editor user3edit;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
@@ -33,7 +27,8 @@ public class Relaxing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
-        updateUI();
+        updateBackground();
+        updateRabbit();
     }
 
     public void imageButton(View v) {
@@ -53,7 +48,7 @@ public class Relaxing extends AppCompatActivity {
                     textView.setText("Valmis");
                     on = false;
                     User.getInstance().levelUp();
-                    updateUI();
+                    updateBackground();
                     updatePlayer();
                     userdataedit.commit();
                 }
@@ -62,7 +57,7 @@ public class Relaxing extends AppCompatActivity {
         on = true;
     }
 
-    public void updateUI(){
+    public void updateBackground(){
         int level = User.getInstance().getLevel();
         ImageView  img = (ImageView) findViewById(R.id.imageView);
         switch(level){
@@ -94,23 +89,54 @@ public class Relaxing extends AppCompatActivity {
     }
     public void updatePlayer(){
 
-        //ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
-
         int id = User.getInstance().getId();
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(User.getInstance());
+
         switch(id){
             case 1:
-                userdataedit.putInt("Level1", User.getInstance().getLevel());
+                userdataedit.putString("User1", json);
                 break;
             case 2:
-                userdataedit.putInt("Level2", User.getInstance().getLevel());
+                userdataedit.putString("User2", json);
                 break;
             case 3:
-                userdataedit.putInt("Level3", User.getInstance().getLevel());
+                userdataedit.putString("User3", json);
                 break;
         }
+    }
+    public void updateRabbit(){
+
+        double bmi = User.getInstance().getBmi();
+
+        Log.i("PAINO", Integer.toString(User.getInstance().getWeight()));
+
+        Log.i("PITUUS", Integer.toString(User.getInstance().getHeight()));
+
+        Log.i("BMI", Double.toString(bmi));
+
+        ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
+
+        if(bmi<15){
+            imgRabbit.setImageResource(R.drawable.himoalipaino);
+        }
+        else if(bmi<19){
+            imgRabbit.setImageResource(R.drawable.alipaino);
+        }
+        else if(bmi<25){
+            imgRabbit.setImageResource(R.drawable.normaali);
+        }
+        else if(bmi<35){
+            imgRabbit.setImageResource(R.drawable.laski);
+        }
+        else{
+            imgRabbit.setImageResource(R.drawable.himolaski);
+        }
+
     }
 }

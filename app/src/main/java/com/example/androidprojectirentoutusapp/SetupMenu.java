@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 public class SetupMenu extends AppCompatActivity {
 
     private Dialog myexitDialog;
@@ -28,7 +30,6 @@ public class SetupMenu extends AppCompatActivity {
     private int height;
     private  int weight;
     private String username;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +47,6 @@ public class SetupMenu extends AppCompatActivity {
         } else if(v==findViewById(R.id.triviaButton)){
             Intent triviaIntent = new Intent(SetupMenu.this, activity_trivia.class);
             startActivity(triviaIntent);
-        } else if(v==findViewById(R.id.settingsButton)){
-            //tähän voisi implementoida popup setting menun, pitää selvittää miten
-        } else if(v==findViewById(R.id.exitButton)){
-            //tähän voisi laittaa popupin jossa kysytään haluaako poistua appista vaiko takaisin kirjautumisvalikkoon
         }
     }
     public void exitButton(View v){
@@ -141,10 +138,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     age = Integer.parseInt(eAge.getText().toString());
-                    User.getInstance().setAge(age);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(age < 16) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setAge(age);
+                    updatePlayer();
                 }
             }
         });
@@ -153,10 +155,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     weight = Integer.parseInt(eWeight.getText().toString());
-                    User.getInstance().setHeight(weight);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(weight <= 0) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setWeight(weight);
+                    updatePlayer();
                 }
             }
         });
@@ -165,10 +172,15 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try{
                     height = Integer.parseInt(eHeight.getText().toString());
-                    User.getInstance().setHeight(height);
-                    updatePlayer();
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                if(height<=100) {
+                    Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User.getInstance().setHeight(height);
+                    updatePlayer();
                 }
 
             }
@@ -183,7 +195,6 @@ public class SetupMenu extends AppCompatActivity {
         resetData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 User.getInstance().resetData();
                 updatePlayer();
             }
@@ -194,47 +205,32 @@ public class SetupMenu extends AppCompatActivity {
     }
     public void updatePlayer(){
 
-        //ope neuvoi tekemään tästä kaikesta datasta GSON jne jne juttua
-
         int id = User.getInstance().getId();
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(User.getInstance());
+
         switch(id){
             case 1:
-                userdataedit.putString("Username1", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime1", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight1", User.getInstance().getWeight());
-                userdataedit.putInt("Height1", User.getInstance().getHeight());
-                userdataedit.putInt("Level1", User.getInstance().getLevel());
-                userdataedit.putInt("Age1", User.getInstance().getAge());
+                userdataedit.putString("User1", json);
                 userdataedit.commit();
                 break;
             case 2:
-                userdataedit.putString("Username2", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime2", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight2", User.getInstance().getWeight());
-                userdataedit.putInt("Height2", User.getInstance().getHeight());
-                userdataedit.putInt("Level2", User.getInstance().getLevel());
-                userdataedit.putInt("Age2", User.getInstance().getAge());
+                userdataedit.putString("User2", json);
                 userdataedit.commit();
                 break;
             case 3:
-                userdataedit.putString("Username3", User.getInstance().getName());
-                userdataedit.putInt("Meditationtime3", User.getInstance().getMeditationTime());
-                userdataedit.putInt("Weight3", User.getInstance().getWeight());
-                userdataedit.putInt("Height3", User.getInstance().getHeight());
-                userdataedit.putInt("Level3", User.getInstance().getLevel());
-                userdataedit.putInt("Age3", User.getInstance().getAge());
+                userdataedit.putString("User3", json);
                 userdataedit.commit();
                 break;
         }
     }
     public void updateUI(){
         TextView tv = findViewById(R.id.textViewUsername);
-
-        Log.i("User", User.getInstance().toString());
 
         tv.setText((User.getInstance().getName()));
     }
