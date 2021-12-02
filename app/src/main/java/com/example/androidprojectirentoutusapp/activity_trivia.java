@@ -34,25 +34,25 @@ public class activity_trivia extends AppCompatActivity {
 
         for(int i = 0; i<=User.getInstance().getLevel();i++){
             if(i==1){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(1));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(1, "Hienosti menee"));
             }
             if(i==2){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(2));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(2, "Hienoa olet jo 2 levelillä"));
             }
             if(i==3){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(3));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(3, "Saavutit 3 levelin"));
             }
             if(i==4){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(4));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(4, "Rentoudu lisää olet jo 4 levelillä"));
             }
             if(i==5){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(5));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(5,"5 leveli saavutettu"));
             }
             if(i==6){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(6));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(6, "Vielä vähän ja saavutat 6 levelin"));
             }
             if(i==7){
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(7));
+                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(7, "Siinä se seiska saavutettu nyt voit unohtaa meditoinnin"));
             }
         }
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GlobalTrivias.getInstance().getTriviaList()));
