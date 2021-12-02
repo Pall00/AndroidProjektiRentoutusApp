@@ -123,9 +123,14 @@ public class SetupMenu extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     username = eName.getText().toString();
-                    User.getInstance().setName(username);
-                    updatePlayer();
-                    updateUI();
+                    if(!(username.equals(""))){
+                        User.getInstance().setName(username);
+                        updatePlayer();
+                        updateUI();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                    }
                 }catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 }
