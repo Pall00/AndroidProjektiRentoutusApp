@@ -77,6 +77,10 @@ public class CreateUser extends AppCompatActivity {
     public boolean valid(){
         try{
             username = eName.getText().toString();
+            if(username.equals("")){
+                Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
+                return false;
+            }
             age = Integer.parseInt(eAge.getText().toString());
             height = Integer.parseInt(eHeight.getText().toString());
             weight = Integer.parseInt(eWeight.getText().toString());
