@@ -27,7 +27,6 @@
             android:layout_height="149dp"
             android:onClick="imageButton"
             android:background="@drawable/aurinkokropattutransparent"
-            android:onClick="imageButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.941"

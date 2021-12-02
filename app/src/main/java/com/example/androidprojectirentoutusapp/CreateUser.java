@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
+
 public class CreateUser extends AppCompatActivity {
     private EditText eName;
     private EditText eAge;
@@ -21,6 +26,8 @@ public class CreateUser extends AppCompatActivity {
     private  int weight;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
+    ArrayList<User> eUserList;
+    private User user;
 
     private int userValue;
 
@@ -41,6 +48,10 @@ public class CreateUser extends AppCompatActivity {
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(eUserList);
+        userdataedit.putString("User",json);
+        userdataedit.apply();
 
         eName = findViewById(R.id.textViewName);
         eAge = findViewById(R.id.textViewAge);
@@ -56,6 +67,7 @@ public class CreateUser extends AppCompatActivity {
 
 
             if (userValue == 1) {
+
 
                 userdataedit.putString("Username1", username);
                 userdataedit.putInt("Age1", age);
