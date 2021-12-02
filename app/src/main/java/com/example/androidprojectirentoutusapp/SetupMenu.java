@@ -111,7 +111,6 @@ public class SetupMenu extends AppCompatActivity {
         eWeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeWeight);
         eHeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeHeight);
 
-
         changeName = (Button) mysettingsDialog.findViewById(R.id.changenameButton);
         changeAge = (Button) mysettingsDialog.findViewById(R.id.changeageButton);
         changeWeight = (Button) mysettingsDialog.findViewById(R.id.changeweightButton);
