@@ -31,6 +31,8 @@ public class activity_trivia extends AppCompatActivity {
         Log.i("MY_APP", User.getInstance().getName());
         Log.i("MY_APP", "käyttäjä nyt : " + User.getInstance().getName() + " ikä: " + User.getInstance().getAge());
 
+        GlobalTrivias.getInstance().getTriviaList().clear();
+
 
         for(int i = 0; i<=User.getInstance().getLevel();i++){
             if(i==1){
