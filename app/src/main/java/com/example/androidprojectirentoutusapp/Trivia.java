@@ -1,7 +1,5 @@
 package com.example.androidprojectirentoutusapp;
 
-import androidx.annotation.NonNull;
-
 public class Trivia {
 
     private int level;
@@ -14,7 +12,6 @@ public class Trivia {
     public String getTriviaText(){
         return triviaText;
     }
-
     @Override
     public String toString(){
         return "Trivia " + this.level;
