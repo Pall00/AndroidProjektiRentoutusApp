@@ -50,16 +50,14 @@ public class SetupMenu extends AppCompatActivity {
         }
     }
     public void exitButton(View v){
-        Button exitApp;
-        Button exittoLogin;
-        Button closeButton;
 
         myexitDialog = new Dialog(this);
 
         myexitDialog.setContentView(R.layout.exitpopup);
-        exitApp = (Button) myexitDialog.findViewById(R.id.exitapp);
-        exittoLogin = (Button) myexitDialog.findViewById(R.id.exitlogin);
-        closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+        Button exitApp = (Button) myexitDialog.findViewById(R.id.exitapp);
+        Button exittoLogin = (Button) myexitDialog.findViewById(R.id.exitlogin);
+        Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+
         exitApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,29 +92,17 @@ public class SetupMenu extends AppCompatActivity {
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
-        Button changeName;
-        Button changeAge;
-        Button changeWeight;
-        Button changeHeight;
-        Button exitSettings;
-        Button resetData;
+        EditText eName = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeName);
+        EditText eAge = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeAge);
+        EditText eWeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeWeight);
+        EditText eHeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeHeight);
 
-        EditText eName;
-        EditText eAge;
-        EditText eWeight;
-        EditText eHeight;
-
-        eName = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeName);
-        eAge = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeAge);
-        eWeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeWeight);
-        eHeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeHeight);
-
-        changeName = (Button) mysettingsDialog.findViewById(R.id.changenameButton);
-        changeAge = (Button) mysettingsDialog.findViewById(R.id.changeageButton);
-        changeWeight = (Button) mysettingsDialog.findViewById(R.id.changeweightButton);
-        changeHeight = (Button) mysettingsDialog.findViewById(R.id.changeheightButton);
-        exitSettings = (Button) mysettingsDialog.findViewById(R.id.minimizeButton);
-        resetData = (Button) mysettingsDialog.findViewById(R.id.resetdataButton);
+        Button changeName = (Button) mysettingsDialog.findViewById(R.id.changenameButton);
+        Button changeAge = (Button) mysettingsDialog.findViewById(R.id.changeageButton);
+        Button changeWeight = (Button) mysettingsDialog.findViewById(R.id.changeweightButton);
+        Button changeHeight = (Button) mysettingsDialog.findViewById(R.id.changeheightButton);
+        Button exitSettings = (Button) mysettingsDialog.findViewById(R.id.minimizeButton);
+        Button resetData = (Button) mysettingsDialog.findViewById(R.id.resetdataButton);
 
         changeName.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,11 +2,13 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,7 +20,10 @@ public class Relaxing extends AppCompatActivity {
     //private ImageButton imageButton;
     private CountDownTimer countDownTimer;
     private TextView textView;
-    private boolean on;
+    private boolean timerOn = false;
+    private Dialog myexitDialog;
+
+    private boolean paused = false;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -31,10 +36,12 @@ public class Relaxing extends AppCompatActivity {
         updateRabbit();
     }
 
+
+
     public void imageButton(View v) {
         View view = findViewById(R.id.imageButton);
         textView = findViewById(R.id.tvTimer);
-        if (!on) {
+        if (!timerOn) {
         Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
             CountDownTimer timer = new CountDownTimer(5000, 1000) {
 
@@ -46,16 +53,20 @@ public class Relaxing extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     textView.setText("Valmis");
-                    on = false;
+                    timerOn = false;
                     User.getInstance().levelUp();
-                    updateBackground();
-                    updatePlayer();
-                    updateRabbit();
-                    userdataedit.commit();
+                    updateAll();
+
                 }
             }.start();
         }
-        on = true;
+        timerOn = true;
+    }
+
+    public void updateAll(){
+        updateBackground();
+        updatePlayer();
+        updateRabbit();
     }
 
     public void updateBackground(){
@@ -110,16 +121,11 @@ public class Relaxing extends AppCompatActivity {
                 userdataedit.putString("User3", json);
                 break;
         }
+        userdataedit.commit();
     }
     public void updateRabbit(){
 
         double bmi = User.getInstance().getBmi();
-
-        Log.i("PAINO", Integer.toString(User.getInstance().getWeight()));
-
-        Log.i("PITUUS", Integer.toString(User.getInstance().getHeight()));
-
-        Log.i("BMI", Double.toString(bmi));
 
         ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
 
@@ -140,5 +146,40 @@ public class Relaxing extends AppCompatActivity {
             imgRabbit.setImageResource(0);
         }
 
+    }
+    public void onBackPressed(){
+        if(!timerOn){
+            super.onBackPressed();
+        }
+        else{
+            myexitDialog = new Dialog(this);
+
+            myexitDialog.setContentView(R.layout.makingsurepopup);
+            Button yesButton = (Button) myexitDialog.findViewById(R.id.yesbutton);
+            Button noButton = (Button) myexitDialog.findViewById(R.id.nobutton);
+            Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+            yesButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myexitDialog.dismiss();
+                    finish();
+                }
+            });
+            noButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myexitDialog.dismiss();
+                }
+            });
+            closeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    paused = false;
+                    myexitDialog.dismiss();
+                }
+            });
+
+            myexitDialog.show();
+        }
     }
 }
