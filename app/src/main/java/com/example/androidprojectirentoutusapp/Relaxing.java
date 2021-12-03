@@ -50,6 +50,7 @@ public class Relaxing extends AppCompatActivity {
                     User.getInstance().levelUp();
                     updateBackground();
                     updatePlayer();
+                    updateRabbit();
                     userdataedit.commit();
                 }
             }.start();
@@ -62,7 +63,7 @@ public class Relaxing extends AppCompatActivity {
         ImageView  img = (ImageView) findViewById(R.id.imageView);
         switch(level){
             case 0:
-                img.setImageResource(R.drawable.level0test);
+                img.setImageResource(R.drawable.aavikkotausta);
                 break;
             case 1:
                 img.setImageResource(R.drawable.level1test);
@@ -122,20 +123,21 @@ public class Relaxing extends AppCompatActivity {
 
         ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
 
-        if(bmi<15){
-            imgRabbit.setImageResource(R.drawable.himoalipaino);
-        }
-        else if(bmi<19){
-            imgRabbit.setImageResource(R.drawable.alipaino);
-        }
-        else if(bmi<25){
-            imgRabbit.setImageResource(R.drawable.normaali);
-        }
-        else if(bmi<35){
-            imgRabbit.setImageResource(R.drawable.laski);
+        if(User.getInstance().getLevel()>2) {
+            if (bmi < 15) {
+                imgRabbit.setImageResource(R.drawable.himoalipaino);
+            } else if (bmi < 19) {
+                imgRabbit.setImageResource(R.drawable.alipaino);
+            } else if (bmi < 25) {
+                imgRabbit.setImageResource(R.drawable.normaali);
+            } else if (bmi < 35) {
+                imgRabbit.setImageResource(R.drawable.laski);
+            } else {
+                imgRabbit.setImageResource(R.drawable.himolaski);
+            }
         }
         else{
-            imgRabbit.setImageResource(R.drawable.himolaski);
+            imgRabbit.setImageResource(0);
         }
 
     }
