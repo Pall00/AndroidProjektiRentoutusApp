@@ -12,83 +12,143 @@
         android:id="@+id/buttonCreateUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
         android:onClick="createUser"
         android:text="Create new user!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user3_button"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <Button
-        android:id="@+id/user1_button"
+        android:id="@+id/user2_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
         android:onClick="loginButton"
         android:text="@string/user1_button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/user3_button"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
         android:onClick="loginButton"
         android:text="@string/user3_button"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.209"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user2_button" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/user2_button"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:onClick="loginButton"
-        android:text="@string/user2_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.209"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user1_button" />
-
-    <Button
-        android:id="@+id/user1remove_button"
+        android:id="@+id/user1_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="removeButton"
-        android:text="@string/remove_user"
-        android:textSize="10sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/user1_button"
+        android:onClick="loginButton"
+        android:text="@string/user2_button"
+        app:layout_constraintBottom_toBottomOf="@+id/user1remove_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user1_button" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/user2remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="49dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
         android:onClick="removeButton"
-        android:text="@string/remove_user"
-        android:textSize="10sp"
+        android:text="@string/closebutton"
+        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@+id/user2_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toEndOf="@+id/user2_button" />
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toEndOf="@+id/guideline4" />
+
+    <Button
+        android:id="@+id/user1remove_button"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="125dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:onClick="removeButton"
+        android:text="@string/closebutton"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toEndOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/user3remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="49dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
         android:onClick="removeButton"
-        android:text="@string/remove_user"
-        android:textSize="10sp"
+        android:text="@string/closebutton"
+        android:textColor="@color/black"
         app:layout_constraintBaseline_toBaselineOf="@+id/user3_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user3_button" />
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toEndOf="@+id/guideline5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="322dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/user1remove_button"
+        app:layout_constraintGuide_percent="0.20"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="322dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/user2remove_button"
+        app:layout_constraintGuide_percent="0.40"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="322dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/user3remove_button"
+        app:layout_constraintGuide_percent="0.60"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

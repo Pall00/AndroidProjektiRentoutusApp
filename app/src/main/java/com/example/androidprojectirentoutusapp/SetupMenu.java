@@ -220,8 +220,18 @@ public class SetupMenu extends AppCompatActivity {
         }
     }
     public void updateUI(){
-        TextView tv = findViewById(R.id.textViewUsername);
+        TextView tvUsername = findViewById(R.id.textViewUsername);
+        TextView tvAge = findViewById(R.id.textViewAge);
+        TextView tvWeight = findViewById(R.id.textViewWeight);
+        TextView tvHeight = findViewById(R.id.textViewHeight);
+        TextView tvLevel = findViewById(R.id.textViewLevel);
+        TextView tvMeditation = findViewById(R.id.textViewMeditationtime);
 
-        tv.setText((User.getInstance().getName()));
+        tvUsername.setText((User.getInstance().getName()));
+        tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
+        tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
+        tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
+        tvLevel.setText("Level: " + Integer.toString(User.getInstance().getLevel()));
+        tvMeditation.setText("Meditated time: " + Integer.toString(User.getInstance().getMeditationTime()));
     }
 }
