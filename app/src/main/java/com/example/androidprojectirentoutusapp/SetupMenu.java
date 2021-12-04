@@ -234,4 +234,8 @@ public class SetupMenu extends AppCompatActivity {
         tvLevel.setText("Level: " + Integer.toString(User.getInstance().getLevel()));
         tvMeditation.setText("Meditated time: " + Integer.toString(User.getInstance().getMeditationTime()));
     }
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
 }

@@ -35,17 +35,14 @@
 
         <TextView
             android:id="@+id/tvTimer"
-            android:layout_width="124dp"
-            android:layout_height="0dp"
+            android:layout_width="169dp"
+            android:layout_height="20dp"
             android:layout_marginTop="73dp"
-            android:layout_marginBottom="298dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/pupuView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.365"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.108" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/pupuView"
@@ -56,7 +53,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTimer"
             app:srcCompat="@drawable/ic_launcher_background" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
