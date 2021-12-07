@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        user_button1 = findViewById(R.id.user1_button);
-        user_button2 = findViewById(R.id.user2_button);
-        user_button3 = findViewById(R.id.user3_button);
+        user_button1 = findViewById(R.id.user1Button);
+        user_button2 = findViewById(R.id.user2Button);
+        user_button3 = findViewById(R.id.user3Button);
 
         updateUI();
     }
@@ -53,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
-        if(v == findViewById(R.id.user1remove_button)&& !(userdata.getString("User1", "0").equals("0"))){
+        if(v == findViewById(R.id.user1removeButton)&& !(userdata.getString("User1", "0").equals("0"))){
             userdataedit.remove("User1");
         }
-        else if (v == findViewById(R.id.user2remove_button) && !(userdata.getString("User2", "0").equals("0"))){
+        else if (v == findViewById(R.id.user2removeButton) && !(userdata.getString("User2", "0").equals("0"))){
             userdataedit.remove("User2");
         }
-        else if(v == findViewById(R.id.user3remove_button) && !(userdata.getString("User3", "0").equals("0"))){
+        else if(v == findViewById(R.id.user3removeButton) && !(userdata.getString("User3", "0").equals("0"))){
             userdataedit.remove("User3");
         }
         else{
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
 
-        if(v == findViewById(R.id.user1_button) && !(userdata.getString("User1", "0").equals("0"))){
+        if(v == findViewById(R.id.user1Button) && !(userdata.getString("User1", "0").equals("0"))){
 
             String json = userdata.getString("User1", "0");
             User user = gson.fromJson(json, User.class);
@@ -96,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(loginIntent);
         }
-        else if(v== findViewById(R.id.user2_button) && !(userdata.getString("User2", "0").equals("0"))){
+        else if(v== findViewById(R.id.user2Button) && !(userdata.getString("User2", "0").equals("0"))){
 
             String json = userdata.getString("User2", "0");
             User user = gson.fromJson(json, User.class);
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(loginIntent);
         }
-        else if(v== findViewById(R.id.user3_button) && !(userdata.getString("User3", "0").equals("0"))){
+        else if(v== findViewById(R.id.user3Button) && !(userdata.getString("User3", "0").equals("0"))){
 
             String json = userdata.getString("User3", "0");
             User user = gson.fromJson(json, User.class);

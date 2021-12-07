@@ -18,6 +18,4 @@ public class GlobalTrivias {
         public List<Trivia>getTriviaList(){return triviaList;}
 
         public Trivia getTrivia(int i){ return triviaList.get(i);}
-
-        public String getTriviaText(int i){return triviaList.get(i).getTriviaText();}
 }
