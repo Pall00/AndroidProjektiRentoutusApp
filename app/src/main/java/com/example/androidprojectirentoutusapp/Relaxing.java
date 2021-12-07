@@ -2,8 +2,10 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -26,6 +28,8 @@ public class Relaxing extends AppCompatActivity {
 
     private int aika;
 
+    private MediaPlayer mediaPlayer;
+
     private long kello = 5000;
 
     private boolean paused = false;
@@ -39,6 +43,7 @@ public class Relaxing extends AppCompatActivity {
         setContentView(R.layout.activity_relaxing);
         updateBackground();
         updateRabbit();
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
     }
 
 
@@ -47,6 +52,7 @@ public class Relaxing extends AppCompatActivity {
         View view = findViewById(R.id.imageButton);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
+            mediaPlayer.start();
         //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
             CountDownTimer timer = new CountDownTimer(kello, 1000) {
 
@@ -57,6 +63,7 @@ public class Relaxing extends AppCompatActivity {
                 }
                 @Override
                 public void onFinish() {
+                    mediaPlayer.stop();
                     textView.setText("Valmis");
                     if(User.getInstance().getLevel() <7 && timerOn){
                         Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
@@ -181,6 +188,7 @@ public class Relaxing extends AppCompatActivity {
                     User.getInstance().addMeditationTime(aika);
                     aika = 0;
                     timerOn = false;
+                    mediaPlayer.stop();
                     finish();
                 }
             });
