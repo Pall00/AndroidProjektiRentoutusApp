@@ -59,10 +59,15 @@ public class Relaxing extends AppCompatActivity {
                 public void onFinish() {
                     textView.setText("Valmis");
                     timerOn = false;
+                    if(User.getInstance().getLevel() <7){
+                        Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Rentoutuminen suoritettu! Jatka samaan malliin!", Toast.LENGTH_SHORT).show();
+                    }
                     User.getInstance().levelUp();
                     User.getInstance().addMeditationTime(aika);
                     aika = 0;
-                    Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
                     updateAll();
 
                 }
