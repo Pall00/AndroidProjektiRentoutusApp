@@ -52,6 +52,7 @@ public class Relaxing extends AppCompatActivity {
         View view = findViewById(R.id.imageButton);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
+            mediaPlayer.stop();
             mediaPlayer.start();
         //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
             CountDownTimer timer = new CountDownTimer(kello, 1000) {

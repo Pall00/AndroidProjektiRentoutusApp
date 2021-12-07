@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.taustamusa);
+        music.start();
+
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         user_button1 = findViewById(R.id.user1_button);
