@@ -90,9 +90,12 @@ public class User {
         return level;
     }
 
-
     public int getMeditationTime() {
         return meditationTime;
+    }
+
+    public void addMeditationTime(int time) {
+        this.meditationTime += time;
     }
 
 }

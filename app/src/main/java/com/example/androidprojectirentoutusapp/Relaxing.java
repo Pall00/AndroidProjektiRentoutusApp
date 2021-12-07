@@ -24,6 +24,10 @@ public class Relaxing extends AppCompatActivity {
     private boolean timerOn = false;
     private Dialog myexitDialog;
 
+    private int aika;
+
+    private long kello = 5000;
+
     private boolean paused = false;
 
     private SharedPreferences userdata;
@@ -43,19 +47,22 @@ public class Relaxing extends AppCompatActivity {
         View view = findViewById(R.id.imageButton);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
-        Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
-            CountDownTimer timer = new CountDownTimer(5000, 1000) {
+        //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
+            CountDownTimer timer = new CountDownTimer(kello, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
                     textView.setText("seconds remaining: " + millisUntilFinished / 1000);
-
+                    aika = (int)  (((kello+1000)-millisUntilFinished) / 1000);
                 }
                 @Override
                 public void onFinish() {
                     textView.setText("Valmis");
                     timerOn = false;
                     User.getInstance().levelUp();
+                    User.getInstance().addMeditationTime(aika);
+                    aika = 0;
+                    Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
                     updateAll();
 
                 }
@@ -163,6 +170,7 @@ public class Relaxing extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     myexitDialog.dismiss();
+                    User.getInstance().addMeditationTime(aika);
                     finish();
                 }
             });

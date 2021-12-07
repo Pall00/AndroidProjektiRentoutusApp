@@ -19,7 +19,5 @@ public class TriviaDetailsActivity extends AppCompatActivity {
 
        ((TextView)findViewById(R.id.tvTrivia))
                .setText(GlobalTrivias.getInstance().getTrivia(i).getTriviaText());
-
-
     }
 }

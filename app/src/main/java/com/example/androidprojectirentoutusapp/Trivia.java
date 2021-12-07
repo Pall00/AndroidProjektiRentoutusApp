@@ -16,5 +16,4 @@ public class Trivia {
     public String toString(){
         return "Trivia " + this.level;
     }
-
 }
