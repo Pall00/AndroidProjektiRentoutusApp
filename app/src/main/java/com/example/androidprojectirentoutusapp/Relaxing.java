@@ -58,15 +58,17 @@ public class Relaxing extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     textView.setText("Valmis");
-                    timerOn = false;
-                    if(User.getInstance().getLevel() <7){
+                    if(User.getInstance().getLevel() <7 && timerOn){
                         Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
                     }
-                    else{
+                    else if (timerOn){
                         Toast.makeText(getApplicationContext(), "Rentoutuminen suoritettu! Jatka samaan malliin!", Toast.LENGTH_SHORT).show();
                     }
-                    User.getInstance().levelUp();
-                    User.getInstance().addMeditationTime(aika);
+                    if (timerOn) {
+                        User.getInstance().levelUp();
+                        User.getInstance().addMeditationTime(aika);
+                    }
+                    timerOn = false;
                     aika = 0;
                     updateAll();
 
@@ -160,6 +162,7 @@ public class Relaxing extends AppCompatActivity {
         }
 
     }
+
     public void onBackPressed(){
         if(!timerOn){
             super.onBackPressed();
@@ -176,6 +179,8 @@ public class Relaxing extends AppCompatActivity {
                 public void onClick(View v) {
                     myexitDialog.dismiss();
                     User.getInstance().addMeditationTime(aika);
+                    aika = 0;
+                    timerOn = false;
                     finish();
                 }
             });
