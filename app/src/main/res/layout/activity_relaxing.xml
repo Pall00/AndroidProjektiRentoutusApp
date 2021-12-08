@@ -46,8 +46,8 @@
 
         <ImageView
             android:id="@+id/pupuView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120sp"
+            android:layout_height="160sp"
             android:layout_marginBottom="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
