@@ -3,12 +3,9 @@ package com.example.androidprojectirentoutusapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,7 +51,7 @@ public class SetupMenu extends AppCompatActivity {
         myexitDialog = new Dialog(this);
 
         myexitDialog.setContentView(R.layout.exitpopup);
-        Button exitApp = (Button) myexitDialog.findViewById(R.id.exitapp);
+        Button exitApp = (Button) myexitDialog.findViewById(R.id.exitappButton);
         Button exittoLogin = (Button) myexitDialog.findViewById(R.id.exitlogin);
         Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
 

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <Button
-        android:id="@+id/user2_button"
+        android:id="@+id/user2Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="loginButton"
@@ -33,7 +33,7 @@
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
-        android:id="@+id/user3_button"
+        android:id="@+id/user3Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="96dp"
@@ -44,17 +44,17 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/user1_button"
+        android:id="@+id/user1Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="loginButton"
         android:text="@string/user2_button"
-        app:layout_constraintBottom_toBottomOf="@+id/user1remove_button"
+        app:layout_constraintBottom_toBottomOf="@+id/user1removeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/user2remove_button"
+        android:id="@+id/user2removeButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="49dp"
@@ -63,13 +63,13 @@
         android:onClick="removeButton"
         android:text="@string/closebutton"
         android:textColor="@color/black"
-        app:layout_constraintBaseline_toBaselineOf="@+id/user2_button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user2Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toEndOf="@+id/guideline4" />
 
     <Button
-        android:id="@+id/user1remove_button"
+        android:id="@+id/user1removeButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="128dp"
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/user3remove_button"
+        android:id="@+id/user3removeButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="49dp"
@@ -96,7 +96,7 @@
         android:onClick="removeButton"
         android:text="@string/closebutton"
         android:textColor="@color/black"
-        app:layout_constraintBaseline_toBaselineOf="@+id/user3_button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/user3Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toEndOf="@+id/guideline5" />
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="322dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/user1remove_button"
+        app:layout_constraintEnd_toStartOf="@+id/user1removeButton"
         app:layout_constraintGuide_percent="0.20"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="322dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/user2remove_button"
+        app:layout_constraintEnd_toStartOf="@+id/user2removeButton"
         app:layout_constraintGuide_percent="0.40"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="322dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/user3remove_button"
+        app:layout_constraintEnd_toStartOf="@+id/user3removeButton"
         app:layout_constraintGuide_percent="0.60"
         app:layout_constraintStart_toStartOf="parent" />
 

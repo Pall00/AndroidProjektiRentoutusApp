@@ -2,15 +2,12 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,8 +17,6 @@ import com.google.gson.Gson;
 
 public class Relaxing extends AppCompatActivity {
 
-    //private ImageButton imageButton;
-    private CountDownTimer countDownTimer;
     private TextView textView;
     private boolean timerOn = false;
     private Dialog myexitDialog;
@@ -30,9 +25,7 @@ public class Relaxing extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
-    private long kello = 5000;
-
-    private boolean paused = false;
+    private final long kello = 5000;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -46,10 +39,8 @@ public class Relaxing extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
     }
 
-
-
     public void imageButton(View v) {
-        View view = findViewById(R.id.imageButton);
+        View view = findViewById(R.id.imageButtonAurinko);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.stop();
@@ -179,8 +170,8 @@ public class Relaxing extends AppCompatActivity {
             myexitDialog = new Dialog(this);
 
             myexitDialog.setContentView(R.layout.makingsurepopup);
-            Button yesButton = (Button) myexitDialog.findViewById(R.id.yesbutton);
-            Button noButton = (Button) myexitDialog.findViewById(R.id.nobutton);
+            Button yesButton = (Button) myexitDialog.findViewById(R.id.yesButton);
+            Button noButton = (Button) myexitDialog.findViewById(R.id.noButton);
             Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
             yesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -202,7 +193,6 @@ public class Relaxing extends AppCompatActivity {
             closeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    paused = false;
                     myexitDialog.dismiss();
                 }
             });

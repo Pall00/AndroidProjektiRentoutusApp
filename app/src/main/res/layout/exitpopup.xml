@@ -9,7 +9,7 @@
     android:layout_gravity="center">
 
     <Button
-        android:id="@+id/exitapp"
+        android:id="@+id/exitappButton"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:text="@string/exitappButton"
