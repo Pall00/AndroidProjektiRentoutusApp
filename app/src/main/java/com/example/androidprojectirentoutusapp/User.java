@@ -6,7 +6,7 @@ public class User {
     private int height;
     private String name;
     private int level;
-    private int meditationTime;
+    private int relaxingTime;
     private static final User ourInstance = new User();
     private int id;
 
@@ -17,13 +17,13 @@ public class User {
         return ourInstance;
     }
 
-    public void setValues(int age, int weight, int height, String name, int level, int meditationTime, int id) {
+    public void setValues(int age, int weight, int height, String name, int level, int relaxingTime, int id) {
         this.age = age;
         this.weight = weight;
         this.height = height;
         this.name = name;
         this.level = level;
-        this.meditationTime = meditationTime;
+        this.relaxingTime = relaxingTime;
         this.id = id;
     }
 
@@ -55,7 +55,7 @@ public class User {
 
     public void resetData(){
         this.level = 0;
-        this.meditationTime = 0;
+        this.relaxingTime = 0;
     }
 
     public void setAge(int age) {
@@ -90,12 +90,12 @@ public class User {
         return level;
     }
 
-    public int getMeditationTime() {
-        return meditationTime;
+    public int getRelaxingTime() {
+        return relaxingTime;
     }
 
-    public void addMeditationTime(int time) {
-        this.meditationTime += time;
+    public void addRelaxingTime(int time) {
+        this.relaxingTime += time;
     }
 
 }

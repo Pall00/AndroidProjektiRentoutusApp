@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -223,17 +222,17 @@ public class SetupMenu extends AppCompatActivity {
         TextView tvWeight = findViewById(R.id.textViewWeight);
         TextView tvHeight = findViewById(R.id.textViewHeight);
         TextView tvLevel = findViewById(R.id.textViewLevel);
-        TextView tvMeditation = findViewById(R.id.textViewMeditationtime);
+        TextView tvRelaxing = findViewById(R.id.textViewRelaxingTime);
 
-        int hours = User.getInstance().getMeditationTime() / 3600;
-        int minutes = (User.getInstance().getMeditationTime() % 3600) / 60;
-        int seconds = User.getInstance().getMeditationTime() % 60;
+        int hours = User.getInstance().getRelaxingTime() / 3600;
+        int minutes = (User.getInstance().getRelaxingTime() % 3600) / 60;
+        int seconds = User.getInstance().getRelaxingTime() % 60;
         String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
         tvUsername.setText((User.getInstance().getName()));
         tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
-        tvMeditation.setText("MedTime: " + timeString);
+        tvRelaxing.setText("RentTime: " + timeString);
     }
     public void onResume(){
         super.onResume();

@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             String json = userdata.getString("User1", "0");
             User user = gson.fromJson(json, User.class);
 
-            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
+            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getRelaxingTime(), user.getId());
 
             startActivity(loginIntent);
         }
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             String json = userdata.getString("User2", "0");
             User user = gson.fromJson(json, User.class);
 
-            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
+            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getRelaxingTime(), user.getId());
 
             startActivity(loginIntent);
         }
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             String json = userdata.getString("User3", "0");
             User user = gson.fromJson(json, User.class);
 
-            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getMeditationTime(), user.getId());
+            User.getInstance().setValues(user.getAge(), user.getWeight(), user.getHeight(), user.getName(), user.getLevel(), user.getRelaxingTime(), user.getId());
 
             startActivity(loginIntent);
         }

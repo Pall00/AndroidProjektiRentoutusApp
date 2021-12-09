@@ -68,7 +68,7 @@ public class Relaxing extends AppCompatActivity {
                     }
                     if (timerOn) {
                         User.getInstance().levelUp();
-                        User.getInstance().addMeditationTime(aika);
+                        User.getInstance().addRelaxingTime(aika);
                     }
                     timerOn = false;
                     aika = 0;
@@ -177,7 +177,7 @@ public class Relaxing extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     myexitDialog.dismiss();
-                    User.getInstance().addMeditationTime(aika);
+                    User.getInstance().addRelaxingTime(aika);
                     aika = 0;
                     timerOn = false;
                     mediaPlayer.stop();
