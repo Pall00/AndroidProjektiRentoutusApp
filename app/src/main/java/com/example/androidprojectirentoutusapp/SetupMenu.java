@@ -236,5 +236,6 @@ public class SetupMenu extends AppCompatActivity {
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
         tvRelaxing.setText("RentTime: " + timeString);
+        tvLevel.setText("Level: "+ Integer.toString(User.getInstance().getLevel()+1));
     }
 }
