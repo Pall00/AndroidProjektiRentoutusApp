@@ -21,13 +21,15 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
+    private MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MediaPlayer music = MediaPlayer.create(MainActivity.this, R.raw.taustamusa);
-        music.start();
+        //MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.taustamusa);
+        //mediaPlayer.start();
 
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);

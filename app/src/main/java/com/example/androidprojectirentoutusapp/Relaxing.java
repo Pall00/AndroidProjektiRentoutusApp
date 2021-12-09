@@ -43,7 +43,6 @@ public class Relaxing extends AppCompatActivity {
         View view = findViewById(R.id.imageButtonAurinko);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
-            mediaPlayer.stop();
             mediaPlayer.start();
         //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
             CountDownTimer timer = new CountDownTimer(kello, 1000) {
@@ -55,7 +54,7 @@ public class Relaxing extends AppCompatActivity {
                 }
                 @Override
                 public void onFinish() {
-                    mediaPlayer.stop();
+                    mediaPlayer.pause();
                     textView.setText("Valmis");
                     if(User.getInstance().getLevel() <7 && timerOn){
                         Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
@@ -106,9 +105,6 @@ public class Relaxing extends AppCompatActivity {
                 img.setImageResource(R.drawable.level6);
                 break;
             case 6:
-                img.setImageResource(R.drawable.level7);
-                break;
-            case 7:
                 img.setImageResource(R.drawable.level7);
                 break;
         }

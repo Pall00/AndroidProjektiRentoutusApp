@@ -48,7 +48,7 @@ public class User {
     }
 
     public void levelUp(){
-        if(this.getLevel()<7) {
+        if(this.getLevel()<6) {
             this.level += 1;
         }
     }
