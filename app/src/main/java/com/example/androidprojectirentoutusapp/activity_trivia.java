@@ -20,6 +20,8 @@ public class activity_trivia extends AppCompatActivity {
 
     private ListView listView;
 
+    private boolean tohomescreen = true;
+
     public static  final String EXTRA = "com.example.androidprojectirentoutusapp.MESSAGE";
 
     @Override
@@ -102,6 +104,7 @@ public class activity_trivia extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Intent nextActivity = new Intent(activity_trivia.this, TriviaDetailsActivity.class);
+                tohomescreen = false;
                 nextActivity.putExtra(EXTRA, i);
                 startActivity(nextActivity);
             }
