@@ -146,6 +146,7 @@
         android:id="@+id/relaxButton"
         android:layout_width="208dp"
         android:layout_height="134dp"
+        android:onClick="menuButton"
         android:background="@drawable/relaxbutton"
         app:layout_constraintBottom_toTopOf="@+id/triviaButton"
         app:layout_constraintEnd_toEndOf="parent"
