@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +28,8 @@ public class SetupMenu extends AppCompatActivity {
     private int height;
     private  int weight;
     private String username;
+    private boolean tohomescreen = true;
+    private boolean paused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,9 +236,5 @@ public class SetupMenu extends AppCompatActivity {
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
         tvRelaxing.setText("RentTime: " + timeString);
-    }
-    public void onResume(){
-        super.onResume();
-        updateUI();
     }
 }
