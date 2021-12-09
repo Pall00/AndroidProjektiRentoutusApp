@@ -25,7 +25,7 @@ public class Relaxing extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
-    private final long kello = 5000;
+    private final long kello = 600000;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -50,13 +50,13 @@ public class Relaxing extends AppCompatActivity {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    textView.setText("seconds remaining: " + millisUntilFinished / 1000);
+                    textView.setText("Time remaining: " + millisUntilFinished / 1000);
                     aika = (int)  (((kello+1000)-millisUntilFinished) / 1000);
                 }
                 @Override
                 public void onFinish() {
                     mediaPlayer.pause();
-                    textView.setText("Valmis");
+                    textView.setText("");
                     if(User.getInstance().getLevel() == 2){
                         Toast.makeText(getApplicationContext(), "You got yourself a bunny!", Toast.LENGTH_SHORT).show();
                     }
