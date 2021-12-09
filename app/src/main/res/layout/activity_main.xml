@@ -8,6 +8,17 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="298dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <Button
         android:id="@+id/buttonCreateUser"
         android:layout_width="wrap_content"
@@ -63,10 +74,11 @@
         android:onClick="removeButton"
         android:text="@string/closebutton"
         android:textColor="@color/black"
-        app:layout_constraintBaseline_toBaselineOf="@+id/user2Button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
-        app:layout_constraintStart_toEndOf="@+id/guideline4" />
+        app:layout_constraintStart_toEndOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button
         android:id="@+id/user1removeButton"
