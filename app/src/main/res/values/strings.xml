@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">AndroidProjektiRentoutusApp</string>
-    <string name="user1_button">Empty user</string>
-    <string name="user2_button">Empty user</string>
-    <string name="user3_button">Empty user</string>
+    <string name="user_button">Empty user</string>
     <string name="exitButton">Exit</string>
     <string name="relaxButton">Relax</string>
     <string name="settingsButton">Settings</string>
@@ -14,4 +12,5 @@
     <string name="exittologin">Exit to Login</string>
     <string name="closebutton">X</string>
     <string name="changeButton">Ok</string>
+    <string name="createuser_button">Create new user</string>
 </resources>
