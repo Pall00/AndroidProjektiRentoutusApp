@@ -35,7 +35,7 @@ public class activity_trivia extends AppCompatActivity {
         GlobalTrivias.getInstance().getTriviaList().clear();
 
 
-        for(int i = 0; i<=User.getInstance().getLevel();i++){
+        for(int i = 0; i<=(User.getInstance().getLevel()+1);i++){
             if(i==1){
 
                 InputStream file = getResources().openRawResource(R.raw.trivia1);

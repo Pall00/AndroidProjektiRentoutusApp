@@ -229,7 +229,7 @@ public class SetupMenu extends AppCompatActivity {
         tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
-        tvLevel.setText("Level: " + Integer.toString(User.getInstance().getLevel()));
+        tvLevel.setText("Level: " + Integer.toString(User.getInstance().getLevel()+1));
         tvMeditation.setText("Meditated time: " + Integer.toString(User.getInstance().getMeditationTime()));
     }
     public void onResume(){
