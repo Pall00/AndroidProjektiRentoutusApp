@@ -113,7 +113,6 @@
         android:layout_height="134dp"
         android:onClick="menuButton"
         android:background="@drawable/relaxbutton"
-        android:onClick="menuButton"
         app:layout_constraintBottom_toTopOf="@+id/triviaButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
