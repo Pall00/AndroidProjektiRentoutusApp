@@ -25,6 +25,8 @@ public class Relaxing extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
+    private int length;
+
     private final long kello = 600000;
 
     private SharedPreferences userdata;
@@ -159,7 +161,6 @@ public class Relaxing extends AppCompatActivity {
         else{
             imgRabbit.setImageResource(0);
         }
-
     }
 
     public void onBackPressed(){
@@ -198,6 +199,18 @@ public class Relaxing extends AppCompatActivity {
             });
 
             myexitDialog.show();
+        }
+    }
+    protected void onPause(){
+        super.onPause();
+        length= mediaPlayer.getCurrentPosition();
+        mediaPlayer.pause();
+    }
+    protected void onResume(){
+        super.onResume();
+        if(timerOn){
+            mediaPlayer.start();
+            mediaPlayer.seekTo(length);
         }
     }
 }

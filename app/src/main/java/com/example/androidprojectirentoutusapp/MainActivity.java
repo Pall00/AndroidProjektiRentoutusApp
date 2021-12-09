@@ -23,19 +23,21 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
+    private int length;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.taustamusa);
-        //mediaPlayer.start();
-
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.taustamusa);
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         user_button1 = findViewById(R.id.user1Button);
         user_button2 = findViewById(R.id.user2Button);
         user_button3 = findViewById(R.id.user3Button);
+
+        //mediaPlayer.start();
 
         updateUI();
     }
@@ -171,8 +173,17 @@ public class MainActivity extends AppCompatActivity {
             user_button1.setText("Empty user");
         }
     }
+
+    protected void onPause(){
+        super.onPause();
+        length= mediaPlayer.getCurrentPosition();
+        mediaPlayer.pause();
+    }
+
     protected void onResume(){
         super.onResume();
+        mediaPlayer.start();
+        mediaPlayer.seekTo(length);
         updateUI();
     }
 

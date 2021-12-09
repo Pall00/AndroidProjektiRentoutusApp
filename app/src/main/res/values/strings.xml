@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidProjektiRentoutusApp</string>
+    <string name="app_name">RentFree</string>
     <string name="user_button">Empty user</string>
     <string name="exitButton">Exit</string>
     <string name="relaxButton">Relax</string>
