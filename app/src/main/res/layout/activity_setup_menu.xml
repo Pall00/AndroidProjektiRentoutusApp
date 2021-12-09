@@ -7,41 +7,6 @@
     android:background="@drawable/backgroundblue"
     tools:context=".SetupMenu">
 
-    <Button
-        android:id="@+id/triviaButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="menuButton"
-        android:text="@string/triviaButton"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="settingsButton"
-        android:text="@string/settingsButton"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <Button
-        android:id="@+id/exitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="exitButton"
-        android:text="@string/exitButton"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
-
     <TextView
         android:id="@+id/textViewUsername"
         android:layout_width="wrap_content"
@@ -148,9 +113,44 @@
         android:layout_height="134dp"
         android:onClick="menuButton"
         android:background="@drawable/relaxbutton"
+        android:onClick="menuButton"
         app:layout_constraintBottom_toTopOf="@+id/triviaButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/triviaButton"
+        android:layout_width="205dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/triviabutton"
+        android:onClick="menuButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relaxButton" />
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="155dp"
+        android:layout_height="130dp"
+        android:background="@drawable/settingsbutton"
+        android:onClick="settingsButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/triviaButton" />
+
+    <ImageButton
+        android:id="@+id/exitButton"
+        android:layout_width="137dp"
+        android:layout_height="65dp"
+        android:background="@drawable/exitbutton"
+        android:onClick="exitButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
