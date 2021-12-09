@@ -225,12 +225,15 @@ public class SetupMenu extends AppCompatActivity {
         TextView tvLevel = findViewById(R.id.textViewLevel);
         TextView tvMeditation = findViewById(R.id.textViewMeditationtime);
 
+        int hours = User.getInstance().getMeditationTime() / 3600;
+        int minutes = (User.getInstance().getMeditationTime() % 3600) / 60;
+        int seconds = User.getInstance().getMeditationTime() % 60;
+        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
         tvUsername.setText((User.getInstance().getName()));
         tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
-        tvLevel.setText("Level: " + Integer.toString(User.getInstance().getLevel()+1));
-        tvMeditation.setText("Meditated time: " + Integer.toString(User.getInstance().getMeditationTime()));
+        tvMeditation.setText("MedTime: " + timeString);
     }
     public void onResume(){
         super.onResume();

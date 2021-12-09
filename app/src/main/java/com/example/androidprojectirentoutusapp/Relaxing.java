@@ -37,6 +37,7 @@ public class Relaxing extends AppCompatActivity {
         updateBackground();
         updateRabbit();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
+        Toast.makeText(getApplicationContext(), "Press the sun to begin relaxing", Toast.LENGTH_SHORT).show();
     }
 
     public void imageButton(View v) {
@@ -56,11 +57,14 @@ public class Relaxing extends AppCompatActivity {
                 public void onFinish() {
                     mediaPlayer.pause();
                     textView.setText("Valmis");
-                    if(User.getInstance().getLevel() <7 && timerOn){
-                        Toast.makeText(getApplicationContext(), "Pääsit uudelle tasolle! Uusia trivia avautui!", Toast.LENGTH_SHORT).show();
+                    if(User.getInstance().getLevel() == 2){
+                        Toast.makeText(getApplicationContext(), "You got yourself a bunny!", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(User.getInstance().getLevel() <6 && timerOn){
+                        Toast.makeText(getApplicationContext(), "You made it to the next level! New trivia available!", Toast.LENGTH_SHORT).show();
                     }
                     else if (timerOn){
-                        Toast.makeText(getApplicationContext(), "Rentoutuminen suoritettu! Jatka samaan malliin!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "You finished your session! Keep up the good work!", Toast.LENGTH_SHORT).show();
                     }
                     if (timerOn) {
                         User.getInstance().levelUp();
