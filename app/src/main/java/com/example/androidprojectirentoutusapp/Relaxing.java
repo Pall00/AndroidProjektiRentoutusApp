@@ -27,7 +27,7 @@ public class Relaxing extends AppCompatActivity {
 
     private int length;
 
-    private final long kello = 600000;
+    private final long kello = 60000;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
