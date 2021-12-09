@@ -38,7 +38,6 @@ public class Relaxing extends AppCompatActivity {
         setContentView(R.layout.activity_relaxing);
         updateBackground();
         updateRabbit();
-        AudioPlay.stopAudio();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
         Toast.makeText(getApplicationContext(), "Press the sun to begin relaxing", Toast.LENGTH_SHORT).show();
     }
