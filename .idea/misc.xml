@@ -3,22 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_create_user.xml" value="0.32971014492753625" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_relaxing.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_setup_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_trivia.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/activity_trivia_details.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/exitpopup.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/makingsurepopup.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Santeri/Desktop/Ohjelmointi/Projekti/AndroidProjektiRentoutusApp/app/src/main/res/layout/settingspopup.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_choose_user.xml" value="0.264" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_create_user.xml" value="0.264" />
-        <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_relaxing.xml" value="0.2" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_setup_menu.xml" value="0.2" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_trivia.xml" value="0.2" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/activity_trivia_details.xml" value="0.203515625" />
+        <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/exitpopup.xml" value="0.12807377049180327" />
+        <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/makingsurepopup.xml" value="0.12807377049180327" />
         <entry key="..\:/Users/juhoa/AndroidStudioProjects/AndroidProjectiRentoutusApp/app/src/main/res/layout/settingspopup.xml" value="0.203515625" />
       </map>
     </option>

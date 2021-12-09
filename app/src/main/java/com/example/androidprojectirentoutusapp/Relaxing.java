@@ -90,7 +90,7 @@ public class Relaxing extends AppCompatActivity {
 
     public void updateBackground(){
         int level = User.getInstance().getLevel();
-        ImageView  img = (ImageView) findViewById(R.id.imageView);
+        ImageView  img = findViewById(R.id.imageView);
         switch(level){
             case 0:
                 img.setImageResource(R.drawable.level1);
