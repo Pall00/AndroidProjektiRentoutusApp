@@ -29,6 +29,10 @@ public class Relaxing extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
+    private MediaPlayer soundPlayerNormal;
+
+    private MediaPlayer soundPlayerDeath;
+
     private int length;
 
     private int minutes;
@@ -36,6 +40,10 @@ public class Relaxing extends AppCompatActivity {
     private int clockInSeconds;
 
     private int seconds;
+
+    private int rabbithits;
+
+    private boolean rabbit;
 
     private long clock = User.getInstance().getTimer();
 
@@ -46,8 +54,12 @@ public class Relaxing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
+        rabbit = true;
+        rabbithits=0;
         timerOn = false;
         aika = 0;
+        soundPlayerDeath = MediaPlayer.create(getApplicationContext(), R.raw.oofdeath);
+        soundPlayerNormal = MediaPlayer.create(getApplicationContext(), R.raw.oofnormal);
         updateBackground();
         updateRabbit();
         updateButton();
@@ -179,7 +191,7 @@ public class Relaxing extends AppCompatActivity {
 
         ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
 
-        if(User.getInstance().getLevel()>2) {
+        if(User.getInstance().getLevel()>2 && rabbit) {
             if (bmi < 15) {
                 imgRabbit.setImageResource(R.drawable.pupu);
             } else if (bmi < 19) {
@@ -324,5 +336,19 @@ public class Relaxing extends AppCompatActivity {
         TextView textViewSeconds = (TextView) timerDialog.findViewById(R.id.textViewTimeSeconds);
         textViewMinutes.setText(Integer.toString(minutes));
         textViewSeconds.setText(Integer.toString(seconds));
+    }
+
+    public void rabbitPress(View view){
+        if(rabbithits==6){
+            rabbit = false;
+            soundPlayerDeath.start();
+            updateRabbit();
+        }
+
+        if(User.getInstance().getLevel() > 2 && rabbit){
+            Log.i("MY_APP", "KÄÄK");
+            rabbithits+=1;
+            soundPlayerNormal.start();
+        }
     }
 }

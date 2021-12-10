@@ -37,6 +37,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="102dp"
         android:layout_marginBottom="12dp"
+        android:onClick="rabbitPress"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageButton
