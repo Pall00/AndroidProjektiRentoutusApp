@@ -25,19 +25,9 @@ public class Relaxing extends AppCompatActivity {
 
     private Dialog timerDialog;
 
-    private int aika;
+    private int aika, length, minutes, clockInSeconds;
 
-    private MediaPlayer mediaPlayer;
-
-    private MediaPlayer soundPlayerNormal;
-
-    private MediaPlayer soundPlayerDeath;
-
-    private int length;
-
-    private int minutes;
-
-    private int clockInSeconds;
+    private MediaPlayer mediaPlayer, soundPlayerNormal, soundPlayerDeath;
 
     private int seconds;
 
@@ -344,7 +334,6 @@ public class Relaxing extends AppCompatActivity {
             soundPlayerDeath.start();
             updateRabbit();
         }
-
         if(User.getInstance().getLevel() > 2 && rabbit){
             Log.i("MY_APP", "KÄÄK");
             rabbithits+=1;

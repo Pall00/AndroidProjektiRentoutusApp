@@ -1,7 +1,6 @@
 package com.example.androidprojectirentoutusapp;
 /**
  * This is a class that holds trivia data which have given.
- * The values are
  * @author Juho
  * @version 1.0
  */
@@ -19,14 +18,14 @@ public class Trivia {
         this.triviaText = text;
     }
     /**
-     * This is a method for returning value of triviaText variable
+     * This is a method for returning the value of triviaText variable
      * @return user triviaText of the trivia
      */
     public String getTriviaText(){
         return triviaText;
     }
     /**
-     * This is a method for returning String text of trivia and its level.
+     * This new toString method returns the String text of trivia and its level.
      * @return text "Trivia " and level of trivia.
      */
     @Override
