@@ -227,12 +227,11 @@ public class SetupMenu extends AppCompatActivity {
         int hours = User.getInstance().getRelaxingTime() / 3600;
         int minutes = (User.getInstance().getRelaxingTime() % 3600) / 60;
         int seconds = User.getInstance().getRelaxingTime() % 60;
-        String time = String.format("%02d:%02d:%02d", hours, minutes, seconds);
         tvUsername.setText((User.getInstance().getName()));
         tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
-        tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
-        tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
-        tvRelaxing.setText("RentTime: " + time);
+        tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()) + " kg");
+        tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()) + " cm");
+        tvRelaxing.setText("RentTime: " + String.format("%02d:%02d:%02d", hours, minutes, seconds));
         tvLevel.setText("Level: "+ Integer.toString(User.getInstance().getLevel()+1));
     }
     public void onResume(){

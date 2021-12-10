@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private String json;
-    private User user;
+    private User userTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,13 +96,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void logIn(String userString){
+    public void logIn(String user){
 
         Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
         Gson gson = new Gson();
-        json = userdata.getString(userString, "0");
-        user = gson.fromJson(json, User.class);
-        User.getInstance().setValues(user.getAge(),user.getWeight(),user.getHeight(),user.getName(),user.getLevel(),user.getRelaxingTime(),user.getId());
+        json = userdata.getString(user, "0");
+        userTemp = gson.fromJson(json, User.class);
+        User.getInstance().setValues(userTemp.getAge(), userTemp.getWeight(), userTemp.getHeight(), userTemp.getName(), userTemp.getLevel(), userTemp.getRelaxingTime(), userTemp.getId());
         startActivity(loginIntent);
     }
 
