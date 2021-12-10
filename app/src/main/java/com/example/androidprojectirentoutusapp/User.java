@@ -134,6 +134,7 @@ public class User {
     }
     /**
      * This is a method for returning value of users height variable
+     * @return user height
      */
     public int getHeight() {
         return height;
@@ -141,12 +142,14 @@ public class User {
     /**
      * This is a method for setting value of users height variable
      * This is used to change or initialize the value in certain parts of the program
+     * @param height the new height of the user
      */
     public void setHeight(int height) {
         this.height = height;
     }
     /**
      * This is a method for returning value of users name variable
+     * @return user name
      */
     public String getName() {
         return name;
