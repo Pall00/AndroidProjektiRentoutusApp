@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         if(v == findViewById(R.id.user1removeButton)&& !(userdata.getString("User1", "0").equals("0"))){
             userdataedit.remove("User1");
         }
-        if (v == findViewById(R.id.user2removeButton) && !(userdata.getString("User2", "0").equals("0"))){
+        else if (v == findViewById(R.id.user2removeButton) && !(userdata.getString("User2", "0").equals("0"))){
             userdataedit.remove("User2");
         }
-        if(v == findViewById(R.id.user3removeButton) && !(userdata.getString("User3", "0").equals("0"))){
+        else if(v == findViewById(R.id.user3removeButton) && !(userdata.getString("User3", "0").equals("0"))){
             userdataedit.remove("User3");
         }
         else{
