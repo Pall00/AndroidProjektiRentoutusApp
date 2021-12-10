@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "User does not exist", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public void logIn(String userString){

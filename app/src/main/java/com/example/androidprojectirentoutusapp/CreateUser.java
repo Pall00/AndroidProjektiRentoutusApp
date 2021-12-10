@@ -33,7 +33,7 @@ public class CreateUser extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        userValue = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
+        userValue = intent.getIntExtra(MainActivity.EXTRA_USER,0);
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
