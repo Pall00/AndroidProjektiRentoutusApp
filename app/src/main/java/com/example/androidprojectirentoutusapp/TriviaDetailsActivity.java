@@ -2,9 +2,7 @@ package com.example.androidprojectirentoutusapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 public class TriviaDetailsActivity extends AppCompatActivity {
@@ -15,7 +13,7 @@ public class TriviaDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trivia_details);
 
         Bundle bundle = getIntent().getExtras();
-        int i = bundle.getInt(activity_trivia.EXTRA, 0);
+        int i = bundle.getInt(TriviaActivity.EXTRA, 0);
 
        ((TextView)findViewById(R.id.tvTrivia))
                .setText(GlobalTrivias.getInstance().getTrivia(i).getTriviaText());

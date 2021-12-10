@@ -23,6 +23,11 @@ public class User {
     private User(){
     }
 
+    /**
+     * This is a method for accessing the User object in the singleton class so that it can be used throughout the activities.
+     * @return ourInstance, which is the singleton object
+     */
+
     public static User getInstance(){
         return ourInstance;
     }

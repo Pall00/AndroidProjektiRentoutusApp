@@ -1,6 +1,6 @@
 package com.example.androidprojectirentoutusapp;
 /**
- * This is a class that holds trivia data which have given.
+ * This is a class that holds the trivia data. Its purpose is to hold and give the user trivia data
  * @author Juho
  * @version 1.0
  */

@@ -3,20 +3,16 @@ package com.example.androidprojectirentoutusapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class activity_trivia extends AppCompatActivity {
+public class TriviaActivity extends AppCompatActivity {
 
     private ListView listView;
 
@@ -98,7 +94,7 @@ public class activity_trivia extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Intent nextActivity = new Intent(activity_trivia.this, TriviaDetailsActivity.class);
+                Intent nextActivity = new Intent(TriviaActivity.this, TriviaDetailsActivity.class);
                 nextActivity.putExtra(EXTRA, i);
                 startActivity(nextActivity);
             }
