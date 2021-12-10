@@ -1,9 +1,9 @@
 package com.example.androidprojectirentoutusapp;
 
 /**
- * This is a class that is used to easily change the User classes timer data
+ * This is a class that is used to easily change the User classes timer data.
  * Its job is to hold integer values of second and minutes and be able to convert those values into long datatype.
- * This class is not an independent timer and is only used for editing the User classes data that determines the values of the timer in the program itself
+ * This class is not an independent timer and is only used for editing the User classes data that determines the values of the timer in the program itself.
  * @author Santeri
  * @version 1.0
  */
@@ -25,7 +25,7 @@ public class Timer {
     }
 
     /**
-     * This is a method for incrementing 1 minute to the timer object
+     * This is a method for incrementing 1 minute to the timer object.
      * If the current value of the the timers minutes variable is 59, it goes to zero since 60 minutes is 1 hour and holding it in minutes is not ideal.
      */
 
@@ -53,7 +53,7 @@ public class Timer {
     }
 
     /**
-     * This is a method for incrementing 1 second to the timer object
+     * This is a method for incrementing 1 second to the timer object.
      * If the current value of the the timers minutes variable is 59, it goes to zero since 60 second is 1 minute and holding it in seconds is not ideal.
      */
 
@@ -81,8 +81,8 @@ public class Timer {
     }
 
     /**
-     * This is a method for returning the current value of seconds variable so that the program can access the data and use it
-     * @return seconds, the Timers current value of seconds variable
+     * This is a method for returning the current value of seconds variable so that the program can access the data and use it.
+     * @return the Timers current value of seconds variable.
      */
 
     public int getSeconds() {
@@ -90,8 +90,8 @@ public class Timer {
     }
 
     /**
-     * This is a method for returning the current value of minutes variable so that the program can access the data and use it
-     * @return minutes, the Timers current value of minutes variable
+     * This is a method for returning the current value of minutes variable so that the program can access the data and use it.
+     * @return the Timers current value of minutes variable.
      */
 
     public int getMinutes() {
@@ -99,9 +99,9 @@ public class Timer {
     }
 
     /**
-     * This is a method for getting the combined values of minutes and seconds variables in milliseconds
-     * The method makes both the seconds and minutes into long datatypes to represent them in milliseconds and adds them together to get the result
-     * @return MS, the current value of the timer in milliseconds
+     * This is a method for getting the combined values of minutes and seconds variables in milliseconds.
+     * The method makes both the seconds and minutes into long datatypes to represent them in milliseconds and adds them together to get the result.
+     * @return the current value of the timer in milliseconds.
      */
 
     public long getMS(){
