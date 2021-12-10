@@ -9,6 +9,7 @@ public class User {
     private int relaxingTime;
     private static final User ourInstance = new User();
     private int id;
+    private long timer;
 
     private User(){
     }
@@ -17,7 +18,7 @@ public class User {
         return ourInstance;
     }
 
-    public void setValues(int age, int weight, int height, String name, int level, int relaxingTime, int id) {
+    public void setValues(String name, int age, int weight, int height, int level, int relaxingTime, int id, long timer) {
         this.age = age;
         this.weight = weight;
         this.height = height;
@@ -25,6 +26,7 @@ public class User {
         this.level = level;
         this.relaxingTime = relaxingTime;
         this.id = id;
+        this.timer = timer;
     }
 
     public double getBmi(){
@@ -56,6 +58,15 @@ public class User {
     public void resetData(){
         this.level = 0;
         this.relaxingTime = 0;
+        //this.timer = 60000;
+    }
+
+    public long getTimer(){
+        return timer;
+    }
+
+    public void setTimer(long timer){
+        this.timer = timer;
     }
 
     public void setAge(int age) {

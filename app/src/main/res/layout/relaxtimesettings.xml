@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="150dp"
+    android:layout_gravity="center"
+    android:background="@drawable/backgroundblue"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/buttonConfirmTime"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="10dp"
+        android:onClick="confirmChanges"
+        android:text="Ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewTimeMinutes"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSecondsMinus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="13dp"
+        android:onClick="secondsMinus"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinutesMinus"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSecondsPlus" />
+
+    <Button
+        android:id="@+id/buttonSecondsPlus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="45dp"
+        android:onClick="secondsPlus"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSecondsMinus"
+        app:layout_constraintEnd_toStartOf="@+id/closeTimeSettingsButton"
+        app:layout_constraintStart_toEndOf="@+id/buttonMinutesPlus"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTimeMinutes"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="61dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="0"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonConfirmTime"
+        app:layout_constraintHorizontal_bias="0.365"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <TextView
+        android:id="@+id/textViewTimeSeconds"
+        android:layout_width="54dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="0"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <Button
+        android:id="@+id/buttonMinutesPlus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="45dp"
+        android:onClick="hoursMinus"
+        android:text="+"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMinutesMinus"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSecondsPlus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/closeTimeSettingsButton"
+        android:layout_width="0dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="1dp"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:onClick="timeSettingsClose"
+        android:text="@string/closebutton"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSecondsPlus"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonMinutesMinus"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="13dp"
+        android:onClick="hoursMinus"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSecondsMinus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMinutesPlus" />
+
+    <TextView
+        android:id="@+id/textViewTimerHelper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/timerHelper"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.503" />
+</androidx.constraintlayout.widget.ConstraintLayout>

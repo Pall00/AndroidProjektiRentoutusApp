@@ -20,7 +20,8 @@ public class CreateUser extends AppCompatActivity {
     private String username;
     private int age;
     private int height;
-    private  int weight;
+    private int weight;
+    private final long clock = 60000;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
@@ -53,19 +54,19 @@ public class CreateUser extends AppCompatActivity {
 
             if (userValue == 1) {
 
-                User.getInstance().setValues(age, weight, height, username, 0, 0,1);
+                User.getInstance().setValues(username, age, weight, height, 0, 0,1, clock);
                 String user = gson.toJson(User.getInstance());
                 userdataedit.putString("User1", user);
             }
             else if (userValue == 2) {
 
-                User.getInstance().setValues(age, weight, height, username, 0, 0,2);
+                User.getInstance().setValues(username, age, weight, height, 0, 0,2, clock);
                 String user = gson.toJson(User.getInstance());
                 userdataedit.putString("User2", user);
             }
             else if (userValue == 3) {
 
-                User.getInstance().setValues(age, weight, height, username, 0, 0,3);
+                User.getInstance().setValues(username, age, weight, height, 0, 0,3, clock);
                 String user = gson.toJson(User.getInstance());
                 userdataedit.putString("User3", user);
             }

@@ -21,13 +21,21 @@ public class Relaxing extends AppCompatActivity {
     private boolean timerOn;
     private Dialog exitDialog;
 
+    private Dialog timerDialog;
+
     private int aika;
 
     private MediaPlayer mediaPlayer;
 
     private int length;
 
-    private final long clock = 60000;
+    private int minutes;
+
+    private int clockInSeconds;
+
+    private int seconds;
+
+    private long clock = User.getInstance().getTimer();
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -40,6 +48,7 @@ public class Relaxing extends AppCompatActivity {
         aika = 0;
         updateBackground();
         updateRabbit();
+        updateButton();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
         Toast.makeText(getApplicationContext(), "Press the sun to begin relaxing", Toast.LENGTH_SHORT).show();
     }
@@ -49,12 +58,15 @@ public class Relaxing extends AppCompatActivity {
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.start();
-        //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
             CountDownTimer timer = new CountDownTimer(clock, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    textView.setText("Time remaining: " + millisUntilFinished / 1000);
+                    clockInSeconds = (int) (millisUntilFinished / 1000);
+                    minutes = clockInSeconds % 3600 / 60;
+                    seconds = clockInSeconds % 60;
+                    String time = String.format("%02d:%02d", minutes, seconds);
+                    textView.setText("Time remaining: " + time);
                     aika = (int)  (((clock +1000)-millisUntilFinished) / 1000);
                 }
                 @Override
@@ -64,8 +76,11 @@ public class Relaxing extends AppCompatActivity {
                     if(User.getInstance().getLevel() == 2){
                         Toast.makeText(getApplicationContext(), "You got yourself a bunny!", Toast.LENGTH_SHORT).show();
                     }
-                    else if(User.getInstance().getLevel() <6 && timerOn){
+                    else if(User.getInstance().getLevel() <5 && timerOn){
                         Toast.makeText(getApplicationContext(), "You made it to the next level! New trivia available!", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(User.getInstance().getLevel() <6 && timerOn){
+                        Toast.makeText(getApplicationContext(), "Level up! Timer settings unlocked. You can now change the timer yourself. There is also a new trivia!", Toast.LENGTH_LONG).show();
                     }
                     else if (timerOn){
                         Toast.makeText(getApplicationContext(), "You finished your session! Keep up the good work!", Toast.LENGTH_SHORT).show();
@@ -91,11 +106,12 @@ public class Relaxing extends AppCompatActivity {
         updateBackground();
         updatePlayer();
         updateRabbit();
+        updateButton();
     }
 
     public void updateBackground(){
         int level = User.getInstance().getLevel();
-        ImageView  img = findViewById(R.id.imageView);
+        ImageView  img = findViewById(R.id.openTimerSettings);
         switch(level){
             case 0:
                 img.setImageResource(R.drawable.level1);
@@ -120,6 +136,16 @@ public class Relaxing extends AppCompatActivity {
                 break;
         }
     }
+    public void updateButton(){
+        View button = findViewById(R.id.timerSettings);
+        if(User.getInstance().getLevel() !=6){
+            button.setVisibility(View.GONE);
+        }
+        else{
+            button.setVisibility(View.VISIBLE);
+        }
+    }
+
     public void updatePlayer(){
 
         int id = User.getInstance().getId();
@@ -143,6 +169,7 @@ public class Relaxing extends AppCompatActivity {
                 break;
         }
         userdataedit.commit();
+        clock = User.getInstance().getTimer();
     }
     public void updateRabbit(){
 
@@ -179,6 +206,7 @@ public class Relaxing extends AppCompatActivity {
             Button yesButton = (Button) exitDialog.findViewById(R.id.yesButton);
             Button noButton = (Button) exitDialog.findViewById(R.id.noButton);
             Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
+
             yesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -217,5 +245,77 @@ public class Relaxing extends AppCompatActivity {
             mediaPlayer.start();
             mediaPlayer.seekTo(length);
         }
+    }
+    public void timerSettings(View v){
+        if(!timerOn){
+            timerDialog = new Dialog(this);
+            timerDialog.setContentView(R.layout.relaxtimesettings);
+
+            Timer timer = new Timer(User.getInstance().getTimer());
+
+            Button buttonConfirm = (Button) timerDialog.findViewById(R.id.buttonConfirmTime);
+            Button buttonSecondsMinus = (Button) timerDialog.findViewById(R.id.buttonSecondsMinus);
+            Button buttonSecondsPlus = (Button) timerDialog.findViewById(R.id.buttonSecondsPlus);
+            Button buttonMinutesPlus = (Button) timerDialog.findViewById(R.id.buttonMinutesPlus);
+            Button buttonMinutesMinus = (Button) timerDialog.findViewById(R.id.buttonMinutesMinus);
+            Button buttonClose = (Button) timerDialog.findViewById(R.id.closeTimeSettingsButton);
+            TextView textViewMinutes = (TextView) timerDialog.findViewById(R.id.textViewTimeMinutes);
+            TextView textViewSeconds = (TextView) timerDialog.findViewById(R.id.textViewTimeSeconds);
+            updateTimer(timer.getMinutes(), timer.getSeconds());
+            buttonConfirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    User.getInstance().setTimer(timer.getMS());
+                    updatePlayer();
+                }
+            });
+            buttonClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                    timerDialog.dismiss();
+                }
+            });
+            buttonMinutesPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timer.plusMinutes();
+                    updateTimer(timer.getMinutes(),timer.getSeconds());
+                }
+            });
+            buttonMinutesMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timer.minusMinutes();
+                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                }
+            });
+            buttonSecondsMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+
+                public void onClick(View v) {
+                    timer.minusSeconds();
+                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                }
+            });
+            buttonSecondsPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    timer.plusSeconds();
+                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                }
+            });
+
+            timerDialog.show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Relax first", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void updateTimer(int minutes, int seconds){
+        TextView textViewMinutes = (TextView) timerDialog.findViewById(R.id.textViewTimeMinutes);
+        TextView textViewSeconds = (TextView) timerDialog.findViewById(R.id.textViewTimeSeconds);
+        textViewMinutes.setText(Integer.toString(minutes));
+        textViewSeconds.setText(Integer.toString(seconds));
     }
 }

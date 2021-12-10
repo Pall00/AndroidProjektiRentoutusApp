@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         json = userdata.getString(user, "0");
         uTemp = gson.fromJson(json, User.class);
-        User.getInstance().setValues(uTemp.getAge(), uTemp.getWeight(), uTemp.getHeight(), uTemp.getName(), uTemp.getLevel(), uTemp.getRelaxingTime(), uTemp.getId());
+        User.getInstance().setValues(uTemp.getName(), uTemp.getAge(), uTemp.getWeight(), uTemp.getHeight(), uTemp.getLevel(), uTemp.getRelaxingTime(), uTemp.getId(), uTemp.getTimer());
         startActivity(loginIntent);
     }
 

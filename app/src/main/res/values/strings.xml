@@ -12,4 +12,10 @@
     <string name="closebutton">X</string>
     <string name="changeButton">Ok</string>
     <string name="createuser_button">Create new user</string>
+    <string name="resetButton">Reset relax data</string>
+    <string name="changeNameHint">Change name</string>
+    <string name="changeWeightHint">Change weight</string>
+    <string name="changeHeightHint">Change height</string>
+    <string name="changeAgeHint">Change age</string>
+    <string name="timerHelper">min/sec</string>
 </resources>
