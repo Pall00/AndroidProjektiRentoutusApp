@@ -9,30 +9,6 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/exitappButton"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:onClick="exitchoiceButton"
-        android:text="@string/exitappButton"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/exitlogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/exitlogin"
-        android:layout_width="0dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="16dp"
-        android:onClick="exitchoiceButton"
-        android:text="@string/exittologin"
-        android:textSize="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/closeButton"
         android:layout_width="60dp"
         android:layout_height="39dp"
@@ -44,4 +20,30 @@
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/exitappButton"
+        android:layout_width="106dp"
+        android:layout_height="71dp"
+        android:background="@drawable/exitappbutton"
+        android:onClick="exitchoiceButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <ImageButton
+        android:id="@+id/exitlogin"
+        android:layout_width="114dp"
+        android:layout_height="68dp"
+        android:background="@drawable/exittologinbutton"
+        android:onClick="exitchoiceButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toEndOf="@+id/exitappButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.505" />
 </androidx.constraintlayout.widget.ConstraintLayout>
