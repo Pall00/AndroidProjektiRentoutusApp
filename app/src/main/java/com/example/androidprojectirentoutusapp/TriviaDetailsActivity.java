@@ -14,8 +14,8 @@ public class TriviaDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia_details);
 
-        Bundle b = getIntent().getExtras();
-        int i = b.getInt(activity_trivia.EXTRA, 0);
+        Bundle bundle = getIntent().getExtras();
+        int i = bundle.getInt(activity_trivia.EXTRA, 0);
 
        ((TextView)findViewById(R.id.tvTrivia))
                .setText(GlobalTrivias.getInstance().getTrivia(i).getTriviaText());

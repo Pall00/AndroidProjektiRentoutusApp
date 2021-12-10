@@ -20,8 +20,6 @@ public class activity_trivia extends AppCompatActivity {
 
     private ListView listView;
 
-    private boolean tohomescreen = true;
-
     public static  final String EXTRA = "com.example.androidprojectirentoutusapp.MESSAGE";
 
     @Override
@@ -30,9 +28,6 @@ public class activity_trivia extends AppCompatActivity {
         setContentView(R.layout.activity_trivia);
 
         listView = findViewById(R.id.triviaListView);
-
-        Log.i("MY_APP", User.getInstance().getName());
-        Log.i("MY_APP", "käyttäjä nyt : " + User.getInstance().getName() + " ikä: " + User.getInstance().getAge());
 
         GlobalTrivias.getInstance().getTriviaList().clear();
 
@@ -104,7 +99,6 @@ public class activity_trivia extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Intent nextActivity = new Intent(activity_trivia.this, TriviaDetailsActivity.class);
-                tohomescreen = false;
                 nextActivity.putExtra(EXTRA, i);
                 startActivity(nextActivity);
             }

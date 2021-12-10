@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,9 +16,9 @@ import com.google.gson.Gson;
 
 public class SetupMenu extends AppCompatActivity {
 
-    private Dialog myexitDialog;
+    private Dialog exitDialog;
 
-    private Dialog mysettingsDialog;
+    private Dialog settingsDialog;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -28,8 +27,6 @@ public class SetupMenu extends AppCompatActivity {
     private int height;
     private  int weight;
     private String username;
-    private boolean tohomescreen = true;
-    private boolean paused = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,58 +48,58 @@ public class SetupMenu extends AppCompatActivity {
     }
     public void exitButton(View v){
 
-        myexitDialog = new Dialog(this);
+        exitDialog = new Dialog(this);
 
-        myexitDialog.setContentView(R.layout.exitpopup);
-        Button exitApp = (Button) myexitDialog.findViewById(R.id.exitappButton);
-        Button exittoLogin = (Button) myexitDialog.findViewById(R.id.exitlogin);
-        Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+        exitDialog.setContentView(R.layout.exitpopup);
+        Button exitApp = (Button) exitDialog.findViewById(R.id.exitappButton);
+        Button exitToLogin = (Button) exitDialog.findViewById(R.id.exitlogin);
+        Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
         exitApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myexitDialog.dismiss();
+                exitDialog.dismiss();
                 finishAffinity();
                 System.exit(0);
 
             }
         });
-        exittoLogin.setOnClickListener(new View.OnClickListener() {
+        exitToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myexitDialog.dismiss();
+                exitDialog.dismiss();
                 finish();
             }
         });
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myexitDialog.dismiss();
+                exitDialog.dismiss();
             }
         });
 
-        myexitDialog.show();
+        exitDialog.show();
     }
     public void settingsButton(View v){
 
-        mysettingsDialog = new Dialog(this);
+        settingsDialog = new Dialog(this);
 
-        mysettingsDialog.setContentView(R.layout.settingspopup);
+        settingsDialog.setContentView(R.layout.settingspopup);
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
-        EditText eName = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeName);
-        EditText eAge = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeAge);
-        EditText eWeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeWeight);
-        EditText eHeight = (EditText) mysettingsDialog.findViewById(R.id.textViewchangeHeight);
+        EditText eName = (EditText) settingsDialog.findViewById(R.id.textViewchangeName);
+        EditText eAge = (EditText) settingsDialog.findViewById(R.id.textViewchangeAge);
+        EditText eWeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeWeight);
+        EditText eHeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeHeight);
 
-        Button changeName = (Button) mysettingsDialog.findViewById(R.id.changenameButton);
-        Button changeAge = (Button) mysettingsDialog.findViewById(R.id.changeageButton);
-        Button changeWeight = (Button) mysettingsDialog.findViewById(R.id.changeweightButton);
-        Button changeHeight = (Button) mysettingsDialog.findViewById(R.id.changeheightButton);
-        Button exitSettings = (Button) mysettingsDialog.findViewById(R.id.minimizeButton);
-        Button resetData = (Button) mysettingsDialog.findViewById(R.id.resetdataButton);
+        Button changeName = (Button) settingsDialog.findViewById(R.id.changenameButton);
+        Button changeAge = (Button) settingsDialog.findViewById(R.id.changeageButton);
+        Button changeWeight = (Button) settingsDialog.findViewById(R.id.changeweightButton);
+        Button changeHeight = (Button) settingsDialog.findViewById(R.id.changeheightButton);
+        Button exitSettings = (Button) settingsDialog.findViewById(R.id.minimizeButton);
+        Button resetData = (Button) settingsDialog.findViewById(R.id.resetdataButton);
 
         changeName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,7 +176,7 @@ public class SetupMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateUI();
-                mysettingsDialog.dismiss();
+                settingsDialog.dismiss();
             }
         });
         resetData.setOnClickListener(new View.OnClickListener() {
@@ -190,7 +187,7 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
 
-        mysettingsDialog.show();
+        settingsDialog.show();
 
     }
     public void updatePlayer(){
@@ -230,12 +227,16 @@ public class SetupMenu extends AppCompatActivity {
         int hours = User.getInstance().getRelaxingTime() / 3600;
         int minutes = (User.getInstance().getRelaxingTime() % 3600) / 60;
         int seconds = User.getInstance().getRelaxingTime() % 60;
-        String timeString = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        String time = String.format("%02d:%02d:%02d", hours, minutes, seconds);
         tvUsername.setText((User.getInstance().getName()));
         tvAge.setText("Age: " + Integer.toString(User.getInstance().getAge()));
         tvWeight.setText("Weight: " + Integer.toString(User.getInstance().getWeight()));
         tvHeight.setText("Height: " + Integer.toString(User.getInstance().getHeight()));
-        tvRelaxing.setText("RentTime: " + timeString);
+        tvRelaxing.setText("RentTime: " + time);
         tvLevel.setText("Level: "+ Integer.toString(User.getInstance().getLevel()+1));
+    }
+    public void onResume(){
+        super.onResume();
+        updateUI();
     }
 }

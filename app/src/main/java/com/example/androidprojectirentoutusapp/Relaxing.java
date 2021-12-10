@@ -18,8 +18,8 @@ import com.google.gson.Gson;
 public class Relaxing extends AppCompatActivity {
 
     private TextView textView;
-    private boolean timerOn = false;
-    private Dialog myexitDialog;
+    private boolean timerOn;
+    private Dialog exitDialog;
 
     private int aika;
 
@@ -27,7 +27,7 @@ public class Relaxing extends AppCompatActivity {
 
     private int length;
 
-    private final long kello = 60000;
+    private final long clock = 60000;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
@@ -36,24 +36,26 @@ public class Relaxing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
+        timerOn = false;
+        aika = 0;
         updateBackground();
         updateRabbit();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
         Toast.makeText(getApplicationContext(), "Press the sun to begin relaxing", Toast.LENGTH_SHORT).show();
     }
 
-    public void imageButton(View v) {
+    public void sunTimerButton(View v) {
         View view = findViewById(R.id.imageButtonAurinko);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.start();
         //Toast.makeText(getApplicationContext(), "Minuutti", Toast.LENGTH_SHORT).show();
-            CountDownTimer timer = new CountDownTimer(kello, 1000) {
+            CountDownTimer timer = new CountDownTimer(clock, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
                     textView.setText("Time remaining: " + millisUntilFinished / 1000);
-                    aika = (int)  (((kello+1000)-millisUntilFinished) / 1000);
+                    aika = (int)  (((clock +1000)-millisUntilFinished) / 1000);
                 }
                 @Override
                 public void onFinish() {
@@ -78,6 +80,9 @@ public class Relaxing extends AppCompatActivity {
 
                 }
             }.start();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Timer is already on! Relax!", Toast.LENGTH_SHORT).show();
         }
         timerOn = true;
     }
@@ -168,18 +173,17 @@ public class Relaxing extends AppCompatActivity {
             super.onBackPressed();
         }
         else{
-            myexitDialog = new Dialog(this);
+            exitDialog = new Dialog(this);
 
-            myexitDialog.setContentView(R.layout.makingsurepopup);
-            Button yesButton = (Button) myexitDialog.findViewById(R.id.yesButton);
-            Button noButton = (Button) myexitDialog.findViewById(R.id.noButton);
-            Button closeButton = (Button) myexitDialog.findViewById(R.id.closeButton);
+            exitDialog.setContentView(R.layout.makingsurepopup);
+            Button yesButton = (Button) exitDialog.findViewById(R.id.yesButton);
+            Button noButton = (Button) exitDialog.findViewById(R.id.noButton);
+            Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
             yesButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myexitDialog.dismiss();
+                    exitDialog.dismiss();
                     User.getInstance().addRelaxingTime(aika);
-                    aika = 0;
                     timerOn = false;
                     mediaPlayer.stop();
                     finish();
@@ -188,17 +192,17 @@ public class Relaxing extends AppCompatActivity {
             noButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myexitDialog.dismiss();
+                    exitDialog.dismiss();
                 }
             });
             closeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myexitDialog.dismiss();
+                    exitDialog.dismiss();
                 }
             });
 
-            myexitDialog.show();
+            exitDialog.show();
         }
     }
     protected void onPause(){

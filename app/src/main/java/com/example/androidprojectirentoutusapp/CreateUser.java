@@ -51,19 +51,21 @@ public class CreateUser extends AppCompatActivity {
 
             Gson gson = new Gson();
 
+            Log.i("MY_APP", Integer.toString(userValue));
+
             if (userValue == 1) {
 
                 User.getInstance().setValues(age, weight, height, username, 0, 0,1);
                 String user = gson.toJson(User.getInstance());
                 userdataedit.putString("User1", user);
             }
-            if (userValue == 2) {
+            else if (userValue == 2) {
 
                 User.getInstance().setValues(age, weight, height, username, 0, 0,2);
                 String user = gson.toJson(User.getInstance());
                 userdataedit.putString("User2", user);
             }
-            if (userValue == 3) {
+            else if (userValue == 3) {
 
                 User.getInstance().setValues(age, weight, height, username, 0, 0,3);
                 String user = gson.toJson(User.getInstance());
