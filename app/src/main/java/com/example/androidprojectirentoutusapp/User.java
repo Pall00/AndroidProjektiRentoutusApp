@@ -1,6 +1,7 @@
 package com.example.androidprojectirentoutusapp;
 /**
- * This is a class that implements user singleton that holds all the data taken from datafiles
+ * This is a class that implements user singleton that holds all the data taken from the given parts of data
+ * The values are used in between different activities of the program and they can be changed throughout the program with different methods
  * @author Juho
  * @version 1.0
  */
