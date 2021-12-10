@@ -35,10 +35,6 @@ public class CreateUser extends AppCompatActivity {
 
         userValue = intent.getIntExtra(MainActivity.EXTRA_USER, 0);
 
-    }
-
-    public void Register(View v){
-
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
 
@@ -47,11 +43,13 @@ public class CreateUser extends AppCompatActivity {
         eWeight = findViewById(R.id.textViewWeight);
         eHeight = findViewById(R.id.textViewHeight);
 
+    }
+
+    public void Register(View v){
+
         if(valid()) {
 
             Gson gson = new Gson();
-
-            Log.i("MY_APP", Integer.toString(userValue));
 
             if (userValue == 1) {
 

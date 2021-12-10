@@ -184,6 +184,7 @@ public class Relaxing extends AppCompatActivity {
                 public void onClick(View v) {
                     exitDialog.dismiss();
                     User.getInstance().addRelaxingTime(aika);
+                    updatePlayer();
                     timerOn = false;
                     mediaPlayer.stop();
                     finish();
