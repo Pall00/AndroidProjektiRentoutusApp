@@ -3,10 +3,12 @@ package com.example.androidprojectirentoutusapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -265,8 +267,13 @@ public class Relaxing extends AppCompatActivity {
             buttonConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    User.getInstance().setTimer(timer.getMS());
-                    updatePlayer();
+                    if(timer.getMS()!=0){
+                        User.getInstance().setTimer(timer.getMS());
+                        updatePlayer();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Timer can't be zero!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
             buttonClose.setOnClickListener(new View.OnClickListener() {
