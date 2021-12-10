@@ -339,7 +339,7 @@ public class Relaxing extends AppCompatActivity {
     }
 
     public void rabbitPress(View view){
-        if(rabbithits==6){
+        if(rabbithits==6 && rabbit){
             rabbit = false;
             soundPlayerDeath.start();
             updateRabbit();
