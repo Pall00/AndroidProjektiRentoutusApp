@@ -51,17 +51,6 @@
         android:background="@drawable/aurinkovalmis"
         android:onClick="sunTimerButton" />
 
-    <Button
-        android:id="@+id/timerSettings"
-        android:layout_width="65dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="1dp"
-        android:onClick="timerSettings"
-        android:text="Settings" />
-
     <TextView
         android:id="@+id/tvTimer"
         android:layout_width="169dp"
@@ -70,6 +59,17 @@
         android:layout_marginStart="33dp"
         android:layout_marginTop="73dp"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/timerSettings"
+        android:layout_width="50sp"
+        android:layout_height="70sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/ratas"
+        android:onClick="timerSettings" />
 
 
 </RelativeLayout>
