@@ -11,7 +11,7 @@ public class Trivia {
     private String triviaText;
     /**
      * This is constructor for creating new Trivia. As it is public, it can be called everywhere.
-     * @param level level of user
+     * @param level level of trivia
      * @param text trivia text
      */
     public Trivia(int level, String text) {
@@ -25,8 +25,10 @@ public class Trivia {
     public String getTriviaText(){
         return triviaText;
     }
-
-
+    /**
+     * This is a method for returning String text of trivia and its level.
+     * @return text "Trivia " and level of trivia.
+     */
     @Override
     public String toString(){
         return "Trivia " + this.level;
