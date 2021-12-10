@@ -10,6 +10,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -212,8 +213,8 @@ public class Relaxing extends AppCompatActivity {
             exitDialog = new Dialog(this);
 
             exitDialog.setContentView(R.layout.makingsurepopup);
-            Button yesButton = (Button) exitDialog.findViewById(R.id.yesButton);
-            Button noButton = (Button) exitDialog.findViewById(R.id.noButton);
+            ImageButton yesButton = (ImageButton) exitDialog.findViewById(R.id.yesButton);
+            ImageButton noButton = (ImageButton) exitDialog.findViewById(R.id.noButton);
             Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
             yesButton.setOnClickListener(new View.OnClickListener() {
