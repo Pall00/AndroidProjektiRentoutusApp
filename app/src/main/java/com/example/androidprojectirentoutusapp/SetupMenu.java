@@ -34,7 +34,6 @@ public class SetupMenu extends AppCompatActivity {
         setContentView(R.layout.activity_setup_menu);
 
         updateUI();
-
     }
     public void menuButton(View v){
 
