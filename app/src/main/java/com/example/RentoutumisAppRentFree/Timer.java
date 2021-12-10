@@ -1,4 +1,4 @@
-package com.example.androidprojectirentoutusapp;
+package com.example.RentoutumisAppRentFree;
 
 /**
  * This is a class that is used to easily change the User classes timer data.

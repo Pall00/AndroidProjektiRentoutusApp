@@ -1,4 +1,4 @@
-package com.example.androidprojectirentoutusapp;
+package com.example.RentoutumisAppRentFree;
 
 import java.util.ArrayList;
 import java.util.List;
