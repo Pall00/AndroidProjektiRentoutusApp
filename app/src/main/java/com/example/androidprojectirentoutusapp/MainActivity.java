@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Nothing to remove", Toast.LENGTH_SHORT).show();
         }
         userdataedit.commit();
+
         updateUI();
     }
     public void createUser(View v){
