@@ -1,4 +1,4 @@
-package com.example.androidprojectirentoutusapp;
+package com.example.RentoutumisAppRentFree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +16,7 @@ public class TriviaActivity extends AppCompatActivity {
 
     private ListView listView;
 
-    public static  final String EXTRA = "com.example.androidprojectirentoutusapp.MESSAGE";
+    public static  final String EXTRA = "com.example.RentoutumisAppRentFree.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

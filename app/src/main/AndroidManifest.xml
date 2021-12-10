@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidprojectirentoutusapp">
+    package="com.example.RentoutumisAppRentFree">
 
     <application
         android:allowBackup="true"
@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidProjectiRentoutusApp">
         <activity
-            android:name=".TriviaDetailsActivity"
+            android:name="com.example.RentoutumisAppRentFree.TriviaDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".TriviaActivity"
+            android:name="com.example.RentoutumisAppRentFree.TriviaActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateUser"
+            android:name="com.example.RentoutumisAppRentFree.CreateUser"
             android:exported="false" />
         <activity
-            android:name=".SetupMenu"
+            android:name="com.example.RentoutumisAppRentFree.SetupMenu"
             android:exported="false" />
         <activity
-            android:name=".Relaxing"
+            android:name="com.example.RentoutumisAppRentFree.Relaxing"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.RentoutumisAppRentFree.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
