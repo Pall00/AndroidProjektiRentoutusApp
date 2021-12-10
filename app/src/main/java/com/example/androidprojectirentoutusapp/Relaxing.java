@@ -193,13 +193,13 @@ public class Relaxing extends AppCompatActivity {
 
         if(User.getInstance().getLevel()>2 && rabbit) {
             if (bmi < 15) {
-                imgRabbit.setImageResource(R.drawable.pupu);
+                imgRabbit.setImageResource(R.drawable.pupuluuranko);
             } else if (bmi < 19) {
                 imgRabbit.setImageResource(R.drawable.pupu);
             } else if (bmi < 25) {
                 imgRabbit.setImageResource(R.drawable.pupu);
             } else if (bmi < 35) {
-                imgRabbit.setImageResource(R.drawable.pupu);
+                imgRabbit.setImageResource(R.drawable.pupupullukka);
             } else {
                 imgRabbit.setImageResource(R.drawable.pupu);
             }
