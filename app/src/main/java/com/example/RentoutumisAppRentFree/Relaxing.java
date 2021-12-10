@@ -180,17 +180,23 @@ public class Relaxing extends AppCompatActivity {
 
         ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
 
-        if(User.getInstance().getLevel()>2 && rabbit) {
-            if (bmi < 15) {
-                imgRabbit.setImageResource(R.drawable.laihapupu);
-            } else if (bmi < 19) {
-                imgRabbit.setImageResource(R.drawable.pupu);
-            } else if (bmi < 25) {
-                imgRabbit.setImageResource(R.drawable.pupu);
-            } else if (bmi < 35) {
-                imgRabbit.setImageResource(R.drawable.pupupullukka);
-            } else {
-                imgRabbit.setImageResource(R.drawable.pupu);
+        if(User.getInstance().getLevel()>2) {
+            if(rabbit) {
+
+                if (bmi < 15) {
+                    imgRabbit.setImageResource(R.drawable.laihapupu);
+                } else if (bmi < 19) {
+                    imgRabbit.setImageResource(R.drawable.laihapupu);
+                } else if (bmi < 25) {
+                    imgRabbit.setImageResource(R.drawable.pupu);
+                } else if (bmi < 35) {
+                    imgRabbit.setImageResource(R.drawable.pupupullukka);
+                } else {
+                    imgRabbit.setImageResource(R.drawable.pupupullukka);
+                }
+            }
+            else{
+                imgRabbit.setImageResource(R.drawable.pupuluuranko);
             }
         }
         else{
@@ -334,7 +340,6 @@ public class Relaxing extends AppCompatActivity {
             updateRabbit();
         }
         if(User.getInstance().getLevel() > 2 && rabbit){
-            Log.i("MY_APP", "KÄÄK");
             rabbithits+=1;
             soundPlayerNormal.start();
         }
