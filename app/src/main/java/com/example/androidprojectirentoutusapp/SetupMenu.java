@@ -41,7 +41,7 @@ public class SetupMenu extends AppCompatActivity {
             Intent relaxIntent = new Intent(SetupMenu.this, Relaxing.class);
             startActivity(relaxIntent);
         } else if(v==findViewById(R.id.triviaButton)){
-            Intent triviaIntent = new Intent(SetupMenu.this, activity_trivia.class);
+            Intent triviaIntent = new Intent(SetupMenu.this, TriviaActivity.class);
             startActivity(triviaIntent);
         }
     }

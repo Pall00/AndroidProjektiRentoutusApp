@@ -13,7 +13,7 @@
             android:name=".TriviaDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_trivia"
+            android:name=".TriviaActivity"
             android:exported="false" />
         <activity
             android:name=".CreateUser"
