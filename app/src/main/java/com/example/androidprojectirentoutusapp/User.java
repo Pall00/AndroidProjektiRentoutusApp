@@ -1,6 +1,12 @@
 package com.example.androidprojectirentoutusapp;
 
 public class User {
+    /**
+     * Have variables age,weight height, name, level, relaxingTime,id and timer.
+     *
+     *
+     *
+     */
     private int age;
     private int weight;
     private int height;
