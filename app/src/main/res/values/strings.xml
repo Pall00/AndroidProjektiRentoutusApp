@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">RentFree</string>
-    <string name="user_button">Empty user</string>
     <string name="exitButton">Exit</string>
     <string name="relaxButton">Relax</string>
     <string name="settingsButton">Settings</string>
