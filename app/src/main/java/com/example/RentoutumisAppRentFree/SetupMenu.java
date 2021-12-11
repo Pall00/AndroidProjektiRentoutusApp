@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,8 +51,8 @@ public class SetupMenu extends AppCompatActivity {
         exitDialog = new Dialog(this);
 
         exitDialog.setContentView(R.layout.exitpopup);
-        Button exitApp = (Button) exitDialog.findViewById(R.id.exitappButton);
-        Button exitToLogin = (Button) exitDialog.findViewById(R.id.exitlogin);
+        ImageButton exitApp = (ImageButton) exitDialog.findViewById(R.id.exitappButton);
+        ImageButton exitToLogin = (ImageButton) exitDialog.findViewById(R.id.exitlogin);
         Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
         exitApp.setOnClickListener(new View.OnClickListener() {
