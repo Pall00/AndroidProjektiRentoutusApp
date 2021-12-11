@@ -12,14 +12,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 public class CreateUser extends AppCompatActivity {
-    private EditText eName;
-    private EditText eAge;
-    private EditText eWeight;
-    private EditText eHeight;
+    private EditText eName, eAge, eWeight, eHeight;
     private String username;
-    private int age;
-    private int height;
-    private int weight;
+    private int age, height, weight;
     private final long clock = 60000;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;

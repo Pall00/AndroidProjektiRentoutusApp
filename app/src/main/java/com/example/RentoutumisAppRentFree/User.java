@@ -7,6 +7,7 @@ package com.example.RentoutumisAppRentFree;
  */
 
 public class User {
+
     private int age;
     private int weight;
     private int height;

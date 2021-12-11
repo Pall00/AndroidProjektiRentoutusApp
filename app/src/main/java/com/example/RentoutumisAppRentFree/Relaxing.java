@@ -19,25 +19,11 @@ import com.google.gson.Gson;
 public class Relaxing extends AppCompatActivity {
 
     private TextView textView;
-    private boolean timerOn;
-    private Dialog exitDialog;
-
-    private Dialog timerDialog;
-
-    private int aika, length, minutes, clockInSeconds;
-
+    private boolean timerOn, rabbit;
+    private Dialog exitDialog, timerDialog;
+    private int aika, minutes, clockInSeconds, seconds, rabbithits;
     private MediaPlayer mediaPlayer, soundPlayerNormal, soundPlayerDeath;
-
-    private int seconds;
-
-    private int rabbithits;
-
-    public boolean paused;
-
-    private boolean rabbit;
-
     private long clock = User.getInstance().getTimer();
-
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private CountDownTimer timer;
@@ -65,7 +51,6 @@ public class Relaxing extends AppCompatActivity {
     }
 
     public void sunTimerButton(View v) {
-        View view = findViewById(R.id.imageButtonAurinko);
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.start();
@@ -253,12 +238,15 @@ public class Relaxing extends AppCompatActivity {
     }
     protected void onPause(){
         super.onPause();
-        length= mediaPlayer.getCurrentPosition();
-        mediaPlayer.pause();
-        timerOn = false;
-        stopTimer();
-        textView = findViewById(R.id.tvTimer);
-        textView.setText("");
+        if(timerOn){
+            mediaPlayer.pause();
+            timerOn = false;
+            stopTimer();
+            textView = findViewById(R.id.tvTimer);
+            textView.setText("");
+            User.getInstance().addRelaxingTime(aika);
+            aika = 0;
+        }
     }
     public void timerSettings(View v){
         if(!timerOn){

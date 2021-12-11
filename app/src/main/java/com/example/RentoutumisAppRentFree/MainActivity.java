@@ -13,9 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
-    private Button user1Button;
-    private Button user2Button;
-    private Button user3Button;
+    private Button user1Button, user2Button, user3Button;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private String json;

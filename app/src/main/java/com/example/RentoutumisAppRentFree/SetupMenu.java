@@ -17,16 +17,12 @@ import com.google.gson.Gson;
 
 public class SetupMenu extends AppCompatActivity {
 
-    private Dialog exitDialog;
-
-    private Dialog settingsDialog;
+    private Dialog exitDialog, settingsDialog;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
-    private int age;
-    private int height;
-    private  int weight;
+    private int age, height, weight;
     private String username;
 
     @Override
