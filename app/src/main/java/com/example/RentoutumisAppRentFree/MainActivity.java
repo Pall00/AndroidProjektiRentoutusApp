@@ -7,17 +7,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
 
-    private Button user1Button, user2Button, user3Button;
+    private ImageButton user1Button, user2Button, user3Button;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private String json;
     private User uTemp;
+    private TextView user1tv,user2tv,user3tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         user1Button = findViewById(R.id.user1Button);
         user2Button = findViewById(R.id.user2Button);
         user3Button = findViewById(R.id.user3Button);
+        user1tv = findViewById(R.id.user1textView);
+        user2tv = findViewById(R.id.user2textView);
+        user3tv = findViewById(R.id.user3textView);
     }
 
     public int checkData(){
@@ -112,26 +118,26 @@ public class MainActivity extends AppCompatActivity {
         if(!(userdata.getString("User1", "0").equals("0"))){
             String json = userdata.getString("User1", "0");
             User user = gson.fromJson(json, User.class);
-            user1Button.setText(user.getName());
+            user1tv.setText(user.getName());
         }
         else{
-            user1Button.setText("Empty user");
+            user1tv.setText("Empty user");
         }
         if(!(userdata.getString("User2", "0").equals("0"))){
             String json = userdata.getString("User2", "0");
             User user = gson.fromJson(json, User.class);
-            user2Button.setText(user.getName());
+            user2tv.setText(user.getName());
         }
         else{
-            user2Button.setText("Empty user");
+            user2tv.setText("Empty user");
         }
         if(!(userdata.getString("User3", "0").equals("0"))){
             String json = userdata.getString("User3", "0");
             User user = gson.fromJson(json, User.class);
-            user3Button.setText(user.getName());
+            user3tv.setText(user.getName());
         }
         else{
-            user3Button.setText("Empty user");
+            user3tv.setText("Empty user");
         }
     }
     protected void onResume(){
