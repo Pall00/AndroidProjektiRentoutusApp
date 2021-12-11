@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -33,12 +32,15 @@ public class Relaxing extends AppCompatActivity {
 
     private int rabbithits;
 
+    public boolean paused;
+
     private boolean rabbit;
 
     private long clock = User.getInstance().getTimer();
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,11 @@ public class Relaxing extends AppCompatActivity {
         updateButton();
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.appmusic);
         Toast.makeText(getApplicationContext(), "Press the sun to begin relaxing", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void stopTimer() {
+        timer.cancel();
     }
 
     public void sunTimerButton(View v) {
@@ -62,7 +69,7 @@ public class Relaxing extends AppCompatActivity {
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.start();
-            CountDownTimer timer = new CountDownTimer(clock, 1000) {
+            timer = new CountDownTimer(clock, 1000) {
 
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -248,13 +255,10 @@ public class Relaxing extends AppCompatActivity {
         super.onPause();
         length= mediaPlayer.getCurrentPosition();
         mediaPlayer.pause();
-    }
-    protected void onResume(){
-        super.onResume();
-        if(timerOn){
-            mediaPlayer.start();
-            mediaPlayer.seekTo(length);
-        }
+        timerOn = false;
+        stopTimer();
+        textView = findViewById(R.id.tvTimer);
+        textView.setText("");
     }
     public void timerSettings(View v){
         if(!timerOn){
@@ -271,7 +275,7 @@ public class Relaxing extends AppCompatActivity {
             Button buttonClose = (Button) timerDialog.findViewById(R.id.closeTimeSettingsButton);
             TextView textViewMinutes = (TextView) timerDialog.findViewById(R.id.textViewTimeMinutes);
             TextView textViewSeconds = (TextView) timerDialog.findViewById(R.id.textViewTimeSeconds);
-            updateTimer(timer.getMinutes(), timer.getSeconds());
+            updateTimerMenu(timer.getMinutes(), timer.getSeconds());
             buttonConfirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -287,7 +291,7 @@ public class Relaxing extends AppCompatActivity {
             buttonClose.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                    updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                     timerDialog.dismiss();
                 }
             });
@@ -295,14 +299,14 @@ public class Relaxing extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     timer.plusMinutes();
-                    updateTimer(timer.getMinutes(),timer.getSeconds());
+                    updateTimerMenu(timer.getMinutes(),timer.getSeconds());
                 }
             });
             buttonMinutesMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     timer.minusMinutes();
-                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                    updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                 }
             });
             buttonSecondsMinus.setOnClickListener(new View.OnClickListener() {
@@ -310,14 +314,14 @@ public class Relaxing extends AppCompatActivity {
 
                 public void onClick(View v) {
                     timer.minusSeconds();
-                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                    updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                 }
             });
             buttonSecondsPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     timer.plusSeconds();
-                    updateTimer(timer.getMinutes(), timer.getSeconds());
+                    updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                 }
             });
 
@@ -327,7 +331,7 @@ public class Relaxing extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Relax first", Toast.LENGTH_SHORT).show();
         }
     }
-    public void updateTimer(int minutes, int seconds){
+    public void updateTimerMenu(int minutes, int seconds){
         TextView textViewMinutes = (TextView) timerDialog.findViewById(R.id.textViewTimeMinutes);
         TextView textViewSeconds = (TextView) timerDialog.findViewById(R.id.textViewTimeSeconds);
         textViewMinutes.setText(Integer.toString(minutes));
@@ -345,4 +349,5 @@ public class Relaxing extends AppCompatActivity {
             soundPlayerNormal.start();
         }
     }
+
 }
