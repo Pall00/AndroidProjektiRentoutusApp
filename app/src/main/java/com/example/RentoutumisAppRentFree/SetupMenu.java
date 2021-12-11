@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,16 +17,12 @@ import com.google.gson.Gson;
 
 public class SetupMenu extends AppCompatActivity {
 
-    private Dialog exitDialog;
-
-    private Dialog settingsDialog;
+    private Dialog exitDialog, settingsDialog;
 
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
-    private int age;
-    private int height;
-    private  int weight;
+    private int age, height, weight;
     private String username;
 
     @Override
@@ -50,8 +47,8 @@ public class SetupMenu extends AppCompatActivity {
         exitDialog = new Dialog(this);
 
         exitDialog.setContentView(R.layout.exitpopup);
-        Button exitApp = (Button) exitDialog.findViewById(R.id.exitappButton);
-        Button exitToLogin = (Button) exitDialog.findViewById(R.id.exitlogin);
+        ImageButton exitApp = (ImageButton) exitDialog.findViewById(R.id.exitappButton);
+        ImageButton exitToLogin = (ImageButton) exitDialog.findViewById(R.id.exitlogin);
         Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
         exitApp.setOnClickListener(new View.OnClickListener() {
