@@ -66,12 +66,8 @@
         android:layout_height="70sp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="343dp"
-        android:layout_marginBottom="638dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="42dp"
         android:background="@drawable/ratas"
         android:onClick="timerSettings" />
 
