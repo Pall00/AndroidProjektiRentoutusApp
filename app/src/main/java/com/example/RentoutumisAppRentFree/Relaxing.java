@@ -112,7 +112,7 @@ public class Relaxing extends AppCompatActivity {
 
     public void updateBackground(){
         int level = User.getInstance().getLevel();
-        ImageView  img = findViewById(R.id.openTimerSettings);
+        ImageView  img = findViewById(R.id.relaxingBG);
         switch(level){
             case 0:
                 img.setImageResource(R.drawable.level1);
