@@ -11,21 +11,27 @@
         android:theme="@style/Theme.AndroidProjectiRentoutusApp">
         <activity
             android:name="com.example.RentoutumisAppRentFree.TriviaDetailsActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name="com.example.RentoutumisAppRentFree.TriviaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name="com.example.RentoutumisAppRentFree.CreateUser"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name="com.example.RentoutumisAppRentFree.SetupMenu"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name="com.example.RentoutumisAppRentFree.Relaxing"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name="com.example.RentoutumisAppRentFree.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
