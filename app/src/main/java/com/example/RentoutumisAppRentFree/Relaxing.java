@@ -259,11 +259,11 @@ public class Relaxing extends AppCompatActivity {
 
             Timer timer = new Timer(User.getInstance().getTimer());
 
-            Button buttonConfirm = (Button) timerDialog.findViewById(R.id.buttonConfirmTime);
-            Button buttonSecondsMinus = (Button) timerDialog.findViewById(R.id.buttonSecondsMinus);
-            Button buttonSecondsPlus = (Button) timerDialog.findViewById(R.id.buttonSecondsPlus);
-            Button buttonMinutesPlus = (Button) timerDialog.findViewById(R.id.buttonMinutesPlus);
-            Button buttonMinutesMinus = (Button) timerDialog.findViewById(R.id.buttonMinutesMinus);
+            ImageButton buttonConfirm = (ImageButton) timerDialog.findViewById(R.id.buttonConfirmTime);
+            ImageButton buttonSecondsMinus = (ImageButton) timerDialog.findViewById(R.id.buttonSecondsMinus);
+            ImageButton buttonSecondsPlus = (ImageButton) timerDialog.findViewById(R.id.buttonSecondsPlus);
+            ImageButton buttonMinutesPlus = (ImageButton) timerDialog.findViewById(R.id.buttonMinutesPlus);
+            ImageButton buttonMinutesMinus = (ImageButton) timerDialog.findViewById(R.id.buttonMinutesMinus);
             Button buttonClose = (Button) timerDialog.findViewById(R.id.closeTimeSettingsButton);
             updateTimerMenu(timer.getMinutes(), timer.getSeconds());
             buttonConfirm.setOnClickListener(new View.OnClickListener() {

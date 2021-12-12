@@ -11,14 +11,13 @@
         android:id="@+id/textViewchangeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="@string/changeNameHint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textViewchangeAge"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +25,13 @@
         android:id="@+id/textViewchangeAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="@string/changeAgeHint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textViewchangeWeight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewchangeName" />
 
@@ -40,13 +39,13 @@
         android:id="@+id/textViewchangeWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="@string/changeWeightHint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textViewchangeHeight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewchangeAge" />
 
@@ -54,74 +53,15 @@
         android:id="@+id/textViewchangeHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="35dp"
         android:ems="10"
         android:hint="@string/changeHeightHint"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/resetdataButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewchangeWeight" />
-
-    <Button
-        android:id="@+id/changenameButton"
-        android:layout_width="54dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/changeButton"
-        app:layout_constraintBottom_toTopOf="@+id/changeageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/textViewchangeName"
-        app:layout_constraintTop_toBottomOf="@+id/minimizeButton" />
-
-    <Button
-        android:id="@+id/changeageButton"
-        android:layout_width="54dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="29dp"
-        android:text="@string/changeButton"
-        app:layout_constraintBottom_toTopOf="@+id/changeweightButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/textViewchangeAge"
-        app:layout_constraintTop_toBottomOf="@+id/changenameButton" />
-
-    <Button
-        android:id="@+id/changeweightButton"
-        android:layout_width="54dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/changeButton"
-        app:layout_constraintBottom_toTopOf="@+id/changeheightButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/textViewchangeWeight"
-        app:layout_constraintTop_toBottomOf="@+id/changeageButton" />
-
-    <Button
-        android:id="@+id/changeheightButton"
-        android:layout_width="54dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="252dp"
-        android:text="@string/changeButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/textViewchangeHeight"
-        app:layout_constraintTop_toBottomOf="@+id/changeweightButton" />
-
-    <Button
-        android:id="@+id/resetdataButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/resetButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changeheightButton" />
 
     <Button
         android:id="@+id/minimizeButton"
@@ -129,13 +69,58 @@
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="55dp"
         android:background="@android:color/transparent"
         android:gravity="center"
         android:text="@string/closebutton"
         android:textColor="@color/black"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/changenameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/resetdataButton"
+        android:layout_width="216dp"
+        android:layout_height="127dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/pilviresetrelaxdata"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/changeheightButton"
+        android:layout_width="67dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/pilviok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeweightButton" />
+
+    <ImageButton
+        android:id="@+id/changeweightButton"
+        android:layout_width="67dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/pilviok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeageButton" />
+
+    <ImageButton
+        android:id="@+id/changeageButton"
+        android:layout_width="67dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/pilviok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/changenameButton"
+        android:layout_width="67dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/pilviok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

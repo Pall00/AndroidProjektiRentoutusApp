@@ -90,12 +90,12 @@ public class SetupMenu extends AppCompatActivity {
         EditText eWeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeWeight);
         EditText eHeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeHeight);
 
-        Button changeName = (Button) settingsDialog.findViewById(R.id.changenameButton);
-        Button changeAge = (Button) settingsDialog.findViewById(R.id.changeageButton);
-        Button changeWeight = (Button) settingsDialog.findViewById(R.id.changeweightButton);
-        Button changeHeight = (Button) settingsDialog.findViewById(R.id.changeheightButton);
+        ImageButton changeName = (ImageButton) settingsDialog.findViewById(R.id.changenameButton);
+        ImageButton changeAge = (ImageButton) settingsDialog.findViewById(R.id.changeageButton);
+        ImageButton changeWeight = (ImageButton) settingsDialog.findViewById(R.id.changeweightButton);
+        ImageButton changeHeight = (ImageButton) settingsDialog.findViewById(R.id.changeheightButton);
         Button exitSettings = (Button) settingsDialog.findViewById(R.id.minimizeButton);
-        Button resetData = (Button) settingsDialog.findViewById(R.id.resetdataButton);
+        ImageButton resetData = (ImageButton) settingsDialog.findViewById(R.id.resetdataButton);
 
         changeName.setOnClickListener(new View.OnClickListener() {
             @Override
