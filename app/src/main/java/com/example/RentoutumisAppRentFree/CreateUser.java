@@ -14,12 +14,10 @@ import com.google.gson.Gson;
 public class CreateUser extends AppCompatActivity {
     private EditText eName, eAge, eWeight, eHeight;
     private String username;
-    private int age, height, weight;
+    private int age, height, weight,userValue;
     private final long clock = 60000;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
-
-    private int userValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +28,17 @@ public class CreateUser extends AppCompatActivity {
 
         userValue = intent.getIntExtra(MainActivity.EXTRA_USER,0);
 
-        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+    }
+
+    public void Register(View v){
 
         eName = findViewById(R.id.textViewName);
         eAge = findViewById(R.id.textViewAge);
         eWeight = findViewById(R.id.textViewWeight);
         eHeight = findViewById(R.id.textViewHeight);
 
-    }
-
-    public void Register(View v){
+        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userdataedit = userdata.edit();
 
         if(valid()) {
 

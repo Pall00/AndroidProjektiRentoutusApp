@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,8 +15,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
-
-    private ImageButton user1Button, user2Button, user3Button;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private String json;
@@ -29,14 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
-        user1Button = findViewById(R.id.user1Button);
-        user2Button = findViewById(R.id.user2Button);
-        user3Button = findViewById(R.id.user3Button);
-        user1tv = findViewById(R.id.user1textView);
-        user2tv = findViewById(R.id.user2textView);
-        user3tv = findViewById(R.id.user3textView);
-    }
 
+    }
     public int checkData(){
 
         if(userdata.getString("User1", "0").equals("0")){
@@ -114,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
     public void updateUI(){
 
         Gson gson = new Gson();
+
+        user1tv = findViewById(R.id.user1textView);
+        user2tv = findViewById(R.id.user2textView);
+        user3tv = findViewById(R.id.user3textView);
 
         if(!(userdata.getString("User1", "0").equals("0"))){
             String json = userdata.getString("User1", "0");

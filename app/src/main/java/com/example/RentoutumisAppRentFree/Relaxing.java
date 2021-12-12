@@ -47,7 +47,12 @@ public class Relaxing extends AppCompatActivity {
     }
 
     public void stopTimer() {
+        timerOn = false;
         timer.cancel();
+        textView = findViewById(R.id.tvTimer);
+        textView.setText("");
+        User.getInstance().addRelaxingTime(aika);
+        aika = 0;
     }
 
     public void sunTimerButton(View v) {
@@ -240,12 +245,7 @@ public class Relaxing extends AppCompatActivity {
         super.onPause();
         if(timerOn){
             mediaPlayer.pause();
-            timerOn = false;
             stopTimer();
-            textView = findViewById(R.id.tvTimer);
-            textView.setText("");
-            User.getInstance().addRelaxingTime(aika);
-            aika = 0;
         }
     }
     public void timerSettings(View v){
