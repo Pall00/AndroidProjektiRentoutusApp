@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
         userdataedit = userdata.edit();
-
     }
     public int checkData(){
 

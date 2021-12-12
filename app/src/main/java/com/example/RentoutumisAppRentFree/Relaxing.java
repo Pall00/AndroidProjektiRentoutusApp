@@ -183,13 +183,17 @@ public class Relaxing extends AppCompatActivity {
 
                 if (bmi < 15) {
                     imgRabbit.setImageResource(R.drawable.laihapupu);
-                } else if (bmi < 19) {
+                }
+                else if (bmi < 19) {
                     imgRabbit.setImageResource(R.drawable.laihapupu);
-                } else if (bmi < 25) {
+                }
+                else if (bmi < 25) {
                     imgRabbit.setImageResource(R.drawable.pupu);
-                } else if (bmi < 35) {
+                }
+                else if (bmi < 35) {
                     imgRabbit.setImageResource(R.drawable.pupupullukka);
-                } else {
+                }
+                else {
                     imgRabbit.setImageResource(R.drawable.pupupullukka);
                 }
             }
@@ -268,6 +272,7 @@ public class Relaxing extends AppCompatActivity {
                     if(timer.getMS()!=0){
                         User.getInstance().setTimer(timer.getMS());
                         updatePlayer();
+                        timerDialog.dismiss();
                     }
                     else{
                         Toast.makeText(getApplicationContext(), "Timer can't be zero!", Toast.LENGTH_SHORT).show();
