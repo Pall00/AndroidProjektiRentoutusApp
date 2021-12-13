@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class TriviaDetailsActivity extends AppCompatActivity {
     /**
      *
-     * @param savedInstanceState
+     * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

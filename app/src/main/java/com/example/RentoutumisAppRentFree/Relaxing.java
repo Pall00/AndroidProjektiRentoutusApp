@@ -38,9 +38,8 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      *
-     * @param savedInstanceState
+     * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +61,6 @@ public class Relaxing extends AppCompatActivity {
     /**
      *
      */
-
     public void stopTimer() {
         timerOn = false;
         timer.cancel();
@@ -74,9 +72,8 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
-
     public void sunTimerButton(View v) {
         textView = findViewById(R.id.tvTimer);
         if (!timerOn) {
@@ -132,6 +129,9 @@ public class Relaxing extends AppCompatActivity {
         timerOn = true;
     }
 
+    /**
+     *
+     */
     public void updateAll(){
         updateBackground();
         updatePlayer();
@@ -267,7 +267,7 @@ public class Relaxing extends AppCompatActivity {
             yesButton.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
                 public void onClick(View v) {
@@ -282,7 +282,7 @@ public class Relaxing extends AppCompatActivity {
             noButton.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
                 public void onClick(View v) {
@@ -292,7 +292,7 @@ public class Relaxing extends AppCompatActivity {
             closeButton.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
                 public void onClick(View v) {
@@ -317,7 +317,7 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void timerSettings(View v){
         if(!timerOn){
@@ -336,7 +336,7 @@ public class Relaxing extends AppCompatActivity {
             buttonConfirm.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
@@ -353,7 +353,7 @@ public class Relaxing extends AppCompatActivity {
             buttonClose.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
@@ -364,7 +364,7 @@ public class Relaxing extends AppCompatActivity {
             buttonMinutesPlus.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
@@ -375,7 +375,7 @@ public class Relaxing extends AppCompatActivity {
             buttonMinutesMinus.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
@@ -386,7 +386,7 @@ public class Relaxing extends AppCompatActivity {
             buttonSecondsMinus.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
 
@@ -398,7 +398,7 @@ public class Relaxing extends AppCompatActivity {
             buttonSecondsPlus.setOnClickListener(new View.OnClickListener() {
                 /**
                  *
-                 * @param v
+                 * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
@@ -428,9 +428,9 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      *
-     * @param view
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
-    public void rabbitPress(View view){
+    public void rabbitPress(View v){
         if(rabbithits==6 && rabbit){
             rabbit = false;
             soundPlayerDeath.start();

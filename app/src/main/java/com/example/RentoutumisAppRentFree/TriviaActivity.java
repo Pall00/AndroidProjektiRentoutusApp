@@ -28,7 +28,7 @@ public class TriviaActivity extends AppCompatActivity {
 
     /**
      *
-     * @param savedInstanceState
+     * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,12 +107,12 @@ public class TriviaActivity extends AppCompatActivity {
             /**
              *
              * @param parent
-             * @param view
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              * @param i
              * @param id
              */
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, int i, long id) {
                 Intent nextActivity = new Intent(TriviaActivity.this, TriviaDetailsActivity.class);
                 nextActivity.putExtra(EXTRA, i);
                 startActivity(nextActivity);

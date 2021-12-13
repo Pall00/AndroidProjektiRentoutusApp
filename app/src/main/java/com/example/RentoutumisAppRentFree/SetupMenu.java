@@ -35,7 +35,7 @@ public class SetupMenu extends AppCompatActivity {
 
     /**
      *
-     * @param savedInstanceState
+     * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class SetupMenu extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void menuButton(View v){
 
@@ -62,7 +62,7 @@ public class SetupMenu extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void exitButton(View v){
 
@@ -76,7 +76,7 @@ public class SetupMenu extends AppCompatActivity {
         exitApp.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -89,7 +89,7 @@ public class SetupMenu extends AppCompatActivity {
         exitToLogin.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -100,7 +100,7 @@ public class SetupMenu extends AppCompatActivity {
         closeButton.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -113,7 +113,7 @@ public class SetupMenu extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void settingsButton(View v){
 
@@ -139,7 +139,7 @@ public class SetupMenu extends AppCompatActivity {
         changeName.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -162,7 +162,7 @@ public class SetupMenu extends AppCompatActivity {
         changeAge.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -183,7 +183,7 @@ public class SetupMenu extends AppCompatActivity {
         changeWeight.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -204,7 +204,7 @@ public class SetupMenu extends AppCompatActivity {
         changeHeight.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -226,7 +226,7 @@ public class SetupMenu extends AppCompatActivity {
         exitSettings.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {
@@ -237,7 +237,7 @@ public class SetupMenu extends AppCompatActivity {
         resetData.setOnClickListener(new View.OnClickListener() {
             /**
              *
-             * @param v
+             * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
             public void onClick(View v) {

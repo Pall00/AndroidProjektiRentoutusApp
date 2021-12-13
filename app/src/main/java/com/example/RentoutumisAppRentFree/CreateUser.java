@@ -28,7 +28,7 @@ public class CreateUser extends AppCompatActivity {
 
     /**
      *
-     * @param savedInstanceState
+     * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class CreateUser extends AppCompatActivity {
 
     /**
      *
-     * @param v
+     * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void Register(View v){
 
