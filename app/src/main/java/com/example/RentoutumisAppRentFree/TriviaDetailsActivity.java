@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class TriviaDetailsActivity extends AppCompatActivity {
     /**
-     *This is the onCreate method. It does the default methods it has and gets info from extras and shows it on textview.
+     *This is the onCreate method. It does the default methods while also gets the info from the extra and shows the appropriate info on the screen from the singleton GLibalTrivias object.
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
