@@ -46,7 +46,8 @@ public class SetupMenu extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method gets called when the user presses either the relax button or trivia button. The method checks which button was pressed. If the button was relax button,
+     * the method sets up an Intent for Relaxing class and starts it. If the button was trivia button then it does the same for TriviaActivity class.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void menuButton(View v){
@@ -61,7 +62,7 @@ public class SetupMenu extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method gets called when the user presses the exit button. It initializes an exitDialog and sets up the buttons for it and starts it up.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void exitButton(View v){
@@ -75,7 +76,7 @@ public class SetupMenu extends AppCompatActivity {
 
         exitApp.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the exitApp button. This method closes the Dialog, closes the app and shuts it down entirely.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -88,7 +89,7 @@ public class SetupMenu extends AppCompatActivity {
         });
         exitToLogin.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the exitToLogin button. This method closes the Dialog and exists the current activity.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -99,7 +100,7 @@ public class SetupMenu extends AppCompatActivity {
         });
         closeButton.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the closeButton button. This closes the current Dialog.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -107,12 +108,12 @@ public class SetupMenu extends AppCompatActivity {
                 exitDialog.dismiss();
             }
         });
-
         exitDialog.show();
     }
 
     /**
-     *
+     * This method gets called when the user presses the settings button. It initializes a new settingsDialog Dialog and creates the its buttons and EditText objects.
+     * It also defines userdat and userdataedit values.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void settingsButton(View v){
@@ -138,7 +139,9 @@ public class SetupMenu extends AppCompatActivity {
 
         changeName.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the changeName button. It tries to set the username variable to the eName value. As the username variable
+             * is string, if the eName cannot be converted to it it Toasts invalid input message to the user. If it goes through it checks if the input was empty string in which case
+             * it also Toasts invalid input. If the username was appropriate it updates the User singleton update to it and calls updatePlayer() and updateUI() methods.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -161,7 +164,9 @@ public class SetupMenu extends AppCompatActivity {
         });
         changeAge.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the changeAge button. It tries to set the age variable to the int value taken from eAges string value.
+             * If it fails it Toasts invalid input. If the value is less than 16 it also Toasts invalid input. In other cases it updates the User singleton with that value
+             * and calls updatePlayer() and update() methods.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -183,7 +188,9 @@ public class SetupMenu extends AppCompatActivity {
         });
         changeWeight.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the changeWeight button. It tries to set the weight variable to the int value taken from eWeights string value.
+             * If it fails it Toasts invalid input. If the value is less than or equal to 0 it also Toasts invalid input. In other cases it updates the User singleton with that value
+             * and calls updatePlayer() and update() methods.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -205,7 +212,9 @@ public class SetupMenu extends AppCompatActivity {
         });
         changeHeight.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the changeHeight button. It tries to set the height variable to the int value taken from eHeight string value.
+             * If it fails it Toasts invalid input. If the value is less than or equal to 100 it also Toasts invalid input. In other cases it updates the User singleton with that value
+             * and calls updatePlayer() and update() methods.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -228,7 +237,7 @@ public class SetupMenu extends AppCompatActivity {
         });
         exitSettings.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called whenever the user presses the exitSettings button. This only calls updateUI() method and closes the Dialog.
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -239,7 +248,7 @@ public class SetupMenu extends AppCompatActivity {
         });
         resetData.setOnClickListener(new View.OnClickListener() {
             /**
-             *
+             * This method gets called when the user presses the reserData button. It calls the User class method resetData() and calls updatePlayer() method. With this
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
              */
             @Override
@@ -254,7 +263,8 @@ public class SetupMenu extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method updates the value of the current Singleton user object to its corresponding userID value in the application data. It puts the singleton data into
+     * JSON string and puts it in the appropriate userdata.
      */
     public void updatePlayer(){
 
@@ -284,7 +294,8 @@ public class SetupMenu extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method updates the UI in the menu. It updates the TextViews that represent the current User data from the singleton object. It takes the username, age, weight,
+     * height, level and relaxingtime variables and presents them appropriately in the UI.
      */
     public void updateUI(){
         TextView tvUsername = findViewById(R.id.textViewUsername);
@@ -306,9 +317,9 @@ public class SetupMenu extends AppCompatActivity {
     }
 
     /**
-     *
+     * This is is slightly modified version of the onResume Android lifecycle method. It calls the updateUI method, updating the UI whenever the activity is resumed or after onCreate has been called.
      */
-    public void onResume(){
+    protected void onResume(){
         super.onResume();
         updateUI();
     }
