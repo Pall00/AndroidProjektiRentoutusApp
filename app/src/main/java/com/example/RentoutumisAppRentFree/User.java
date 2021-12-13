@@ -86,7 +86,6 @@ public class User {
     public void resetData(){
         this.level = 0;
         this.relaxingTime = 0;
-        //this.timer = 60000;
     }
     /**
      * This is a method for returning value of users id variable.

@@ -34,7 +34,7 @@ public class SetupMenu extends AppCompatActivity {
     private String username;
 
     /**
-     *This is the onCreate method. It does the default methods it has and also defines userdat and userdataedit values
+     * This is the onCreate() method. It does the default methods and also calls updateUI() method.
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
@@ -177,6 +177,7 @@ public class SetupMenu extends AppCompatActivity {
                 else{
                     User.getInstance().setAge(age);
                     updatePlayer();
+                    updateUI();
                 }
             }
         });
@@ -198,6 +199,7 @@ public class SetupMenu extends AppCompatActivity {
                 else{
                     User.getInstance().setWeight(weight);
                     updatePlayer();
+                    updateUI();
                 }
             }
         });
@@ -219,6 +221,7 @@ public class SetupMenu extends AppCompatActivity {
                 else{
                     User.getInstance().setHeight(height);
                     updatePlayer();
+                    updateUI();
                 }
 
             }

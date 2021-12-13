@@ -26,18 +26,19 @@ import com.google.gson.Gson;
 
 public class Relaxing extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView textViewTimer;
     private boolean timerOn, rabbit;
     private Dialog exitDialog, timerDialog;
-    private int aika, minutes, clockInSeconds, seconds, rabbithits;
-    private MediaPlayer mediaPlayer, soundPlayerNormal, soundPlayerDeath;
+    private int timeValue, minutes, clockInSeconds, seconds, rabbithits;
+    private MediaPlayer mediaPlayer, soundRabbitNormal, soundRabbitDeath;
     private long clock = User.getInstance().getTimer();
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
     private CountDownTimer timer;
 
     /**
-     *
+     * This is the onCreate method. It does the default method while also assigning the boolean value of rabbit to true, setting the rabbithits value to 0, timerOn boolean value to  false,
+     * and setting up the MediaPlayers while also updating the UI with the updateBackground(), updateRabbit() and updateButton() methods. It also makes toast to inform the user that the sun texture is intractable.
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
@@ -47,9 +48,9 @@ public class Relaxing extends AppCompatActivity {
         rabbit = true;
         rabbithits=0;
         timerOn = false;
-        aika = 0;
-        soundPlayerDeath = MediaPlayer.create(getApplicationContext(), R.raw.oofdeath);
-        soundPlayerNormal = MediaPlayer.create(getApplicationContext(), R.raw.oofnormal);
+        timeValue = 0;
+        soundRabbitDeath = MediaPlayer.create(getApplicationContext(), R.raw.oofdeath);
+        soundRabbitNormal = MediaPlayer.create(getApplicationContext(), R.raw.oofnormal);
         updateBackground();
         updateRabbit();
         updateButton();
@@ -59,29 +60,30 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This methods job is to stop the CountDownTimer used in the program and set the textViewTimer to empty string. It also adds the remaining of the timeValue to the singleton User object.
      */
     public void stopTimer() {
         timerOn = false;
         timer.cancel();
-        textView = findViewById(R.id.tvTimer);
-        textView.setText("");
-        User.getInstance().addRelaxingTime(aika);
-        aika = 0;
+        textViewTimer = findViewById(R.id.tvTimer);
+        textViewTimer.setText("");
+        User.getInstance().addRelaxingTime(timeValue);
+        timeValue = 0;
     }
 
     /**
-     *
+     * This is the method that gets activated when the user clicks the sun. First the method checks if the timerOn value is not true, meaning that the timer is not already on.
+     * If the timer is on it Toast a message to the user telling that the timer is already on. If the timer is not on, it starts the mediaPlayer to play music and starts the timer. It also turns the timerOn value to true.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void sunTimerButton(View v) {
-        textView = findViewById(R.id.tvTimer);
+        textViewTimer = findViewById(R.id.tvTimer);
         if (!timerOn) {
             mediaPlayer.start();
             timer = new CountDownTimer(clock, 1000) {
                 /**
-                 *
-                 * @param millisUntilFinished
+                 * This is the onTick method. This gets executed on every tick. On every tick the method updates the value of the Timer in minutes and seconds and puts the values in the appropriate TextView.
+                 * @param millisUntilFinished this parameter represents the amount of milliseconds the CountDownTimer has left before it finishes.
                  */
                 @Override
                 public void onTick(long millisUntilFinished) {
@@ -89,18 +91,21 @@ public class Relaxing extends AppCompatActivity {
                     minutes = clockInSeconds % 3600 / 60;
                     seconds = clockInSeconds % 60;
                     String time = String.format("%02d:%02d", minutes, seconds);
-                    textView.setText("Time remaining: " + time);
-                    aika = (int)  (((clock +1000)-millisUntilFinished) / 1000);
+                    textViewTimer.setText("Time remaining: " + time);
+                    timeValue = (int)  (((clock +1000)-millisUntilFinished) / 1000);
                 }
 
                 /**
-                 *
+                 * This method gets called whenever the CountDownTimer finishes normally, meaning the millisUntilFinished gets to zero.
+                 * When it finishes it pauses the music, sets the TextView to empty string and checks the current user level and puts out appropriate Toast text.
+                 * It then calls the levelUp() method from the User, incrementing the Users level by one and it also adds the timeValue to the Users relaxing time that represents the time that the CountDownTimer had.
+                 * At the end it puts the timerOn value to false, resets the timeValue to zero and calls updateAll() method.
                  */
                 @Override
                 public void onFinish() {
                     mediaPlayer.pause();
-                    textView.setText("");
-                    if(User.getInstance().getLevel() == 2){
+                    textViewTimer.setText("");
+                    if(User.getInstance().getLevel() == 2 && timerOn){
                         Toast.makeText(getApplicationContext(), "You got yourself a bunny!", Toast.LENGTH_SHORT).show();
                     }
                     else if(User.getInstance().getLevel() <5 && timerOn){
@@ -114,10 +119,10 @@ public class Relaxing extends AppCompatActivity {
                     }
                     if (timerOn) {
                         User.getInstance().levelUp();
-                        User.getInstance().addRelaxingTime(aika);
+                        User.getInstance().addRelaxingTime(timeValue);
                     }
                     timerOn = false;
-                    aika = 0;
+                    timeValue = 0;
                     updateAll();
 
                 }
@@ -130,7 +135,7 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method is a way to update everything on the screen and update all the User values to the app data. It calls all the update methods and executes them.
      */
     public void updateAll(){
         updateBackground();
@@ -140,11 +145,11 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This is the method to update the background for the activity. It checks the users current level and sets the ImageView of the level to the value it represents.
      */
     public void updateBackground(){
         int level = User.getInstance().getLevel();
-        ImageView  img = findViewById(R.id.relaxingBG);
+        ImageView img = findViewById(R.id.relaxingBG);
         switch(level){
             case 0:
                 img.setImageResource(R.drawable.level1);
@@ -171,7 +176,9 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method updates the settings button that appears on the last level in the minigame. If the user is not on the last level, the buttons visibility is set to
+     * GONE. GONE means that it can't be clicked nor seen. If the user is on the final evel the settings button appears by making it VISIBLE. It can then be clicked
+     * and seen.
      */
     public void updateButton(){
         View button = findViewById(R.id.timerSettings);
@@ -184,7 +191,8 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method takes the current userID of the singleton object and saves the singleton data to the data the ID represents.
+     * It also updates the clock value to the current user timerValue.
      */
     public void updatePlayer(){
 
@@ -213,28 +221,24 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method updates the rabbit image on the activity. If the current leevel of the user is higher than 2 and boolean value of rabbit is true, it sets the
+     * ImageView imgRabbit to the corresponding picture according to the BMI value taken with the User classes getBmi() method. If the users level is not higher than 2,
+     * the image resource is set to zero meaning that there is no Image.
      */
     public void updateRabbit(){
 
         double bmi = User.getInstance().getBmi();
 
-        ImageView  imgRabbit = (ImageView) findViewById(R.id.pupuView);
+        ImageView imgRabbit = (ImageView) findViewById(R.id.pupuView);
 
         if(User.getInstance().getLevel()>2) {
             if(rabbit) {
 
-                if (bmi < 15) {
-                    imgRabbit.setImageResource(R.drawable.laihapupu);
-                }
-                else if (bmi < 19) {
+                if (bmi < 19) {
                     imgRabbit.setImageResource(R.drawable.laihapupu);
                 }
                 else if (bmi < 25) {
                     imgRabbit.setImageResource(R.drawable.pupu);
-                }
-                else if (bmi < 35) {
-                    imgRabbit.setImageResource(R.drawable.pupupullukka);
                 }
                 else {
                     imgRabbit.setImageResource(R.drawable.pupupullukka);
@@ -250,7 +254,8 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This is the method that gets executed when user presses the back button on their phone. If the timerOn value is false, it executes the normal methods and exists the current aactivity.
+     * If the timerOn value is true, meaning that the timer on the method puts out a Dialog screen with intractable buttons.
      */
     public void onBackPressed(){
         if(!timerOn){
@@ -266,13 +271,14 @@ public class Relaxing extends AppCompatActivity {
 
             yesButton.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets executed when the user presses the yesButton on the exitDialog. It closes the Dialog, updates the user relaxing time value by incrementing to it with the timeValues value.
+                 * It then sets the timerOn value to false, timer being then off, stops the music and finishes the entire activity.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
                 public void onClick(View v) {
                     exitDialog.dismiss();
-                    User.getInstance().addRelaxingTime(aika);
+                    User.getInstance().addRelaxingTime(timeValue);
                     updatePlayer();
                     timerOn = false;
                     mediaPlayer.stop();
@@ -281,7 +287,7 @@ public class Relaxing extends AppCompatActivity {
             });
             noButton.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the noButton on the exitDialog. It only closes the Dialog and does nothing else.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
@@ -291,7 +297,7 @@ public class Relaxing extends AppCompatActivity {
             });
             closeButton.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the closeButton on the exitDialog. It does the same thing as noButton and only closes the Dialog.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched.
                  */
                 @Override
@@ -299,13 +305,13 @@ public class Relaxing extends AppCompatActivity {
                     exitDialog.dismiss();
                 }
             });
-
             exitDialog.show();
         }
     }
 
     /**
-     *
+     * This modified onPause() method does the default methods and also checks if the timerOn value is true. If it is it paues the mediaPlayer and stops the timer.
+     * This way if the user goes to homescreen, the timer closes and music stops.
      */
     protected void onPause(){
         super.onPause();
@@ -316,11 +322,13 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method checks if the timerOn value is true. If it is it then it makesa a Toast message to indicate for the user to relax since the timer is on.
+     * If the value is false, it starts p the timerDialog and makes a new Timer object and setsup the timerDialog buttons.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void timerSettings(View v){
         if(!timerOn){
+
             timerDialog = new Dialog(this);
             timerDialog.setContentView(R.layout.relaxtimesettings);
 
@@ -331,11 +339,14 @@ public class Relaxing extends AppCompatActivity {
             ImageButton buttonSecondsPlus = (ImageButton) timerDialog.findViewById(R.id.buttonSecondsPlus);
             ImageButton buttonMinutesPlus = (ImageButton) timerDialog.findViewById(R.id.buttonMinutesPlus);
             ImageButton buttonMinutesMinus = (ImageButton) timerDialog.findViewById(R.id.buttonMinutesMinus);
+
             Button buttonClose = (Button) timerDialog.findViewById(R.id.closeTimeSettingsButton);
             updateTimerMenu(timer.getMinutes(), timer.getSeconds());
             buttonConfirm.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonConfirm button. It checks the current value of the timer.getMS() and if it is not zero, it
+                 * updates the User singleton with that value and calls updatePlayer() and closes the timerDialog. If it is zero then it makes a Toast to the user
+                 * saying that the timers value can't be zero.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
@@ -352,18 +363,18 @@ public class Relaxing extends AppCompatActivity {
             });
             buttonClose.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonClose button. It only closes the current Dialog.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
                 public void onClick(View v) {
-                    updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                     timerDialog.dismiss();
                 }
             });
             buttonMinutesPlus.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonMinutesPlus button. It calls the timer objects plusMinutes() method and calls updateTimerMenu()
+                 * with the timer getters as its parameters.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
@@ -374,7 +385,8 @@ public class Relaxing extends AppCompatActivity {
             });
             buttonMinutesMinus.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonMinutesMinus button. It calls the timer objects minusMinutes() method and calls updateTimerMenu()
+                 * with the timer getters as its parameters.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
@@ -385,11 +397,11 @@ public class Relaxing extends AppCompatActivity {
             });
             buttonSecondsMinus.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonSecondsMinus button. It calls the timer objects minusSeconds() method and calls updateTimerMenu()
+                 * with the timer getters as its parameters.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
-
                 public void onClick(View v) {
                     timer.minusSeconds();
                     updateTimerMenu(timer.getMinutes(), timer.getSeconds());
@@ -397,7 +409,8 @@ public class Relaxing extends AppCompatActivity {
             });
             buttonSecondsPlus.setOnClickListener(new View.OnClickListener() {
                 /**
-                 *
+                 * This method gets called when the user presses the buttonSecondsPlus button. It calls the timer objects plusSeconds() method and calls updateTimerMenu()
+                 * with the timer getters as its parameters.
                  * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
                  */
                 @Override
@@ -406,7 +419,6 @@ public class Relaxing extends AppCompatActivity {
                     updateTimerMenu(timer.getMinutes(), timer.getSeconds());
                 }
             });
-
             timerDialog.show();
         }
         else{
@@ -415,9 +427,9 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
-     * @param minutes
-     * @param seconds
+     * This method updates the timerMenu in the timerDialog.
+     * @param minutes is an integer that represents the current amount of minutes in the timerDialogs timerMenu
+     * @param seconds is an integer that represents the current amount of seconds in the timerDialogs timerMenu
      */
     public void updateTimerMenu(int minutes, int seconds){
         TextView textViewMinutes = (TextView) timerDialog.findViewById(R.id.textViewTimeMinutes);
@@ -427,18 +439,21 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     *
+     * This method gets called whenever the uses presses the rabbit image when the rabbit booleans value is true, meaning that the rabbit exists and is not gone or not present.
+     * It first checks if the current value of rabbithits is 6 and rabbit exists. If both of them are true, it updates the rabbit boolean to false, plays the soundRabbitDeath
+     * MediaPlayer and calls the updateRabbit() method. The method then checks if the current user level is higher than 2 and if the rabbit boolean is true. If both of these apply,
+     * the method increments the rabbithits parameter by one and plays the soundRabbitNormal MediaPlayer.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void rabbitPress(View v){
         if(rabbithits==6 && rabbit){
             rabbit = false;
-            soundPlayerDeath.start();
+            soundRabbitDeath.start();
             updateRabbit();
         }
         if(User.getInstance().getLevel() > 2 && rabbit){
             rabbithits+=1;
-            soundPlayerNormal.start();
+            soundRabbitNormal.start();
         }
     }
 
