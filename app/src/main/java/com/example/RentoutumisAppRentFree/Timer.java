@@ -5,6 +5,7 @@ package com.example.RentoutumisAppRentFree;
  * Its job is to hold integer values of second and minutes and be able to convert those values into long datatype.
  * This class is not an independent timer and is only used for editing the User classes data that determines the values of the timer in the program itself.
  * @author Santeri Rytkönen
+ * @author Juho Ahola
  * @version 1.0
  */
 

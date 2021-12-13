@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView user1tv,user2tv,user3tv;
 
     /**
-     * This is the onCreate method. It does the default methods it has and also defines userdat and userdataedit values
+     * This is the onCreate method. It does the default methods it has and also defines userdata and userdataedit values
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
 

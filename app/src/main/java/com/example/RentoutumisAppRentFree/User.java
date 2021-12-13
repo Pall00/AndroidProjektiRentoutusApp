@@ -2,6 +2,7 @@ package com.example.RentoutumisAppRentFree;
 /**
  * This is a class that implements user singleton that holds all the data taken from the given parts of data.
  * The values are used in between different activities of the program and they can be changed throughout the program with different methods.
+ * @author Santeri Rytkönen
  * @author Juho Ahola
  * @version 1.0
  */
