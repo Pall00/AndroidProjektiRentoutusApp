@@ -27,7 +27,7 @@ public class TriviaActivity extends AppCompatActivity {
     public static  final String EXTRA = "com.example.RentoutumisAppRentFree.MESSAGE";
 
     /**
-     *This is the onCreate method. It does the default methods it has. All so it  checks users level and reads trivial texts from txt files and shows trivial levels on listview depending on users level.
+     *This is the onCreate method. It does the default methods it has. It also checks users level and reads trivial texts from txt files and shows trivial levels on listview depending on users level.
      *@param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
     @Override
@@ -106,10 +106,10 @@ public class TriviaActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**
              *This is method starts new activity onclick that shows clicked trivial text on new view.
-             * @param parent
+             * @param parent the AdapterView object that was clicked
              * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
-             * @param i is
-             * @param id
+             * @param i is the index of the element that was clicked from the listview
+             * @param id the ID of the item that was clicked
              */
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int i, long id) {
