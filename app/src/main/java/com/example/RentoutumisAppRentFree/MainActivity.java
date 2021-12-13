@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This is a method to check from 1 to 3 the first userdata that is missing. If the first userdata is missing it returns 1, if it isn't missing it chekcs the second
+     * This is a method to check from 1 to 3 the first userdata that is missing. If the first userdata is missing it returns 1, if it isn't missing it checks the second
      * and does the same operation and returns 2 if it doesnt exist. Same thing for 3 but the return value is now 3. If all three users exist in userdata it returns 0,
      * indicating that every available Users are taken
      * @return integer that represents User and its order number
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method gets called when the user presses anyoe the user buttons to login to that specific user. The method checks which of the buttons were pressed and
+     * This method gets called when the user presses anyone the user buttons to login to that specific user. The method checks which of the buttons were pressed and
      * then it checks if data exists for that user. If it does, it called logIn() method with the corresponding data key for that user.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure out which button was pressed
      */

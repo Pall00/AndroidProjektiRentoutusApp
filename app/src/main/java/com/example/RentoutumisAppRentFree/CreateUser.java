@@ -27,6 +27,8 @@ public class CreateUser extends AppCompatActivity {
     private SharedPreferences.Editor userdataedit;
 
     /**
+     *This is the onCreate method. It does the default methods.
+     * It gets also intent and defines userValue.
      *
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
@@ -42,7 +44,10 @@ public class CreateUser extends AppCompatActivity {
     }
 
     /**
-     *
+     *This method
+     * it check if input data is valid with valid method.
+     *if userValue is 1 it sets values to User1, if it is 2 values are set to user2 and if it is 3 values are set to user3.
+     *it saves info using sharedpreferences and
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void Register(View v){
@@ -84,8 +89,14 @@ public class CreateUser extends AppCompatActivity {
     }
 
     /**
-     *
-     * @return
+     * This method checks if values are valid
+     * If username is empty method returns false
+     * if age is under 16 method return false
+     * if weight is 0 or under method return false
+     * if height is 100 or under method return false
+     * else method return true
+     * if input is invalid method gives toast that says "Invalid input"
+     * @return false or true depending what values are
      */
     public boolean valid(){
         try{
