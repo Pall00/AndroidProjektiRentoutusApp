@@ -1,7 +1,7 @@
 package com.example.RentoutumisAppRentFree;
 /**
  * This is a class that holds the trivia data. Its purpose is to hold and give the user trivia data.
- * @author Juho
+ * @author Juho Ahola
  * @version 1.0
  */
 public class Trivia {

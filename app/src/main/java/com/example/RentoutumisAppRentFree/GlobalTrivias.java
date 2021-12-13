@@ -7,7 +7,7 @@ import java.util.List;
  * This is a singleton class that holds trivia objects in a list.
  * Its purpose is to make trivia objects accessible throughout the activities. The singleton is easily accessible and modifiable.
  * With this class we are able to access the trivia objects the program gave it.
- * @author Santeri
+ * @author Santeri Rytkönen
  * @version 1.0
  */
 

@@ -12,12 +12,24 @@ import android.widget.ListView;
 import java.io.InputStream;
 import java.util.Scanner;
 
+/**
+ * This is the TriviaActivity class. Its job is to display the given Trivia data to listview widget and setup the correct message to be sent to the TriviaDetailsActivty
+ * class.
+ * @author Santeri Rytkönen
+ * @author Juho Ahola
+ * @version 1.0
+ */
+
 public class TriviaActivity extends AppCompatActivity {
 
     private ListView listView;
 
     public static  final String EXTRA = "com.example.RentoutumisAppRentFree.MESSAGE";
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +104,13 @@ public class TriviaActivity extends AppCompatActivity {
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GlobalTrivias.getInstance().getTriviaList()));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             *
+             * @param parent
+             * @param view
+             * @param i
+             * @param id
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
                 Intent nextActivity = new Intent(TriviaActivity.this, TriviaDetailsActivity.class);

@@ -11,6 +11,13 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+/**
+ * This is the CreateUser class. In this class the user creates a new user and the program changes the data to match the user input.
+ * @author Santeri Rytkönen
+ * @author Juho Ahola
+ * @version 1.0
+ */
+
 public class CreateUser extends AppCompatActivity {
     private EditText eName, eAge, eWeight, eHeight;
     private String username;
@@ -19,6 +26,10 @@ public class CreateUser extends AppCompatActivity {
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +41,10 @@ public class CreateUser extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param v
+     */
     public void Register(View v){
 
         eName = findViewById(R.id.textViewName);
@@ -67,6 +82,11 @@ public class CreateUser extends AppCompatActivity {
         }
 
     }
+
+    /**
+     *
+     * @return
+     */
     public boolean valid(){
         try{
             username = eName.getText().toString();

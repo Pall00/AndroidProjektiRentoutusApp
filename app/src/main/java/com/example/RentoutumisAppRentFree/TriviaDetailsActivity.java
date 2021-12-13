@@ -5,8 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class TriviaDetailsActivity extends AppCompatActivity {
+/**
+ * This is the TriviaDetailsActivity class. Its only job is to display the Trivia from the GlobalTrivia singleton object with the integer value that represents the
+ * index value of the wanted Trivia to be displayed.
+ * @author Santeri Rytkönen
+ * @author Juho Ahola
+ * @version 1.0
+ */
 
+public class TriviaDetailsActivity extends AppCompatActivity {
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

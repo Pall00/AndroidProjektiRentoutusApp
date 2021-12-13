@@ -15,6 +15,14 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+/**
+ * This is the SetupMenu class. This acts as a menu for the user that logged in. It displays all the possible parts of the program that user can go to and also
+ * displays the users specifications.
+ * @author Santeri Rytkönen
+ * @author Juho Ahola
+ * @version 1.0
+ */
+
 public class SetupMenu extends AppCompatActivity {
 
     private Dialog exitDialog, settingsDialog;
@@ -25,6 +33,10 @@ public class SetupMenu extends AppCompatActivity {
     private int age, height, weight;
     private String username;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +44,11 @@ public class SetupMenu extends AppCompatActivity {
 
         updateUI();
     }
+
+    /**
+     *
+     * @param v
+     */
     public void menuButton(View v){
 
         if(v==findViewById(R.id.relaxButton)){
@@ -42,6 +59,11 @@ public class SetupMenu extends AppCompatActivity {
             startActivity(triviaIntent);
         }
     }
+
+    /**
+     *
+     * @param v
+     */
     public void exitButton(View v){
 
         exitDialog = new Dialog(this);
@@ -52,6 +74,10 @@ public class SetupMenu extends AppCompatActivity {
         Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
         exitApp.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 exitDialog.dismiss();
@@ -61,6 +87,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         exitToLogin.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 exitDialog.dismiss();
@@ -68,6 +98,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         closeButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 exitDialog.dismiss();
@@ -76,6 +110,11 @@ public class SetupMenu extends AppCompatActivity {
 
         exitDialog.show();
     }
+
+    /**
+     *
+     * @param v
+     */
     public void settingsButton(View v){
 
         settingsDialog = new Dialog(this);
@@ -98,6 +137,10 @@ public class SetupMenu extends AppCompatActivity {
         ImageButton resetData = (ImageButton) settingsDialog.findViewById(R.id.resetdataButton);
 
         changeName.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 try {
@@ -117,6 +160,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         changeAge.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 try{
@@ -134,6 +181,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         changeWeight.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 try{
@@ -151,6 +202,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         changeHeight.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 try{
@@ -169,6 +224,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         exitSettings.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 updateUI();
@@ -176,6 +235,10 @@ public class SetupMenu extends AppCompatActivity {
             }
         });
         resetData.setOnClickListener(new View.OnClickListener() {
+            /**
+             *
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 User.getInstance().resetData();
@@ -186,6 +249,10 @@ public class SetupMenu extends AppCompatActivity {
         settingsDialog.show();
 
     }
+
+    /**
+     *
+     */
     public void updatePlayer(){
 
         int id = User.getInstance().getId();
@@ -212,6 +279,10 @@ public class SetupMenu extends AppCompatActivity {
                 break;
         }
     }
+
+    /**
+     *
+     */
     public void updateUI(){
         TextView tvUsername = findViewById(R.id.textViewUsername);
         TextView tvAge = findViewById(R.id.textViewAge);
@@ -230,6 +301,10 @@ public class SetupMenu extends AppCompatActivity {
         tvRelaxing.setText("RentTime: " + String.format("%02d:%02d:%02d", hours, minutes, seconds));
         tvLevel.setText("Level: "+ Integer.toString(User.getInstance().getLevel()+1));
     }
+
+    /**
+     *
+     */
     public void onResume(){
         super.onResume();
         updateUI();
