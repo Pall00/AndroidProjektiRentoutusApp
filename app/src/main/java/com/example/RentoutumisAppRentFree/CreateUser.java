@@ -23,8 +23,6 @@ public class CreateUser extends AppCompatActivity {
     private String username;
     private int age, height, weight,userValue;
     private final long clock = 600000;
-    private SharedPreferences userdata;
-    private SharedPreferences.Editor userdataedit;
 
     /**
      *This is the onCreate method. It does the default methods.
@@ -54,8 +52,8 @@ public class CreateUser extends AppCompatActivity {
         eWeight = findViewById(R.id.textViewWeight);
         eHeight = findViewById(R.id.textViewHeight);
 
-        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+        SharedPreferences userData = getSharedPreferences("Userdata", MODE_PRIVATE);
+        SharedPreferences.Editor userDataEdit = userData.edit();
 
         if(valid()) {
 
@@ -65,21 +63,21 @@ public class CreateUser extends AppCompatActivity {
 
                 User.getInstance().setValues(username, age, weight, height, 0, 0,1, clock);
                 String user = gson.toJson(User.getInstance());
-                userdataedit.putString("User1", user);
+                userDataEdit.putString("User1", user);
             }
             else if (userValue == 2) {
 
                 User.getInstance().setValues(username, age, weight, height, 0, 0,2, clock);
                 String user = gson.toJson(User.getInstance());
-                userdataedit.putString("User2", user);
+                userDataEdit.putString("User2", user);
             }
             else if (userValue == 3) {
 
                 User.getInstance().setValues(username, age, weight, height, 0, 0,3, clock);
                 String user = gson.toJson(User.getInstance());
-                userdataedit.putString("User3", user);
+                userDataEdit.putString("User3", user);
             }
-            userdataedit.commit();
+            userDataEdit.commit();
             finish();
         }
 

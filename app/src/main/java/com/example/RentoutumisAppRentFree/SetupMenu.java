@@ -148,6 +148,7 @@ public class SetupMenu extends AppCompatActivity {
                 try {
                     username = eName.getText().toString();
                     if(!(username.equals(""))){
+                        Toast.makeText(getApplicationContext(), "Name changed!", Toast.LENGTH_SHORT).show();
                         User.getInstance().setName(username);
                         updatePlayer();
                         updateUI();
@@ -179,6 +180,7 @@ public class SetupMenu extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    Toast.makeText(getApplicationContext(), "Age changed!", Toast.LENGTH_SHORT).show();
                     User.getInstance().setAge(age);
                     updatePlayer();
                     updateUI();
@@ -203,6 +205,7 @@ public class SetupMenu extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    Toast.makeText(getApplicationContext(), "Weight changed!", Toast.LENGTH_SHORT).show();
                     User.getInstance().setWeight(weight);
                     updatePlayer();
                     updateUI();
@@ -227,6 +230,7 @@ public class SetupMenu extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Invalid input", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    Toast.makeText(getApplicationContext(), "Height changed!", Toast.LENGTH_SHORT).show();
                     User.getInstance().setHeight(height);
                     updatePlayer();
                     updateUI();
