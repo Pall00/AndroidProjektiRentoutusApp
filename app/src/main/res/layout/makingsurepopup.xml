@@ -18,7 +18,7 @@
         android:background="@android:color/transparent"
         android:gravity="center"
         android:onClick="exitchoiceButton"
-        android:text="@string/closebutton"
+        android:text="@string/closeButton"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"

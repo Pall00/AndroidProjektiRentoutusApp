@@ -6,12 +6,12 @@
     <string name="triviaButton">Trivia</string>
     <string name="textViewUsername">Username</string>
     <string name="registerButton">Register</string>
-    <string name="remove_user">Remove user</string>
-    <string name="exitappButton">Exit App</string>
-    <string name="exittologin">Exit to Login</string>
-    <string name="closebutton">X</string>
+    <string name="removeUser">Remove user</string>
+    <string name="exitAppButton">Exit App</string>
+    <string name="exitToLogin">Exit to Login</string>
+    <string name="closeButton">X</string>
     <string name="changeButton">Ok</string>
-    <string name="createuser_button">Create new user</string>
+    <string name="createUserButton">Create new user</string>
     <string name="resetButton">Reset relax data</string>
     <string name="changeNameHint">Change name</string>
     <string name="changeWeightHint">Change weight</string>
