@@ -22,7 +22,7 @@ public class CreateUser extends AppCompatActivity {
     private EditText eName, eAge, eWeight, eHeight;
     private String username;
     private int age, height, weight,userValue;
-    private final long clock = 5000;
+    private final long clock = 600000;
     private SharedPreferences userdata;
     private SharedPreferences.Editor userdataedit;
 
