@@ -57,14 +57,14 @@
         android:ems="10"
         android:hint="Add height"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/registerImageButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWeight" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/registerImageButton"
         android:layout_width="190dp"
         android:layout_height="157dp"
         android:background="@drawable/pilviregister"

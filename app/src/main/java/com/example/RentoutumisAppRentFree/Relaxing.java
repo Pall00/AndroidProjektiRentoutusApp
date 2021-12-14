@@ -29,15 +29,15 @@ public class Relaxing extends AppCompatActivity {
     private TextView textViewTimer;
     private boolean timerOn, rabbit;
     private Dialog exitDialog, timerDialog;
-    private int timeValue, minutes, clockInSeconds, seconds, rabbithits;
+    private int timeValue, minutes, clockInSeconds, seconds, rabbitHits;
     private MediaPlayer mediaPlayer, soundRabbitNormal, soundRabbitDeath;
     private long clock = User.getInstance().getTimer();
-    private SharedPreferences userdata;
-    private SharedPreferences.Editor userdataedit;
+    private SharedPreferences userData;
+    private SharedPreferences.Editor userDataEdit;
     private CountDownTimer timer;
 
     /**
-     * This is the onCreate method. It does the default method while also assigning the boolean value of rabbit to true, setting the rabbithits value to 0, timerOn boolean value to  false,
+     * This is the onCreate method. It does the default method while also assigning the boolean value of rabbit to true, setting the rabbitHits value to 0, timerOn boolean value to  false,
      * and setting up the MediaPlayers while also updating the UI with the updateBackground(), updateRabbit() and updateButton() methods. It also makes toast to inform the user that the sun texture is intractable.
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
@@ -46,7 +46,7 @@ public class Relaxing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxing);
         rabbit = true;
-        rabbithits=0;
+        rabbitHits =0;
         timerOn = false;
         timeValue = 0;
         soundRabbitDeath = MediaPlayer.create(getApplicationContext(), R.raw.oofdeath);
@@ -65,7 +65,7 @@ public class Relaxing extends AppCompatActivity {
     public void stopTimer() {
         timerOn = false;
         timer.cancel();
-        textViewTimer = findViewById(R.id.tvTimer);
+        textViewTimer = findViewById(R.id.textViewTimer);
         textViewTimer.setText("");
         User.getInstance().addRelaxingTime(timeValue);
         timeValue = 0;
@@ -77,7 +77,7 @@ public class Relaxing extends AppCompatActivity {
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void sunTimerButton(View v) {
-        textViewTimer = findViewById(R.id.tvTimer);
+        textViewTimer = findViewById(R.id.textViewTimer);
         if (!timerOn) {
             mediaPlayer.start();
             timer = new CountDownTimer(clock, 1000) {
@@ -177,11 +177,11 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      * This method updates the settings button that appears on the last level in the minigame. If the user is not on the last level, the buttons visibility is set to
-     * GONE. GONE means that it can't be clicked nor seen. If the user is on the final evel the settings button appears by making it VISIBLE. It can then be clicked
+     * GONE. GONE means that it can't be clicked nor seen. If the user is on the final level the settings button appears by making it VISIBLE. It can then be clicked
      * and seen.
      */
     public void updateButton(){
-        View button = findViewById(R.id.timerSettings);
+        View button = findViewById(R.id.timerSettingsButton);
         if(User.getInstance().getLevel() !=6){
             button.setVisibility(View.GONE);
         }
@@ -198,8 +198,8 @@ public class Relaxing extends AppCompatActivity {
 
         int id = User.getInstance().getId();
 
-        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+        userData = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userDataEdit = userData.edit();
 
         Gson gson = new Gson();
 
@@ -207,21 +207,21 @@ public class Relaxing extends AppCompatActivity {
 
         switch(id){
             case 1:
-                userdataedit.putString("User1", json);
+                userDataEdit.putString("User1", json);
                 break;
             case 2:
-                userdataedit.putString("User2", json);
+                userDataEdit.putString("User2", json);
                 break;
             case 3:
-                userdataedit.putString("User3", json);
+                userDataEdit.putString("User3", json);
                 break;
         }
-        userdataedit.commit();
+        userDataEdit.commit();
         clock = User.getInstance().getTimer();
     }
 
     /**
-     * This method updates the rabbit image on the activity. If the current leevel of the user is higher than 2 and boolean value of rabbit is true, it sets the
+     * This method updates the rabbit image on the activity. If the current level of the user is higher than 2 and boolean value of rabbit is true, it sets the
      * ImageView imgRabbit to the corresponding picture according to the BMI value taken with the User classes getBmi() method. If the users level is not higher than 2,
      * the image resource is set to zero meaning that there is no Image.
      */
@@ -254,7 +254,7 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     * This is the method that gets executed when user presses the back button on their phone. If the timerOn value is false, it executes the normal methods and exists the current aactivity.
+     * This is the method that gets executed when user presses the back button on their phone. If the timerOn value is false, it executes the normal methods and exists the current activity.
      * If the timerOn value is true, meaning that the timer on the method puts out a Dialog screen with intractable buttons.
      */
     public void onBackPressed(){
@@ -310,7 +310,7 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     * This modified onPause() method does the default methods and also checks if the timerOn value is true. If it is it paues the mediaPlayer and stops the timer.
+     * This modified onPause() method does the default methods and also checks if the timerOn value is true. If it is it pauses the mediaPlayer and stops the timer.
      * This way if the user goes to homescreen, the timer closes and music stops.
      */
     protected void onPause(){
@@ -322,8 +322,8 @@ public class Relaxing extends AppCompatActivity {
     }
 
     /**
-     * This method checks if the timerOn value is true. If it is it then it makesa a Toast message to indicate for the user to relax since the timer is on.
-     * If the value is false, it starts p the timerDialog and makes a new Timer object and setsup the timerDialog buttons.
+     * This method checks if the timerOn value is true. If it is it then it makes a Toast message to indicate for the user to relax since the timer is on.
+     * If the value is false, it starts p the timerDialog and makes a new Timer object and sets up the timerDialog buttons.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void timerSettings(View v){
@@ -440,19 +440,19 @@ public class Relaxing extends AppCompatActivity {
 
     /**
      * This method gets called whenever the uses presses the rabbit image when the rabbit booleans value is true, meaning that the rabbit exists and is not gone or not present.
-     * It first checks if the current value of rabbithits is 6 and rabbit exists. If both of them are true, it updates the rabbit boolean to false, plays the soundRabbitDeath
+     * It first checks if the current value of rabbitHits is 6 and rabbit exists. If both of them are true, it updates the rabbit boolean to false, plays the soundRabbitDeath
      * MediaPlayer and calls the updateRabbit() method. The method then checks if the current user level is higher than 2 and if the rabbit boolean is true. If both of these apply,
-     * the method increments the rabbithits parameter by one and plays the soundRabbitNormal MediaPlayer.
+     * the method increments the rabbitHits parameter by one and plays the soundRabbitNormal MediaPlayer.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void rabbitPress(View v){
-        if(rabbithits==6 && rabbit){
+        if(rabbitHits ==6 && rabbit){
             rabbit = false;
             soundRabbitDeath.start();
             updateRabbit();
         }
         if(User.getInstance().getLevel() > 2 && rabbit){
-            rabbithits+=1;
+            rabbitHits +=1;
             soundRabbitNormal.start();
         }
     }

@@ -5,10 +5,7 @@ import com.google.gson.Gson;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +19,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "com.example.androidprojektirentoutusapp.USER";
-    private SharedPreferences userdata;
-    private SharedPreferences.Editor userdataedit;
+    private SharedPreferences userData;
+    private SharedPreferences.Editor userDataEdit;
     private String json;
     private User uTemp;
-    private TextView user1tv,user2tv,user3tv;
+    private TextView user1Tv, user2Tv, user3Tv;
 
     /**
-     * This is the onCreate method. It does the default methods it has and also defines userdata and userdataedit values
+     * This is the onCreate method. It does the default methods it has and also defines userData and userDataEdit values
      * @param savedInstanceState is a bundle object that onCreate takes as a parameter. The bundle is used to save stored data of the activity
      */
 
@@ -38,26 +35,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+        userData = getSharedPreferences("Userdata", MODE_PRIVATE);
+        userDataEdit = userData.edit();
     }
 
     /**
      * This is a method to check from 1 to 3 the first userdata that is missing. If the first userdata is missing it returns 1, if it isn't missing it checks the second
-     * and does the same operation and returns 2 if it doesnt exist. Same thing for 3 but the return value is now 3. If all three users exist in userdata it returns 0,
+     * and does the same operation and returns 2 if it doesn't exist. Same thing for 3 but the return value is now 3. If all three users exist in userdata it returns 0,
      * indicating that every available Users are taken
      * @return integer that represents User and its order number
      */
 
     public int checkData(){
 
-        if(userdata.getString("User1", "0").equals("0")){
+        if(userData.getString("User1", "0").equals("0")){
             return 1;
         }
-        if(userdata.getString("User2", "0").equals("0")){
+        if(userData.getString("User2", "0").equals("0")){
             return 2;
         }
-        if(userdata.getString("User3", "0").equals("0")){
+        if(userData.getString("User3", "0").equals("0")){
             return 3;
         }
         return 0;
@@ -72,19 +69,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void removeButton(View v){
 
-        if(v == findViewById(R.id.user1removeButton)&& !(userdata.getString("User1", "0").equals("0"))){
-            userdataedit.remove("User1");
+        if(v == findViewById(R.id.user1RemoveButton)&& !(userData.getString("User1", "0").equals("0"))){
+            userDataEdit.remove("User1");
         }
-        else if (v == findViewById(R.id.user2removeButton) && !(userdata.getString("User2", "0").equals("0"))){
-            userdataedit.remove("User2");
+        else if (v == findViewById(R.id.user2RemoveButton) && !(userData.getString("User2", "0").equals("0"))){
+            userDataEdit.remove("User2");
         }
-        else if(v == findViewById(R.id.user3removeButton) && !(userdata.getString("User3", "0").equals("0"))){
-            userdataedit.remove("User3");
+        else if(v == findViewById(R.id.user3RemoveButton) && !(userData.getString("User3", "0").equals("0"))){
+            userDataEdit.remove("User3");
         }
         else{
             Toast.makeText(getApplicationContext(), "Nothing to remove", Toast.LENGTH_SHORT).show();
         }
-        userdataedit.commit();
+        userDataEdit.commit();
 
         updateUI();
     }
@@ -117,15 +114,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginButton(View v){
 
-        if(v == findViewById(R.id.user1Button) && !(userdata.getString("User1", "0").equals("0"))){
+        if(v == findViewById(R.id.user1Button) && !(userData.getString("User1", "0").equals("0"))){
 
             logIn("User1");
         }
-        else if(v== findViewById(R.id.user2Button) && !(userdata.getString("User2", "0").equals("0"))){
+        else if(v== findViewById(R.id.user2Button) && !(userData.getString("User2", "0").equals("0"))){
 
             logIn("User2");
         }
-        else if(v== findViewById(R.id.user3Button) && !(userdata.getString("User3", "0").equals("0"))){
+        else if(v== findViewById(R.id.user3Button) && !(userData.getString("User3", "0").equals("0"))){
 
             logIn("User3");
         }
@@ -146,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent loginIntent = new Intent(MainActivity.this, SetupMenu.class);
         Gson gson = new Gson();
-        json = userdata.getString(user, "0");
+        json = userData.getString(user, "0");
         uTemp = gson.fromJson(json, User.class);
         User.getInstance().setValues(uTemp.getName(), uTemp.getAge(), uTemp.getWeight(), uTemp.getHeight(), uTemp.getLevel(), uTemp.getRelaxingTime(), uTemp.getId(), uTemp.getTimer());
         startActivity(loginIntent);
@@ -154,40 +151,40 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method updates the UI. It checks for every user TextView if the userdata that it represents exists. If it doesn't it puts "Empty user" text to it and if it
-     * does it creates a new User object and calls it getName() method to sets the TextViews text equal to userdatas name value.
+     * does it creates a new User object and calls it getName() method to sets the TextViews text equal to the name value in userdata.
      */
 
     public void updateUI(){
 
         Gson gson = new Gson();
 
-        user1tv = findViewById(R.id.user1textView);
-        user2tv = findViewById(R.id.user2textView);
-        user3tv = findViewById(R.id.user3textView);
+        user1Tv = findViewById(R.id.user1TextView);
+        user2Tv = findViewById(R.id.user2TextView);
+        user3Tv = findViewById(R.id.user3TextView);
 
-        if(!(userdata.getString("User1", "0").equals("0"))){
-            String json = userdata.getString("User1", "0");
+        if(!(userData.getString("User1", "0").equals("0"))){
+            String json = userData.getString("User1", "0");
             User user = gson.fromJson(json, User.class);
-            user1tv.setText(user.getName());
+            user1Tv.setText(user.getName());
         }
         else{
-            user1tv.setText("Empty user");
+            user1Tv.setText("Empty user");
         }
-        if(!(userdata.getString("User2", "0").equals("0"))){
-            String json = userdata.getString("User2", "0");
+        if(!(userData.getString("User2", "0").equals("0"))){
+            String json = userData.getString("User2", "0");
             User user = gson.fromJson(json, User.class);
-            user2tv.setText(user.getName());
+            user2Tv.setText(user.getName());
         }
         else{
-            user2tv.setText("Empty user");
+            user2Tv.setText("Empty user");
         }
-        if(!(userdata.getString("User3", "0").equals("0"))){
-            String json = userdata.getString("User3", "0");
+        if(!(userData.getString("User3", "0").equals("0"))){
+            String json = userData.getString("User3", "0");
             User user = gson.fromJson(json, User.class);
-            user3tv.setText(user.getName());
+            user3Tv.setText(user.getName());
         }
         else{
-            user3tv.setText("Empty user");
+            user3Tv.setText("Empty user");
         }
     }
 

@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/exitappButton"
+        android:id="@+id/exitAppButton"
         android:layout_width="106dp"
         android:layout_height="71dp"
         android:background="@drawable/exitappbutton"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.518" />
 
     <ImageButton
-        android:id="@+id/exitlogin"
+        android:id="@+id/exitLoginButton"
         android:layout_width="114dp"
         android:layout_height="68dp"
         android:background="@drawable/exittologinbutton"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toEndOf="@+id/exitappButton"
+        app:layout_constraintStart_toEndOf="@+id/exitAppButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.505" />
 </androidx.constraintlayout.widget.ConstraintLayout>

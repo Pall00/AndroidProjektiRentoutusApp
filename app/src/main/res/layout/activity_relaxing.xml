@@ -55,7 +55,7 @@
         android:onClick="sunTimerButton" />
 
     <TextView
-        android:id="@+id/tvTimer"
+        android:id="@+id/textViewTimer"
         android:layout_width="169dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/timerSettings"
+        android:id="@+id/timerSettingsButton"
         android:layout_width="50sp"
         android:layout_height="70sp"
         android:layout_alignParentStart="true"

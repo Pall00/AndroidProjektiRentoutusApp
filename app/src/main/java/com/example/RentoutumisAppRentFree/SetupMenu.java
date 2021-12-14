@@ -28,8 +28,7 @@ public class SetupMenu extends AppCompatActivity {
     private Dialog exitDialog, settingsDialog;
 
     private SharedPreferences userdata;
-    private SharedPreferences.Editor userdataedit;
-
+    private SharedPreferences.Editor userDataEdit;
     private int age, height, weight;
     private String username;
 
@@ -70,8 +69,8 @@ public class SetupMenu extends AppCompatActivity {
         exitDialog = new Dialog(this);
 
         exitDialog.setContentView(R.layout.exitpopup);
-        ImageButton exitApp = (ImageButton) exitDialog.findViewById(R.id.exitappButton);
-        ImageButton exitToLogin = (ImageButton) exitDialog.findViewById(R.id.exitlogin);
+        ImageButton exitApp = (ImageButton) exitDialog.findViewById(R.id.exitAppButton);
+        ImageButton exitToLogin = (ImageButton) exitDialog.findViewById(R.id.exitLoginButton);
         Button closeButton = (Button) exitDialog.findViewById(R.id.closeButton);
 
         exitApp.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +112,7 @@ public class SetupMenu extends AppCompatActivity {
 
     /**
      * This method gets called when the user presses the settings button. It initializes a new settingsDialog Dialog and creates the its buttons and EditText objects.
-     * It also defines userdat and userdataedit values.
+     * It also defines userData and userDataEdit values.
      * @param v is the object of the XML-file referred on the onCreate method. With it the program can figure what the user touched
      */
     public void settingsButton(View v){
@@ -123,19 +122,19 @@ public class SetupMenu extends AppCompatActivity {
         settingsDialog.setContentView(R.layout.settingspopup);
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+        userDataEdit = userdata.edit();
 
-        EditText eName = (EditText) settingsDialog.findViewById(R.id.textViewchangeName);
-        EditText eAge = (EditText) settingsDialog.findViewById(R.id.textViewchangeAge);
-        EditText eWeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeWeight);
-        EditText eHeight = (EditText) settingsDialog.findViewById(R.id.textViewchangeHeight);
+        EditText eName = (EditText) settingsDialog.findViewById(R.id.textViewChangeName);
+        EditText eAge = (EditText) settingsDialog.findViewById(R.id.textViewChangeAge);
+        EditText eWeight = (EditText) settingsDialog.findViewById(R.id.textViewChangeWeight);
+        EditText eHeight = (EditText) settingsDialog.findViewById(R.id.textViewChangeHeight);
 
-        ImageButton changeName = (ImageButton) settingsDialog.findViewById(R.id.changenameButton);
-        ImageButton changeAge = (ImageButton) settingsDialog.findViewById(R.id.changeageButton);
-        ImageButton changeWeight = (ImageButton) settingsDialog.findViewById(R.id.changeweightButton);
-        ImageButton changeHeight = (ImageButton) settingsDialog.findViewById(R.id.changeheightButton);
+        ImageButton changeName = (ImageButton) settingsDialog.findViewById(R.id.changeNameButton);
+        ImageButton changeAge = (ImageButton) settingsDialog.findViewById(R.id.changeAgeButton);
+        ImageButton changeWeight = (ImageButton) settingsDialog.findViewById(R.id.changeWeightButton);
+        ImageButton changeHeight = (ImageButton) settingsDialog.findViewById(R.id.changeHeightButton);
         Button exitSettings = (Button) settingsDialog.findViewById(R.id.minimizeButton);
-        ImageButton resetData = (ImageButton) settingsDialog.findViewById(R.id.resetdataButton);
+        ImageButton resetData = (ImageButton) settingsDialog.findViewById(R.id.resetDataButton);
 
         changeName.setOnClickListener(new View.OnClickListener() {
             /**
@@ -271,7 +270,7 @@ public class SetupMenu extends AppCompatActivity {
         int id = User.getInstance().getId();
 
         userdata = getSharedPreferences("Userdata", MODE_PRIVATE);
-        userdataedit = userdata.edit();
+        userDataEdit = userdata.edit();
 
         Gson gson = new Gson();
 
@@ -279,23 +278,23 @@ public class SetupMenu extends AppCompatActivity {
 
         switch(id){
             case 1:
-                userdataedit.putString("User1", json);
-                userdataedit.commit();
+                userDataEdit.putString("User1", json);
+                userDataEdit.commit();
                 break;
             case 2:
-                userdataedit.putString("User2", json);
-                userdataedit.commit();
+                userDataEdit.putString("User2", json);
+                userDataEdit.commit();
                 break;
             case 3:
-                userdataedit.putString("User3", json);
-                userdataedit.commit();
+                userDataEdit.putString("User3", json);
+                userDataEdit.commit();
                 break;
         }
     }
 
     /**
      * This method updates the UI in the menu. It updates the TextViews that represent the current User data from the singleton object. It takes the username, age, weight,
-     * height, level and relaxingtime variables and presents them appropriately in the UI.
+     * height, level and relaxingTime variables and presents them appropriately in the UI.
      */
     public void updateUI(){
         TextView tvUsername = findViewById(R.id.textViewUsername);

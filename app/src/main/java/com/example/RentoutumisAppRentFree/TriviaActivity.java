@@ -36,7 +36,7 @@ public class TriviaActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.triviaListView);
 
-        GlobalTrivias.getInstance().getTriviaList().clear();
+        GlobalTrivia.getInstance().getTriviaList().clear();
 
 
         for(int i = 0; i<=(User.getInstance().getLevel()+1);i++){
@@ -47,7 +47,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(1, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(1, result));
             }
             if(i==2){
 
@@ -56,7 +56,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(2, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(2, result));
             }
             if(i==3){
 
@@ -65,7 +65,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(3, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(3, result));
             }
             if(i==4){
                 InputStream file = getResources().openRawResource(R.raw.trivia4);
@@ -73,7 +73,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(4, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(4, result));
             }
             if(i==5){
                 InputStream file = getResources().openRawResource(R.raw.trivia5);
@@ -81,7 +81,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(5,result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(5,result));
             }
             if(i==6){
                 InputStream file = getResources().openRawResource(R.raw.trivia6);
@@ -89,7 +89,7 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(6, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(6, result));
             }
             if(i==7){
                 InputStream file = getResources().openRawResource(R.raw.trivia7);
@@ -97,10 +97,10 @@ public class TriviaActivity extends AppCompatActivity {
                 Scanner s = new Scanner(file).useDelimiter("\\A");
                 String result = s.hasNext() ? s.next() : "";
 
-                GlobalTrivias.getInstance().getTriviaList().add(new Trivia(7, result));
+                GlobalTrivia.getInstance().getTriviaList().add(new Trivia(7, result));
             }
         }
-        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GlobalTrivias.getInstance().getTriviaList()));
+        listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GlobalTrivia.getInstance().getTriviaList()));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**

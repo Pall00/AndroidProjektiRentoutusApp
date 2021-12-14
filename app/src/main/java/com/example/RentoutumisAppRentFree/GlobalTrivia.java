@@ -12,17 +12,17 @@ import java.util.List;
  * @version 1.0
  */
 
-public class GlobalTrivias {
+public class GlobalTrivia {
 
     private List<Trivia> triviaList;
-    private static final GlobalTrivias ourInstance = new GlobalTrivias();
+    private static final GlobalTrivia ourInstance = new GlobalTrivia();
 
     /**
-     * This is a constructor for the GlobalTrivias class. As it is private, it can be and will be called only inside this class.
+     * This is a constructor for the GlobalTrivia class. As it is private, it can be and will be called only inside this class.
      * Creates a new Arraylist for the class and assigns it to triviaList.
      */
 
-    private GlobalTrivias(){
+    private GlobalTrivia(){
         this.triviaList = new ArrayList<>();
     }
 
@@ -31,12 +31,12 @@ public class GlobalTrivias {
      * @return the GlobalTrivias object created inside this class that holds all the data given to it.
      */
 
-    public static GlobalTrivias getInstance() {
+    public static GlobalTrivia getInstance() {
         return ourInstance;
     }
 
     /**
-     * This is a method for returning the list that holds all the Trivias and making it accessible so that you can modify the list.
+     * This is a method for returning the list that holds all the trivia and making it accessible so that you can modify the list.
      * @return the list that holds the Trivia objects.
      */
 
@@ -45,7 +45,7 @@ public class GlobalTrivias {
     /**
      * This is a method for getting the trivia in the triviaList from the given index.
      * @param i is the integer that represents the index that the user is trying to access in triviaList.
-     * @return a Trivia object in the given index value.
+     * @return a trivia object in the given index value.
      */
 
     public Trivia getTrivia(int i){ return triviaList.get(i);}
